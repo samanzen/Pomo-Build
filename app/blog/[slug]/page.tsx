@@ -43,11 +43,10 @@ const faqSchema = {
 export default function BlogPostPage() {
   return (
     <div className="bg-white">
+      <a href="#main-article-content" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-white focus:p-4 text-black">Skip to content</a>
       <script key="article-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script key="breadcrumb-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script key="faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-
-      <a href="#main-article-content" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-white focus:p-4 text-black">Skip to content</a>
 
       <section className="relative h-[50vh] w-full text-center text-white">
         <Image src={placeholderPost.heroImage} alt={placeholderPost.heroAlt} fill className="object-cover" priority sizes="100vw"/>
@@ -71,19 +70,19 @@ export default function BlogPostPage() {
 
       <section id="main-article-content" className="container mx-auto px-6 py-16 md:py-20">
         <article className="prose lg:prose-xl max-w-3xl mx-auto">
+          <h2 className="sr-only">Introduction</h2>
           <p className="lead">The kitchen is often called the heart of the home, but what happens when that heart is a little... tired? For many homeowners in Port Moody and across Metro Vancouver, the kitchen they inherited doesn't match their modern lifestyle. A dated, cramped, or dysfunctional kitchen can impact your daily life and even your home's overall value. If you're wondering whether it's time for an upgrade, you're in the right place. Here are the top five signs that it's time to renovate your kitchen.</p>
 
           <h3>1. Your Layout Doesn't Work Anymore</h3>
-          <p>Older kitchens were often designed as small, enclosed spaces, completely separated from the living and dining areas. If you find yourself constantly bumping into family members, struggling with a poor workflow between the fridge, sink, and stove (the classic "work triangle"), or wishing you could be part of the conversation in the living room while you cook, it's a clear sign your layout is outdated. A modern kitchen renovation can create an open-concept space that's perfect for both cooking and entertaining, becoming the true social hub of your home. For example, removing a non-structural wall can instantly make your entire main floor feel larger and more connected.</p>
+          <p>Older kitchens were often designed as small, enclosed spaces. If you find yourself constantly bumping into family members or struggling with a poor workflow, it's a clear sign your layout is outdated. A modern renovation can create an open-concept space that's perfect for both cooking and entertaining.</p>
           <Image src="/images/blog-kitchen-layout.webp" alt="A photo illustrating a cramped kitchen layout, a common reason for renovation." width={800} height={500} className="rounded-lg shadow-md my-8" />
 
           <h3>2. Lack of Counter Space and Storage</h3>
-          <p>Are your countertops cluttered with appliances like a microwave, toaster, and coffee maker, leaving you with very little room for food prep? Are your cabinets overflowing? A lack of adequate storage and counter space is one of the most common complaints we hear from homeowners. A well-designed remodel can dramatically increase your usable space by incorporating clever storage solutions like a full-height pantry, a larger island with deep drawers, or floor-to-ceiling cabinetry that takes advantage of vertical space. We often find that simply reconfiguring the cabinet layout can add 30-40% more storage to the same footprint.</p>
+          <p>Are your countertops cluttered with appliances, leaving little room for food prep? Are your cabinets overflowing? A well-designed remodel can dramatically increase your usable space with clever storage solutions like a pantry or a larger island.</p>
           <Image src="/images/blog-kitchen-clutter.webp" alt="A cluttered kitchen countertop showing the need for more storage space." width={800} height={500} className="rounded-lg shadow-md my-8" />
 
           <h3>3. Your Appliances Are Outdated</h3>
-          <p>If your oven takes forever to preheat, your dishwasher is louder than a jet engine, or your refrigerator lacks modern features, it might be time for an upgrade. Modern appliances are not only more stylish but are also significantly more energy-efficient, which can save you money on your utility bills in the long run. A full renovation is the perfect time to integrate new, high-performance appliances seamlessly into your design, from induction cooktops to panel-ready refrigerators that blend in with your cabinetry. This is also a key consideration for adding a legal basement suite, where efficient and properly sized appliances are a must.</p>
-
+          <p>If your oven takes forever to preheat or your dishwasher is loud, it might be time for an upgrade. Modern appliances are more energy-efficient and can be seamlessly integrated into a new design.</p>
           <div className="bg-[#1F2937] text-white rounded-lg p-8 my-12 text-center not-prose">
             <h3 className="text-2xl font-bold">Ready to Reimagine Your Kitchen?</h3>
             <p className="mt-4 text-gray-300">Let's talk about the possibilities. We offer free, no-obligation design consultations.</p>
@@ -93,19 +92,17 @@ export default function BlogPostPage() {
           </div>
 
           <h3>4. The Style is from a Different Decade</h3>
-          <p>Honey oak cabinets, laminate countertops, and floral wallpaper can be charming, but if your kitchen's style feels like a time capsule, it can bring down the feel of your entire home. A modern aesthetic with clean lines, timeless materials like quartz countertops, and a fresh color palette can breathe new life into your space and make it a place you're proud to show off. This is a key factor in any Port Moody kitchen renovation where style and property value are important. Upgrading finishes can be one of the most visually impactful changes with a relatively modest budget.</p>
+          <p>If your kitchen's style feels like a time capsule, it can bring down the feel of your entire home. A modern aesthetic with timeless materials like quartz countertops and a fresh color palette can breathe new life into your space.</p>
           <Image src="/images/blog-kitchen-style.webp" alt="A close-up of dated 1990s kitchen cabinets and laminate countertops." width={800} height={500} className="rounded-lg shadow-md my-8" />
 
           <h3>5. You're Planning to Sell Soon</h3>
-          <p>In the competitive Metro Vancouver real estate market, kitchens sell houses. A modern, updated kitchen is consistently one of the single best investments you can make to increase your home's resale value. If you're planning on selling in the next few years, a strategic kitchen remodel can lead to a higher listing price, a faster sale, and a great first impression on potential buyers, often providing a significant return on investment. According to many real estate experts, a minor kitchen remodel can recoup over 70% of its cost at resale.</p>
-
+          <p>In the competitive Metro Vancouver real estate market, kitchens sell houses. A modern, updated kitchen is one of the best investments you can make to increase your home's resale value, leading to a higher listing price and a faster sale.</p>
           <div className="bg-[#F9FAFB] rounded-lg p-8 my-12 text-left not-prose border-l-4 border-[#D97706]">
             <h3 className="text-2xl font-bold mt-0 text-[#1F2937]">Bonus Tip: Budgeting for Your Renovation</h3>
-            <p className="mt-4 text-gray-600">A good starting point for a full kitchen renovation budget is typically 10-15% of your home's total value. For a mid-range project, expect to allocate the largest portions of your budget to cabinetry and countertops (around 40-50%), followed by appliances and labour. Always set aside an extra 10-15% contingency for unexpected surprises that can arise once walls are opened up, especially in older homes.</p>
+            <p className="mt-4 text-gray-600">A good starting point for a full kitchen renovation budget is typically 10-15% of your home's total value. Always set aside an extra 10% contingency for unexpected surprises that can arise once walls are opened up.</p>
           </div>
-
           <h2>Your Dream Kitchen is an Investment</h2>
-          <p>Recognizing these signs is the first step toward creating a kitchen you love. A professional renovation is more than just a cosmetic upgrade; it's an investment in your home's value and your family's quality of life. When you're ready to take the next step, our team is here to help you plan a project that fits your vision and your budget.</p>
+          <p>Recognizing these signs is the first step toward creating a kitchen you love. A professional renovation is an investment in your home's value and your family's quality of life. When you're ready to take the next step, our team is here to help you plan a project that fits your vision and your budget.</p>
         </article>
 
         <section role="region" aria-labelledby="author-section-heading" className="mt-16 max-w-3xl mx-auto border-t pt-12" data-aos="fade-up">
