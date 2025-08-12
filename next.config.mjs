@@ -8,6 +8,8 @@ const nextConfig = {
       },
     ],
   },
+  // This is the corrected configuration, moved out of 'experimental'
+  serverExternalPackages: ['sanity'],
 };
 
 export default nextConfig;
