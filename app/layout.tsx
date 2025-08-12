@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AOSInitializer from "@/components/AOSInitializer";
 import SchemaMarkup from "@/components/SchemaMarkup";
-import StickyMobileCTA from "@/components/StickyMobileCTA"; // New import
+import StickyMobileCTA from "@/components/StickyMobileCTA";
 
 const lato = Lato({
   subsets: ["latin"],
@@ -14,7 +14,8 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.pomobuild.com'), // Placeholder for your live domain
+  // UPDATED to .ca domain
+  metadataBase: new URL('https://www.pomobuild.ca'),
   title: {
     default: 'Pomo Build | Renovations & Handyman Services',
     template: '%s | Pomo Build',
@@ -37,7 +38,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
-        <StickyMobileCTA /> {/* New component added */}
+        <StickyMobileCTA />
       </body>
     </html>
   );
