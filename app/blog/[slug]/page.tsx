@@ -4,6 +4,11 @@ import type { Metadata } from 'next';
 import { client } from '@/sanity/client';
 import { PortableText } from '@portabletext/react';
 
+// This defines the expected URL params for the page
+interface PageProps {
+  params: { slug: string };
+}
+
 // Define the structure of a full blog post
 interface Post {
   title: string;
@@ -26,8 +31,8 @@ async function getPost(slug: string) {
   return post;
 }
 
-// Correctly typed generateMetadata function
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+// This function generates the SEO metadata dynamically
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
     const post = await getPost(params.slug);
     return {
         title: `${post.title} | Pomo Build Blog`,
@@ -41,8 +46,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     }
 }
 
-// Correctly typed page component
-export default async function BlogPostPage({ params }: { params: { slug: string } }) {
+// This is the main page component, now using the PageProps type
+export default async function BlogPostPage({ params }: PageProps) {
   const post = await getPost(params.slug);
 
   return (
