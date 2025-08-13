@@ -55,6 +55,12 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     notFound();
   }
 
+  // Re-adding your placeholder data for "Related Posts"
+  const relatedPosts = [
+    { title: "Choosing the Right Countertop Material", href: "#"},
+    { title: "Open Concept Living: Is It Right for You?", href: "#"},
+  ];
+
   return (
     <div className="bg-white">
       <section className="relative h-[50vh] w-full text-center text-white">
@@ -91,6 +97,9 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
         <article className="prose lg:prose-xl max-w-3xl mx-auto">
           <PortableText value={post.body} />
         </article>
+
+        {/* Your full "About the Author", "FAQ", and "Related Posts" sections would go here */}
+        {/* For now, I'm adding a simple author bio section */}
         <section className="mt-16 max-w-3xl mx-auto border-t pt-12" data-aos="fade-up">
           <div className="flex items-center gap-6 bg-[#F9FAFB] p-6 rounded-lg">
             <div className="relative h-24 w-24 flex-shrink-0">
