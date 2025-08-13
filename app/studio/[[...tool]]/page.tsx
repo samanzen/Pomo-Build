@@ -1,12 +1,13 @@
 "use client";
 
 import dynamic from 'next/dynamic';
+import StudioWrapper from "../../../components/StudioWrapper";
 
-// We are using next/dynamic to load our wrapper component only in the browser
-const StudioWrapper = dynamic(() => import('../../../components/StudioWrapper'), {
-  ssr: false, // This now works because the file is a Client Component
+// This dynamically loads our wrapper, but only in the browser (ssr: false)
+const DynamicStudio = dynamic(() => import('../../../components/StudioWrapper'), {
+  ssr: false, 
 });
 
 export default function StudioPage() {
-  return <StudioWrapper />;
+  return <DynamicStudio />;
 }
