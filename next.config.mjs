@@ -8,7 +8,7 @@ const nextConfig = {
       },
     ],
   },
-  // This is the corrected configuration, moved out of 'experimental'
+  // This is the corrected configuration to fix the build error
   serverExternalPackages: ['sanity'],
 };
 
