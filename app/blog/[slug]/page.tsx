@@ -8,63 +8,36 @@ import { PortableText } from '@portabletext/react';
 interface Post {
   title: string;
   slug: string;
-  mainImage: {
-    asset: {
-      url: string;
-      metadata: {
-        lqip: string; // Low-quality image placeholder
-      };
-    };
-  };
+  mainImage: { asset: { url: string; metadata: { lqip: string; }; }; };
   category: string;
   publishedAt: string;
   authorName: string;
-  authorImage: {
-    asset: {
-      url: string;
-    };
-  };
+  authorImage: { asset: { url: string; }; };
   excerpt: string;
-  body: any; // This will be the rich text content
+  body: any;
 }
+
+// Define the Props type for the page
+type Props = {
+  params: { slug: string };
+};
 
 // This function fetches a single post based on its slug
 async function getPost(slug: string) {
   const query = `*[_type == "post" && slug.current == $slug][0] {
-    title,
-    "slug": slug.current,
-    mainImage {
-      asset->{
-        url,
-        metadata {
-          lqip
-        }
-      }
-    },
-    "category": categories[]->title[0],
-    publishedAt,
-    "authorName": author->name,
-    "authorImage": author->image {
-      asset->{
-        url
-      }
-    },
-    excerpt,
-    body
+    title, "slug": slug.current, mainImage { asset->{ url, metadata { lqip } } }, "category": categories[]->title[0], publishedAt, "authorName": author->name, "authorImage": author->image { asset->{ url } }, excerpt, body
   }`;
   const post = await client.fetch<Post>(query, { slug });
   return post;
 }
 
-// This function generates the SEO metadata dynamically
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+// Apply the Props type to generateMetadata
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const post = await getPost(params.slug);
     return {
         title: `${post.title} | Pomo Build Blog`,
         description: post.excerpt,
-        alternates: {
-            canonical: `/blog/${post.slug}`,
-        },
+        alternates: { canonical: `/blog/${post.slug}` },
         openGraph: {
             title: post.title,
             description: post.excerpt,
@@ -73,7 +46,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     }
 }
 
-export default async function BlogPostPage({ params }: { params: { slug: string } }) {
+// Apply the Props type to the page component
+export default async function BlogPostPage({ params }: Props) {
   const post = await getPost(params.slug);
 
   return (
