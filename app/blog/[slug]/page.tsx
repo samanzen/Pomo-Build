@@ -17,11 +17,6 @@ interface Post {
   body: any;
 }
 
-// Define the Props type for the page
-type Props = {
-  params: { slug: string };
-};
-
 // This function fetches a single post based on its slug
 async function getPost(slug: string) {
   const query = `*[_type == "post" && slug.current == $slug][0] {
@@ -31,8 +26,8 @@ async function getPost(slug: string) {
   return post;
 }
 
-// Apply the Props type to generateMetadata
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+// Correctly typed generateMetadata function
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
     const post = await getPost(params.slug);
     return {
         title: `${post.title} | Pomo Build Blog`,
@@ -46,8 +41,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }
 }
 
-// Apply the Props type to the page component
-export default async function BlogPostPage({ params }: Props) {
+// Correctly typed page component
+export default async function BlogPostPage({ params }: { params: { slug: string } }) {
   const post = await getPost(params.slug);
 
   return (
