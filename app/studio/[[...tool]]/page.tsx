@@ -1,8 +1,12 @@
 "use client";
 
-import { NextStudio } from "next-sanity/studio";
-import config from "../../../sanity.config"; // This path is now corrected
+import dynamic from 'next/dynamic';
+
+// We are using next/dynamic to load our wrapper component only in the browser
+const StudioWrapper = dynamic(() => import('../../../components/StudioWrapper'), {
+  ssr: false, // This now works because the file is a Client Component
+});
 
 export default function StudioPage() {
-  return <NextStudio config={config} />;
+  return <StudioWrapper />;
 }
