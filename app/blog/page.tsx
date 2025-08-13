@@ -1,8 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { client } from '@/sanity/client'; // Import our new Sanity client
+import { client } from '@/sanity/client';
 
-// SEO Metadata for the blog page
 export const metadata: Metadata = {
   title: 'The Pomo Build Blog | Renovation Tips & Insights',
   description: 'The official blog of Pomo Build. Find expert tips, project insights, and the latest trends in home renovation and construction in the Metro Vancouver area.',
@@ -11,7 +10,6 @@ export const metadata: Metadata = {
   },
 };
 
-// Define the structure of a blog post that we will fetch
 interface Post {
   title: string;
   slug: string;
@@ -19,7 +17,6 @@ interface Post {
   excerpt: string;
 }
 
-// This is a new function that fetches our posts from your Sanity Studio
 async function getPosts() {
   const query = `*[_type == "post"] | order(publishedAt desc) {
     title,
@@ -31,14 +28,11 @@ async function getPosts() {
   return posts;
 }
 
-
 export default async function BlogPage() {
-  // We now call the function to get the live data from Sanity
   const posts = await getPosts();
 
   return (
     <div className="bg-white">
-      {/* Page Header (Unchanged) */}
       <div className="bg-[#1F2937] py-16 text-center text-white">
         <h1 className="text-4xl font-bold md:text-5xl" data-aos="fade-up">
           The Pomo Build Blog
@@ -48,10 +42,10 @@ export default async function BlogPage() {
         </p>
       </div>
 
-      {/* Blog Post Grid (Now uses live data) */}
       <section className="container mx-auto px-6 py-16 md:py-20">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((post, index) => (
+            // This link is now fully dynamic using the slug from Sanity
             <Link key={post.slug} href={`/blog/${post.slug}`}>
               <div 
                 className="bg-[#F9FAFB] rounded-lg shadow-md overflow-hidden h-full flex flex-col group"
@@ -72,7 +66,6 @@ export default async function BlogPage() {
         </div>
       </section>
 
-      {/* Call to Action Section (Unchanged) */}
       <section className="bg-[#F9FAFB]">
         <div className="container mx-auto px-6 py-16 text-center" data-aos="fade-up">
           <h2 className="text-3xl font-bold text-[#1F2937]">

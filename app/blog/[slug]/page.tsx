@@ -3,10 +3,13 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { client } from '@/sanity/client';
 import { PortableText } from '@portabletext/react';
+import { notFound } from 'next/navigation';
 
-// This defines the expected URL params for the page
-interface PageProps {
-  params: { slug: string };
+// This is the new, crucial function for Vercel builds
+export async function generateStaticParams() {
+  const query = `*[_type == "post"]{ "slug": slug.current }`;
+  const slugs = await client.fetch<{ slug: string }[]>(query);
+  return slugs.map(item => ({ slug: item.slug }));
 }
 
 // Define the structure of a full blog post
@@ -22,7 +25,6 @@ interface Post {
   body: any;
 }
 
-// This function fetches a single post based on its slug
 async function getPost(slug: string) {
   const query = `*[_type == "post" && slug.current == $slug][0] {
     title, "slug": slug.current, mainImage { asset->{ url, metadata { lqip } } }, "category": categories[]->title[0], publishedAt, "authorName": author->name, "authorImage": author->image { asset->{ url } }, excerpt, body
@@ -31,9 +33,9 @@ async function getPost(slug: string) {
   return post;
 }
 
-// This function generates the SEO metadata dynamically
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
     const post = await getPost(params.slug);
+    if (!post) { return { title: "Post Not Found" }; }
     return {
         title: `${post.title} | Pomo Build Blog`,
         description: post.excerpt,
@@ -46,13 +48,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     }
 }
 
-// This is the main page component, now using the PageProps type
-export default async function BlogPostPage({ params }: PageProps) {
+export default async function BlogPostPage({ params }: { params: { slug: string } }) {
   const post = await getPost(params.slug);
+
+  if (!post) {
+    notFound();
+  }
 
   return (
     <div className="bg-white">
-      {/* Article Header */}
       <section className="relative h-[50vh] w-full text-center text-white">
         <Image 
           src={post.mainImage.asset.url} 
@@ -73,7 +77,6 @@ export default async function BlogPostPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Breadcrumbs */}
       <div className="bg-gray-50 border-b">
         <div className="container mx-auto px-6 py-3 text-sm text-gray-500">
           <Link href="/" className="hover:text-[#D97706]">Home</Link>
@@ -84,13 +87,10 @@ export default async function BlogPostPage({ params }: PageProps) {
         </div>
       </div>
 
-      {/* Article Content */}
       <section className="container mx-auto px-6 py-16 md:py-20">
         <article className="prose lg:prose-xl max-w-3xl mx-auto">
           <PortableText value={post.body} />
         </article>
-
-        {/* About the Author Section */}
         <section className="mt-16 max-w-3xl mx-auto border-t pt-12" data-aos="fade-up">
           <div className="flex items-center gap-6 bg-[#F9FAFB] p-6 rounded-lg">
             <div className="relative h-24 w-24 flex-shrink-0">
