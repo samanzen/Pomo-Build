@@ -19,7 +19,7 @@ interface Post {
   body: any;
 }
 
-// Define the type for the component's props - THIS IS THE FIX
+// Define the correct type for the component's props - This replaces any conflicting 'PageProps'
 interface BlogPageProps {
   params: {
     slug: string;
@@ -93,7 +93,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
           <span className="mx-2">/</span>
           <span className="text-gray-800">{post.title}</span>
         </div>
-      </div>
+      </section>
 
       <section className="container mx-auto px-6 py-16 md:py-20">
         <article className="prose lg:prose-xl max-w-3xl mx-auto">
