@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { client } from '@/sanity/client';
 import { PortableText } from '@portabletext/react';
 import { notFound } from 'next/navigation';
+import { groq } from 'next-sanity';
 
 // Define the structure of a full blog post
 interface Post {
