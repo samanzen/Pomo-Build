@@ -5,13 +5,6 @@ import { client } from '@/sanity/client';
 import { PortableText } from '@portabletext/react';
 import { notFound } from 'next/navigation';
 
-// This is the new, crucial function for Vercel builds
-export async function generateStaticParams() {
-  const query = `*[_type == "post"]{ "slug": slug.current }`;
-  const slugs = await client.fetch<{ slug: string }[]>(query);
-  return slugs.map(item => ({ slug: item.slug }));
-}
-
 // Define the structure of a full blog post
 interface Post {
   title: string;
@@ -25,6 +18,20 @@ interface Post {
   body: any;
 }
 
+// Define the type for the component's props - THIS IS THE FIX
+interface BlogPageProps {
+  params: {
+    slug: string;
+  };
+}
+
+// This is the new, crucial function for Vercel builds
+export async function generateStaticParams() {
+  const query = `*[_type == "post"]{ "slug": slug.current }`;
+  const slugs = await client.fetch<{ slug: string }[]>(query);
+  return slugs.map(item => ({ slug: item.slug }));
+}
+
 async function getPost(slug: string) {
   const query = `*[_type == "post" && slug.current == $slug][0] {
     title, "slug": slug.current, mainImage { asset->{ url, metadata { lqip } } }, "category": categories[]->title[0], publishedAt, "authorName": author->name, "authorImage": author->image { asset->{ url } }, excerpt, body
@@ -33,22 +40,22 @@ async function getPost(slug: string) {
   return post;
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-    const post = await getPost(params.slug);
-    if (!post) { return { title: "Post Not Found" }; }
-    return {
-        title: `${post.title} | Pomo Build Blog`,
-        description: post.excerpt,
-        alternates: { canonical: `/blog/${post.slug}` },
-        openGraph: {
-            title: post.title,
-            description: post.excerpt,
-            images: [{ url: post.mainImage.asset.url }],
-        },
-    }
+export async function generateMetadata({ params }: BlogPageProps): Promise<Metadata> {
+  const post = await getPost(params.slug);
+  if (!post) { return { title: "Post Not Found" }; }
+  return {
+    title: `${post.title} | Pomo Build Blog`,
+    description: post.excerpt,
+    alternates: { canonical: `/blog/${post.slug}` },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      images: [{ url: post.mainImage.asset.url }],
+    },
+  }
 }
 
-export default async function BlogPostPage({ params }: { params: { slug: string } }) {
+export default async function BlogPostPage({ params }: BlogPageProps) {
   const post = await getPost(params.slug);
 
   if (!post) {
