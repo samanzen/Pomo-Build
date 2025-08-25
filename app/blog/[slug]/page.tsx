@@ -56,7 +56,8 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
   }
 }
 
-export default async function BlogPostPage({ params }: BlogPageProps) {
+export default async function BlogPostPage(props: BlogPageProps) {
+  const { params } = props;
   const post = await getPost(params.slug);
 
   if (!post) {
