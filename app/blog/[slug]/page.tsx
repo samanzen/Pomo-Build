@@ -56,8 +56,8 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
   }
 }
 
-export default async function BlogPostPage(props: BlogPageProps) {
-  const { params } = props;
+export default async function BlogPostPage(props: unknown) {
+  const { params } = props as BlogPageProps;
   const post = await getPost(params.slug);
 
   if (!post) {
@@ -67,12 +67,12 @@ export default async function BlogPostPage(props: BlogPageProps) {
   return (
     <div className="bg-white">
       <section className="relative h-[50vh] w-full text-center text-white">
-        <Image
-          src={post.mainImage.asset.url}
-          alt={post.title}
-          fill
-          className="object-cover"
-          priority
+        <Image 
+          src={post.mainImage.asset.url} 
+          alt={post.title} 
+          fill 
+          className="object-cover" 
+          priority 
           placeholder="blur"
           blurDataURL={post.mainImage.asset.metadata.lqip}
         />
