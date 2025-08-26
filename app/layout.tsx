@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import AOSInitializer from "@/components/AOSInitializer";
 import SchemaMarkup from "@/components/SchemaMarkup";
 import StickyMobileCTA from "@/components/StickyMobileCTA"; // New import
+import Script from "next/script"; // Added for Google Analytics
 
 const lato = Lato({
   subsets: ["latin"],
@@ -31,6 +32,19 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <SchemaMarkup />
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-SMPMW6HZJ5"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-SMPMW6HZJ5');
+          `}
+        </Script>
       </head>
       <body className={`${lato.variable} font-sans`}>
         <AOSInitializer />
