@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.pomobuild.ca
+
+# Sitemaps
+Sitemap: https://www.pomobuild.ca/sitemap.xml

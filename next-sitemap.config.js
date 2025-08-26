@@ -1,6 +1,15 @@
 /** @type {import('next-sitemap').IConfig} */
-const { client } = require('./sanity/client'); // Adjust the path if needed
+const { createClient } = require('@sanity/client');
 
+// Create a Sanity client
+const client = createClient({
+  projectId: 'zlvpcgia',       // Replace with your actual project ID
+  dataset: 'production',       // Your dataset
+  useCdn: true,                // `false` if you want fresh data
+  apiVersion: '2023-01-01',    // Use the current date or API version
+});
+
+// Fetch all blog slugs from Sanity
 async function getBlogPaths() {
   const query = `*[_type == "post"]{ "slug": slug.current }`;
   const posts = await client.fetch(query);
@@ -9,6 +18,7 @@ async function getBlogPaths() {
 
 module.exports = {
   siteUrl: 'https://www.pomobuild.ca',
+  outDir: './public',
   generateRobotsTxt: true,
   changefreq: 'weekly',
   priority: 0.7,
