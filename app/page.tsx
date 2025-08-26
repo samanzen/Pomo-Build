@@ -22,8 +22,15 @@ export default function Home() {
       {/* Hero Section */}
       <section
         className="relative flex h-[80vh] items-center justify-center text-center text-white"
-        style={{ backgroundImage: "url('/images/homepage-hero.webp')", backgroundSize: 'cover', backgroundPosition: 'center' }}
       >
+        <Image
+          src="/images/homepage-hero.webp"
+          alt="Pomo Build homepage hero section"
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/30"></div>
         <div className="relative z-10 max-w-4xl px-6">
           <h1 className="text-5xl font-bold tracking-tight md:text-7xl" data-aos="fade-up">
@@ -133,7 +140,7 @@ export default function Home() {
       </Link>
     </div>
   </div>
-</section>  
+</section> 
 </main>
   );
 }
