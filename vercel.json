@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/guides/:path*",
+      "destination": "https://pub.volohub.com/s/site_3a34a6be75187e80f5bd2d51a0d87f6b/guides/:path*"
+    }
+  ]
+}
