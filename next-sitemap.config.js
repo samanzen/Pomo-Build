@@ -24,7 +24,7 @@ module.exports = {
   priority: 0.7,
   sitemapSize: 5000,
   generateIndexSitemap: true,
-  exclude: ['/admin', '/studio'],
+  exclude: ['/admin', '/studio', '/thank-you'],
   transform: async (config, path) => {
     return {
       loc: path,
