@@ -34,7 +34,7 @@ export default function Footer() {
           <ul className="mt-4 space-y-2 text-gray-400">
             <li>1924 Clarke St, Port Moody, BC V3H 1X9</li>
             <li>(604) 500-2003</li>
-            <li>contact@pomobuild.com</li>
+            <li>info@pomobuild.ca</li>
           </ul>
         </div>
       </div>

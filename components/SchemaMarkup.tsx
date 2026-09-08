@@ -12,7 +12,7 @@ export default function SchemaMarkup() {
       "addressCountry": "CA"
     },
     "telephone": "+1-604-500-2003",
-    "email": "contact@pomobuild.com",
+    "email": "info@pomobuild.ca",
     "url": "https://www.pomobuild.com", // Placeholder for your future domain
     // This line is new and very important for SEO
     "sameAs": "https://maps.app.goo.gl/kRkRN6CmWb7mMX7s6",
