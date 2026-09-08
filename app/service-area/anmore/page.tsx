@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Anmore Custom Home Renovations | Pomo Build',
   description: 'Pomo Build is a premier general contractor for luxury custom home renovations in Anmore, BC. We specialize in large-scale remodels, high-end kitchens, and creating exceptional living spaces.',
   alternates: {
-    canonical: 'https://www.pomobuild.com/service-area/anmore',
+    canonical: 'https://pomobuild.ca/service-area/anmore',
   },
 };
 
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pomobuild.com" },
-                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://www.pomobuild.com/service-area" },
-                     { "@type": "ListItem", "position": 3, "name": "Anmore", "item": "https://www.pomobuild.com/service-area/anmore" }]
+  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pomobuild.ca" },
+                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://pomobuild.ca/service-area" },
+                     { "@type": "ListItem", "position": 3, "name": "Anmore", "item": "https://pomobuild.ca/service-area/anmore" }]
 };
 
 export default function AnmoreLocationPage() {

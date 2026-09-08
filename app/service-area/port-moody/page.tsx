@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Port Moody Home Renovation Contractor | Pomo Build',
   description: 'Pomo Build is your local Port Moody general contractor. As proud members of the community, we specialize in high-quality home renovations, kitchen and bath remodels, and handyman services.',
   alternates: {
-    canonical: 'https://www.pomobuild.com/service-area/port-moody',
+    canonical: 'https://pomobuild.ca/service-area/port-moody',
   },
 };
 
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pomobuild.com" },
-                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://www.pomobuild.com/service-area" },
-                     { "@type": "ListItem", "position": 3, "name": "Port Moody", "item": "https://www.pomobuild.com/service-area/port-moody" }]
+  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pomobuild.ca" },
+                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://pomobuild.ca/service-area" },
+                     { "@type": "ListItem", "position": 3, "name": "Port Moody", "item": "https://pomobuild.ca/service-area/port-moody" }]
 };
 
 export default function PortMoodyLocationPage() {

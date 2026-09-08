@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Maple Ridge Renovation Contractor | Pomo Build',
   description: 'Pomo Build offers expert home renovation and handyman services in Maple Ridge, BC. We specialize in renovating family homes, equestrian properties, and creating custom outdoor living spaces.',
   alternates: {
-    canonical: 'https://www.pomobuild.com/service-area/maple-ridge',
+    canonical: 'https://pomobuild.ca/service-area/maple-ridge',
   },
 };
 
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pomobuild.com" },
-                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://www.pomobuild.com/service-area" },
-                     { "@type": "ListItem", "position": 3, "name": "Maple Ridge", "item": "https://www.pomobuild.com/service-area/maple-ridge" }]
+  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pomobuild.ca" },
+                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://pomobuild.ca/service-area" },
+                     { "@type": "ListItem", "position": 3, "name": "Maple Ridge", "item": "https://pomobuild.ca/service-area/maple-ridge" }]
 };
 
 export default function MapleRidgeLocationPage() {

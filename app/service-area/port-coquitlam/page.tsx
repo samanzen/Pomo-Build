@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Port Coquitlam Home Renovation & Handyman Services | Pomo Build',
   description: 'Pomo Build is your local, trusted contractor for home renovations in Port Coquitlam, BC. We specialize in kitchen and bath remodels, deck building, and professional handyman services.',
   alternates: {
-    canonical: 'https://www.pomobuild.com/service-area/port-coquitlam',
+    canonical: 'https://pomobuild.ca/service-area/port-coquitlam',
   },
 };
 
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pomobuild.com" },
-                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://www.pomobuild.com/service-area" },
-                     { "@type": "ListItem", "position": 3, "name": "Port Coquitlam", "item": "https://www.pomobuild.com/service-area/port-coquitlam" }]
+  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pomobuild.ca" },
+                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://pomobuild.ca/service-area" },
+                     { "@type": "ListItem", "position": 3, "name": "Port Coquitlam", "item": "https://pomobuild.ca/service-area/port-coquitlam" }]
 };
 
 export default function PortCoquitlamLocationPage() {

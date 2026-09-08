@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Richmond Renovation Contractor & Handyman Services | Pomo Build',
   description: 'Pomo Build is your local expert for home renovations in Richmond, BC. We specialize in kitchen and bath remodels, custom homes, and professional handyman services.',
   alternates: {
-    canonical: 'https://www.pomobuild.com/service-area/richmond',
+    canonical: 'https://pomobuild.ca/service-area/richmond',
   },
 };
 
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pomobuild.com" },
-                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://www.pomobuild.com/service-area" },
-                     { "@type": "ListItem", "position": 3, "name": "Richmond", "item": "https://www.pomobuild.com/service-area/richmond" }]
+  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pomobuild.ca" },
+                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://pomobuild.ca/service-area" },
+                     { "@type": "ListItem", "position": 3, "name": "Richmond", "item": "https://pomobuild.ca/service-area/richmond" }]
 };
 
 export default function RichmondLocationPage() {

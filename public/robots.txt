@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://www.pomobuild.ca
+Host: https://pomobuild.ca
 
 # Sitemaps
-Sitemap: https://www.pomobuild.ca/sitemap.xml
+Sitemap: https://pomobuild.ca/sitemap.xml

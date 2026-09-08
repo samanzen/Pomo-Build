@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Major Home Renovations Contractor | Pomo Build',
   description: 'Pomo Build specializes in large-scale, major home renovations in the Metro Vancouver area. From whole-home remodels to custom additions, we are your trusted general contractor.',
   alternates: {
-    canonical: 'https://www.pomobuild.com/services/major-renovations',
+    canonical: 'https://pomobuild.ca/services/major-renovations',
   },
   openGraph: {
     title: 'Major Home Renovations Contractor | Pomo Build',

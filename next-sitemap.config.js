@@ -17,7 +17,7 @@ async function getBlogPaths() {
 }
 
 module.exports = {
-  siteUrl: 'https://www.pomobuild.ca',
+  siteUrl: 'https://pomobuild.ca',
   outDir: './public',
   generateRobotsTxt: true,
   changefreq: 'weekly',

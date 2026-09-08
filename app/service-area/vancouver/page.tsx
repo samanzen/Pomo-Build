@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Vancouver Home Renovation Contractor | Pomo Build',
   description: 'Pomo Build is your trusted contractor for home renovations in Vancouver, BC. We specialize in character home restorations, condo remodeling, kitchen and bath updates, and more.',
   alternates: {
-    canonical: 'https://www.pomobuild.com/service-area/vancouver',
+    canonical: 'https://pomobuild.ca/service-area/vancouver',
   },
 };
 
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pomobuild.com" },
-                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://www.pomobuild.com/service-area" },
-                     { "@type": "ListItem", "position": 3, "name": "Vancouver", "item": "https://www.pomobuild.com/service-area/vancouver" }]
+  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pomobuild.ca" },
+                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://pomobuild.ca/service-area" },
+                     { "@type": "ListItem", "position": 3, "name": "Vancouver", "item": "https://pomobuild.ca/service-area/vancouver" }]
 };
 
 export default function VancouverLocationPage() {

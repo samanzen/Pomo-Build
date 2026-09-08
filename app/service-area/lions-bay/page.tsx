@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Lions Bay Custom Home Renovations | Pomo Build',
   description: 'Pomo Build is a premier general contractor for luxury and architectural home renovations in Lions Bay, BC. We specialize in challenging hillside builds and creating spaces with stunning ocean views.',
   alternates: {
-    canonical: 'https://www.pomobuild.com/service-area/lions-bay',
+    canonical: 'https://pomobuild.ca/service-area/lions-bay',
   },
 };
 
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pomobuild.com" },
-                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://www.pomobuild.com/service-area" },
-                     { "@type": "ListItem", "position": 3, "name": "Lions Bay", "item": "https://www.pomobuild.com/service-area/lions-bay" }]
+  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pomobuild.ca" },
+                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://pomobuild.ca/service-area" },
+                     { "@type": "ListItem", "position": 3, "name": "Lions Bay", "item": "https://pomobuild.ca/service-area/lions-bay" }]
 };
 
 export default function LionsBayLocationPage() {

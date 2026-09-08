@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'White Rock Home Renovation Contractor | Pomo Build',
   description: 'Pomo Build is your local expert for home and condo renovations in White Rock, BC. We specialize in creating beautiful ocean-view decks, kitchen and bath remodels, and handyman services.',
   alternates: {
-    canonical: 'https://www.pomobuild.com/service-area/white-rock',
+    canonical: 'https://pomobuild.ca/service-area/white-rock',
   },
 };
 
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pomobuild.com" },
-                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://www.pomobuild.com/service-area" },
-                     { "@type": "ListItem", "position": 3, "name": "White Rock", "item": "https://www.pomobuild.com/service-area/white-rock" }]
+  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pomobuild.ca" },
+                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://pomobuild.ca/service-area" },
+                     { "@type": "ListItem", "position": 3, "name": "White Rock", "item": "https://pomobuild.ca/service-area/white-rock" }]
 };
 
 export default function WhiteRockLocationPage() {
