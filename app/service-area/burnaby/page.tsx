@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Burnaby Home Renovations & Handyman | Pomo Build',
   description: 'Your local Burnaby general contractor for professional home renovations. We specialize in kitchen and bath remodeling, basement suites, and expert handyman services.',
   alternates: {
-    canonical: 'https://pomobuild.ca/locations/burnaby',
+    canonical: 'https://pomobuild.ca/service-area/burnaby',
   },
 };
 
@@ -14,8 +14,8 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pomobuild.ca" },
-                     { "@type": "ListItem", "position": 2, "name": "Locations", "item": "https://pomobuild.ca/locations" },
-                     { "@type": "ListItem", "position": 3, "name": "Burnaby", "item": "https://pomobuild.ca/locations/burnaby" }]
+                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://pomobuild.ca/service-area" },
+                     { "@type": "ListItem", "position": 3, "name": "Burnaby", "item": "https://pomobuild.ca/service-area/burnaby" }]
 };
 
 export default function BurnabyLocationPage() {

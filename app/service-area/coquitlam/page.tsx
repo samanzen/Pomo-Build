@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Coquitlam Renovations & Handyman Services | Pomo Build',
   description: 'Pomo Build is your local general contractor for home renovations in Coquitlam. We specialize in kitchen and bath remodeling, basement finishing, and professional handyman services.',
   alternates: {
-    canonical: 'https://pomobuild.ca/locations/coquitlam',
+    canonical: 'https://pomobuild.ca/service-area/coquitlam',
   },
 };
 
@@ -14,8 +14,8 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pomobuild.ca" },
-                     { "@type": "ListItem", "position": 2, "name": "Locations", "item": "https://pomobuild.ca/locations" },
-                     { "@type": "ListItem", "position": 3, "name": "Coquitlam", "item": "https://pomobuild.ca/locations/coquitlam" }]
+                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://pomobuild.ca/service-area" },
+                     { "@type": "ListItem", "position": 3, "name": "Coquitlam", "item": "https://pomobuild.ca/service-area/coquitlam" }]
 };
 
 export default function CoquitlamLocationPage() {
