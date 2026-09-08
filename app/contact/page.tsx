@@ -16,7 +16,7 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:gap-16 items-start">
           <div className="border border-gray-200 rounded-lg p-8 flex flex-col" data-aos="fade-up">
             <h2 className="text-3xl font-bold text-center text-[#1F2937]">Project Inquiry Form</h2>
-            <div className="mt-8 w-full h-[1550px] sm:h-[1450px] md:h-[1350px]">
+            <div className="mt-8 mb-24 w-full h-[1200px] md:mb-0 md:h-[1100px]">
               <iframe
                 src="https://link.volohub.com/widget/form/wORgVIsWz2sJCOfrxADT"
                 style={{ width: '100%', height: '100%', border: 'none', borderRadius: '8px' }}
