@@ -53,6 +53,14 @@ export default function RootLayout({
             gtag('config', 'G-SMPMW6HZJ5');
           `}
         </Script>
+        {/* Google Ads website-call conversion */}
+        <Script id="google-ads-call-conversion" strategy="afterInteractive">
+          {`
+            gtag('config', 'AW-18439072195/dUtbCNeG6vEcEMPTt9hE', {
+              'phone_conversion_number': '(604) 500-2003'
+            });
+          `}
+        </Script>
       </head>
       <body className={`${lato.variable} font-sans`}>
         <AOSInitializer />
