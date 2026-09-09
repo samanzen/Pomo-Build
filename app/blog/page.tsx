@@ -72,7 +72,7 @@ export default async function BlogPage() {
             Ready to Start Your Project?
           </h2>
           <div className="mt-8">
-            <Link href="/contact">
+            <Link href="/contact#quote-form">
               <button className="bg-[#D97706] text-white font-bold text-lg py-3 px-8 rounded-md hover:bg-amber-600 transition-colors">
                 Get a Free Quote
               </button>
