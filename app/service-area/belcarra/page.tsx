@@ -89,7 +89,7 @@ export default function BelcarraLocationPage() {
         <div className="container mx-auto px-6 py-16 text-center text-white" data-aos="fade-up">
           <h2 className="text-3xl font-bold">Planning a Project in Belcarra?</h2>
           <div className="mt-8">
-            <Link href="/contact">
+            <Link href="/contact#quote-form">
               <button className="bg-[#D97706] text-white font-bold text-lg py-3 px-8 rounded-md hover:bg-amber-600 transition-colors">
                 Request a Private Consultation
               </button>

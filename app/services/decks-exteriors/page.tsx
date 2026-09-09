@@ -103,7 +103,7 @@ export default function DecksExteriorsPage() {
         <div className="container mx-auto px-6 py-16 text-center text-white" data-aos="fade-up">
           <h2 className="text-3xl font-bold">Ready to Upgrade Your Outdoor Space?</h2>
           <div className="mt-8">
-            <Link href="/contact">
+            <Link href="/contact#quote-form">
               <button className="bg-[#D97706] text-[#1F2937] font-bold text-lg py-3 px-8 rounded-md hover:bg-amber-600 transition-colors">
                 Get Your Free Estimate
               </button>

@@ -40,7 +40,7 @@ export default function Home() {
             Pomo Build offers high-quality renovation, construction, and handyman services for homeowners and businesses in Metro Vancouver.
           </p>
           <div className="mt-8" data-aos="fade-up" data-aos-delay="200">
-            <Button href="/contact">Get a Free Quote</Button>
+            <Button href="/contact#quote-form">Get a Free Quote</Button>
           </div>
         </div>
       </section>

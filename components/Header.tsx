@@ -33,7 +33,7 @@ export default function Header() {
           </nav>
 
           <div className="hidden md:block">
-            <Button href="/contact">Get a Free Quote</Button>
+            <Button href="/contact#quote-form">Get a Free Quote</Button>
           </div>
 
           <div className="md:hidden">
@@ -53,7 +53,7 @@ export default function Header() {
           <Link href="/service-area" onClick={() => setIsMenuOpen(false)} className="text-white hover:text-[#D97706]">Service Area</Link>
           <Link href="/about" onClick={() => setIsMenuOpen(false)} className="text-white hover:text-[#D97706]">About</Link>
           <div className="mt-8" onClick={() => setIsMenuOpen(false)}>
-            <Button href="/contact">Get a Free Quote</Button>
+            <Button href="/contact#quote-form">Get a Free Quote</Button>
           </div>
         </div>
       )}

@@ -17,7 +17,7 @@ export default function StickyMobileCTA() {
         </Link>
 
         {/* Get a Quote Button - Now using our reusable component */}
-        <Button href="/contact">Get a Free Quote</Button>
+        <Button href="/contact#quote-form">Get a Free Quote</Button>
       </div>
     </div>
   );
