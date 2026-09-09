@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'North Vancouver Renovation Contractor | Pomo Build',
   description: 'Pomo Build is your local expert for home renovations in North Vancouver. We specialize in custom homes, kitchen and bath remodels, and whole-home renovations from Deep Cove to Lonsdale.',
   alternates: {
-    canonical: 'https://www.pomobuild.com/service-area/north-vancouver',
+    canonical: 'https://pomobuild.ca/service-area/north-vancouver',
   },
 };
 
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pomobuild.com" },
-                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://www.pomobuild.com/service-area" },
-                     { "@type": "ListItem", "position": 3, "name": "North Vancouver", "item": "https://www.pomobuild.com/service-area/north-vancouver" }]
+  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pomobuild.ca" },
+                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://pomobuild.ca/service-area" },
+                     { "@type": "ListItem", "position": 3, "name": "North Vancouver", "item": "https://pomobuild.ca/service-area/north-vancouver" }]
 };
 
 export default function NorthVancouverLocationPage() {

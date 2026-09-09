@@ -16,7 +16,7 @@ const caseStudySchema = {
     "name": "Pomo Build",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://www.pomobuild.com/logo.png" // Placeholder
+      "url": "https://pomobuild.ca/logo.png" // Placeholder
     }
   },
   "review": {

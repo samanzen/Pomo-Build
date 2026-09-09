@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'New Westminster Renovation Contractor | Pomo Build',
   description: 'Pomo Build is your local expert for heritage home renovations and condo remodeling in New Westminster, BC. We specialize in kitchen and bath updates, and professional handyman services.',
   alternates: {
-    canonical: 'https://www.pomobuild.com/service-area/new-westminster',
+    canonical: 'https://pomobuild.ca/service-area/new-westminster',
   },
 };
 
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pomobuild.com" },
-                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://www.pomobuild.com/service-area" },
-                     { "@type": "ListItem", "position": 3, "name": "New Westminster", "item": "https://www.pomobuild.com/service-area/new-westminster" }]
+  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pomobuild.ca" },
+                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://pomobuild.ca/service-area" },
+                     { "@type": "ListItem", "position": 3, "name": "New Westminster", "item": "https://pomobuild.ca/service-area/new-westminster" }]
 };
 
 export default function NewWestminsterLocationPage() {

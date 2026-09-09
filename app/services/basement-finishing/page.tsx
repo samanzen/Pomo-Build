@@ -47,7 +47,7 @@ const serviceSchema = {
     "name": "Metro Vancouver"
   },
   "description": "Professional basement finishing, renovation, and legal secondary suite construction services in Port Moody, Coquitlam, and throughout Metro Vancouver.",
-  "url": "https://www.pomobuild.com/services/basement-finishing" // Placeholder
+  "url": "https://pomobuild.ca/services/basement-finishing" // Placeholder
 };
 
 export default function BasementFinishingPage() {

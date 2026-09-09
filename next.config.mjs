@@ -15,6 +15,23 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+
+  // Legacy /locations/* paths that were published in metadata before the
+  // pages moved under /service-area/.
+  async redirects() {
+    return [
+      {
+        source: '/locations/burnaby',
+        destination: '/service-area/burnaby',
+        permanent: true,
+      },
+      {
+        source: '/locations/coquitlam',
+        destination: '/service-area/coquitlam',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

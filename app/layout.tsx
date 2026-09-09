@@ -15,7 +15,7 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.pomobuild.com'), // Placeholder for your live domain
+  metadataBase: new URL('https://pomobuild.ca'), // Placeholder for your live domain
   title: {
     default: 'Pomo Build | Renovations & Handyman Services',
     template: '%s | Pomo Build',

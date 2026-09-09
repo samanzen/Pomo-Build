@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Belcarra Custom Home Renovations | Pomo Build',
   description: 'Pomo Build is a premier general contractor for luxury and waterfront home renovations in Belcarra, BC. We specialize in bespoke renovations that honour the area\'s natural beauty.',
   alternates: {
-    canonical: 'https://www.pomobuild.com/service-area/belcarra',
+    canonical: 'https://pomobuild.ca/service-area/belcarra',
   },
 };
 
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pomobuild.com" },
-                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://www.pomobuild.com/service-area" },
-                     { "@type": "ListItem", "position": 3, "name": "Belcarra", "item": "https://www.pomobuild.com/service-area/belcarra" }]
+  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pomobuild.ca" },
+                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://pomobuild.ca/service-area" },
+                     { "@type": "ListItem", "position": 3, "name": "Belcarra", "item": "https://pomobuild.ca/service-area/belcarra" }]
 };
 
 export default function BelcarraLocationPage() {

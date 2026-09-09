@@ -12,8 +12,8 @@ export default function SchemaMarkup() {
       "addressCountry": "CA"
     },
     "telephone": "+1-604-500-2003",
-    "email": "contact@pomobuild.com",
-    "url": "https://www.pomobuild.com", // Placeholder for your future domain
+    "email": "info@pomobuild.ca",
+    "url": "https://pomobuild.ca", // Placeholder for your future domain
     // This line is new and very important for SEO
     "sameAs": "https://maps.app.goo.gl/kRkRN6CmWb7mMX7s6",
     "openingHours": "Mo-Sa 08:00-18:00",
@@ -33,7 +33,7 @@ export default function SchemaMarkup() {
       "Langley"
     ],
     "description": "Pomo Build offers high-quality renovation, construction, and handyman services for homeowners and businesses in Metro Vancouver.",
-    "image": "https://www.pomobuild.com/logo.png" // Placeholder for your logo
+    "image": "https://pomobuild.ca/logo.png" // Placeholder for your logo
   };
 
   return (

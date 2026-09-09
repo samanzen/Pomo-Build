@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Tsawwassen Home Renovation & Deck Builder | Pomo Build',
   description: 'Pomo Build is your local contractor for home renovations in Tsawwassen, BC. We specialize in building beautiful sun decks, kitchen remodels, and professional handyman services.',
   alternates: {
-    canonical: 'https://www.pomobuild.com/service-area/tsawwassen',
+    canonical: 'https://pomobuild.ca/service-area/tsawwassen',
   },
 };
 
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pomobuild.com" },
-                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://www.pomobuild.com/service-area" },
-                     { "@type": "ListItem", "position": 3, "name": "Tsawwassen", "item": "https://www.pomobuild.com/service-area/tsawwassen" }]
+  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pomobuild.ca" },
+                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://pomobuild.ca/service-area" },
+                     { "@type": "ListItem", "position": 3, "name": "Tsawwassen", "item": "https://pomobuild.ca/service-area/tsawwassen" }]
 };
 
 export default function TsawwassenLocationPage() {

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Delta Home Renovation & Handyman Services | Pomo Build',
   description: 'Pomo Build is your local contractor for home renovations in Delta, BC. We specialize in kitchen and bath remodels, custom decks, and professional handyman services in Ladner and Tsawwassen.',
   alternates: {
-    canonical: 'https://www.pomobuild.com/service-area/delta',
+    canonical: 'https://pomobuild.ca/service-area/delta',
   },
 };
 
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pomobuild.com" },
-                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://www.pomobuild.com/service-area" },
-                     { "@type": "ListItem", "position": 3, "name": "Delta", "item": "https://www.pomobuild.com/service-area/delta" }]
+  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pomobuild.ca" },
+                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://pomobuild.ca/service-area" },
+                     { "@type": "ListItem", "position": 3, "name": "Delta", "item": "https://pomobuild.ca/service-area/delta" }]
 };
 
 export default function DeltaLocationPage() {

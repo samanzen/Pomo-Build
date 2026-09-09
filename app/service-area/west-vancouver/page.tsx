@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'West Vancouver Luxury Home Renovations | Pomo Build',
   description: 'Pomo Build is a premier general contractor for luxury home renovations in West Vancouver, BC. We specialize in high-end kitchen and bath remodels, custom homes, and whole-home transformations.',
   alternates: {
-    canonical: 'https://www.pomobuild.com/service-area/west-vancouver',
+    canonical: 'https://pomobuild.ca/service-area/west-vancouver',
   },
 };
 
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pomobuild.com" },
-                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://www.pomobuild.com/service-area" },
-                     { "@type": "ListItem", "position": 3, "name": "West Vancouver", "item": "https://www.pomobuild.com/service-area/west-vancouver" }]
+  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pomobuild.ca" },
+                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://pomobuild.ca/service-area" },
+                     { "@type": "ListItem", "position": 3, "name": "West Vancouver", "item": "https://pomobuild.ca/service-area/west-vancouver" }]
 };
 
 export default function WestVancouverLocationPage() {

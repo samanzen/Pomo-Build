@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Pitt Meadows Home Renovation & Handyman Services | Pomo Build',
   description: 'Pomo Build is your local contractor for home renovations in Pitt Meadows, BC. We specialize in kitchen and bath remodels, custom decks, and professional handyman services for family homes.',
   alternates: {
-    canonical: 'https://www.pomobuild.com/service-area/pitt-meadows',
+    canonical: 'https://pomobuild.ca/service-area/pitt-meadows',
   },
   openGraph: {
     title: 'Pitt Meadows Home Renovation Contractor | Pomo Build',
@@ -20,9 +20,9 @@ export const metadata: Metadata = {
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pomobuild.com" },
-                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://www.pomobuild.com/service-area" },
-                     { "@type": "ListItem", "position": 3, "name": "Pitt Meadows", "item": "https://www.pomobuild.com/service-area/pitt-meadows" }]
+  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pomobuild.ca" },
+                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://pomobuild.ca/service-area" },
+                     { "@type": "ListItem", "position": 3, "name": "Pitt Meadows", "item": "https://pomobuild.ca/service-area/pitt-meadows" }]
 };
 
 export default function PittMeadowsLocationPage() {

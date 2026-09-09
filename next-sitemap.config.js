@@ -17,14 +17,14 @@ async function getBlogPaths() {
 }
 
 module.exports = {
-  siteUrl: 'https://www.pomobuild.ca',
+  siteUrl: 'https://pomobuild.ca',
   outDir: './public',
   generateRobotsTxt: true,
   changefreq: 'weekly',
   priority: 0.7,
   sitemapSize: 5000,
   generateIndexSitemap: true,
-  exclude: ['/admin', '/studio'],
+  exclude: ['/admin', '/studio', '/thank-you'],
   transform: async (config, path) => {
     return {
       loc: path,

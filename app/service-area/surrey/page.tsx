@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Surrey Renovation Contractor & Handyman Services | Pomo Build',
   description: 'Pomo Build is your local contractor for home renovations in Surrey, BC. We specialize in kitchen remodels, basement suite construction, and professional handyman services for homes across the city.',
   alternates: {
-    canonical: 'https://www.pomobuild.com/service-area/surrey',
+    canonical: 'https://pomobuild.ca/service-area/surrey',
   },
 };
 
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pomobuild.com" },
-                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://www.pomobuild.com/service-area" },
-                     { "@type": "ListItem", "position": 3, "name": "Surrey", "item": "https://www.pomobuild.com/service-area/surrey" }]
+  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pomobuild.ca" },
+                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://pomobuild.ca/service-area" },
+                     { "@type": "ListItem", "position": 3, "name": "Surrey", "item": "https://pomobuild.ca/service-area/surrey" }]
 };
 
 export default function SurreyLocationPage() {
