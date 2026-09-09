@@ -29,7 +29,7 @@ export default function Header() {
             <Link href="/blog" className="hover:text-[#D97706] transition-colors">Blog</Link>
             <Link href="/service-area" className="hover:text-[#D97706] transition-colors">Service Area</Link>
             <Link href="/about" className="hover:text-[#D97706] transition-colors">About</Link>
-            <Link href="/contact" className="hover:text-[#D97706] transition-colors">Contact</Link>
+            <Link href="/contact#quote-form" className="hover:text-[#D97706] transition-colors">Contact</Link>
           </nav>
 
           <div className="hidden md:block">

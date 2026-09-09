@@ -26,7 +26,7 @@ export default function Footer() {
             <li><Link href="/blog" className="hover:text-[#D97706] transition-colors">Blog</Link></li>
             <li><Link href="/service-area" className="hover:text-[#D97706] transition-colors">Service Area</Link></li>
             <li><Link href="/about" className="hover:text-[#D97706] transition-colors">About Us</Link></li>
-            <li><Link href="/contact" className="hover:text-[#D97706] transition-colors">Contact</Link></li>
+            <li><Link href="/contact#quote-form" className="hover:text-[#D97706] transition-colors">Contact</Link></li>
           </ul>
         </div>
         <div>
