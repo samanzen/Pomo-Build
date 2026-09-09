@@ -20,7 +20,7 @@ export default function ContactPage() {
               <iframe
                 src="https://link.volohub.com/widget/form/wORgVIsWz2sJCOfrxADT"
                 style={{ width: '100%', height: '100%', border: 'none', borderRadius: '8px' }}
-                className="block w-full min-h-[1000px] sm:min-h-[900px] lg:min-h-[850px]"
+                className="block w-full min-h-[1000px] min-[375px]:min-h-[900px] lg:min-h-[850px]"
                 id="inline-wORgVIsWz2sJCOfrxADT"
                 data-layout="{'id':'INLINE'}"
                 data-trigger-type="alwaysShow"
