@@ -70,6 +70,13 @@ export default function ServiceAreaPage() {
         <h2 className="text-3xl font-bold text-center text-[#1F2937]" data-aos="fade-up">
           Find Your Community
         </h2>
+        <p className="mt-4 text-center text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="50">
+          Looking specifically for Coquitlam, Port Moody, Port Coquitlam, Anmore, or Belcarra renovations? Visit our{' '}
+          <Link href="/tri-cities-renovations" className="font-semibold text-[#D97706] hover:underline">
+            Tri-Cities renovations
+          </Link>{' '}
+          page.
+        </p>
         <div className="mt-12 grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-4" data-aos="fade-up" data-aos-delay="100">
           {locations.map((location) => (
             <Link key={location.name} href={location.href}>

@@ -54,6 +54,13 @@ export default function PortMoodyLocationPage() {
           <p className="mt-4 text-gray-600">
             We are not just contractors; we are your neighbours. We are committed to providing our community with the highest level of craftsmanship, honesty, and personalized service. Whether you're renovating a classic home, updating a condo, or need a trusted handyman, we bring local expertise and a passion for quality to every project.
           </p>
+          <p className="mt-4 text-gray-600">
+            For kitchen, bathroom, and full-home projects across neighbouring communities, see our{' '}
+            <Link href="/tri-cities-renovations" className="font-semibold text-[#D97706] hover:underline">
+              Tri-Cities renovations
+            </Link>{' '}
+            overview.
+          </p>
         </section>
 
         {/* Services Offered in Port Moody Section */}

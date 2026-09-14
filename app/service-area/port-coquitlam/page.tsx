@@ -54,6 +54,13 @@ export default function PortCoquitlamLocationPage() {
           <p className="mt-4 text-gray-600">
             Our team understands the pride PoCo residents take in their homes. As your local renovation expert, we provide a seamless, professional experience from start to finish. We handle all necessary permits with the City of Port Coquitlam and work diligently to ensure your project is completed on time, on budget, and to a standard of quality that will last for years to come.
           </p>
+          <p className="mt-4 text-gray-600">
+            Comparing options across Coquitlam, Port Moody, and Port Coquitlam? Start with our{' '}
+            <Link href="/tri-cities-renovations" className="font-semibold text-[#D97706] hover:underline">
+              Tri-Cities renovations
+            </Link>{' '}
+            hub.
+          </p>
         </section>
 
         {/* Services Offered in Port Coquitlam Section */}

@@ -57,6 +57,13 @@ export default function MajorRenovationsPage() {
             <p className="mt-4 text-gray-600">
               Large-scale projects require meticulous planning, expert project management, and a team of highly skilled trades. We provide all of this, acting as your single point of contact and accountability. We handle everything from the initial architectural design and permitting to the final finishing touches, ensuring a seamless process and a result that exceeds your expectations.
             </p>
+            <p className="mt-4 text-gray-600">
+              Homeowners in Coquitlam, Port Moody, Port Coquitlam, Anmore, and Belcarra can also review our{' '}
+              <Link href="/tri-cities-renovations" className="font-semibold text-[#D97706] hover:underline">
+                Tri-Cities renovations
+              </Link>{' '}
+              landing page for a streamlined estimate path.
+            </p>
           </div>
           <div className="relative h-96 w-full" data-aos="fade-left" data-aos-delay="100">
              <Image src="/images/renovation-intro.webp" alt="A home mid-renovation, showing the transition from old to new." fill className="rounded-lg shadow-lg object-cover" />

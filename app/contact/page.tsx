@@ -1,4 +1,4 @@
-import Script from 'next/script';
+import QuoteFormEmbed from '@/components/QuoteFormEmbed';
 
 export default function ContactPage() {
   return (
@@ -19,31 +19,10 @@ export default function ContactPage() {
           id="quote-form"
           className="scroll-mt-28 grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-12 lg:gap-16 items-start"
         >
-          <div className="border border-gray-200 rounded-lg p-4 sm:p-8 flex flex-col" data-aos="fade-up">
-            <h2 className="text-2xl font-bold text-center text-[#1F2937] sm:text-3xl">Project Inquiry Form</h2>
-            <div className="mt-6 w-full sm:mt-8">
-              <iframe
-                src="https://link.volohub.com/widget/form/wORgVIsWz2sJCOfrxADT"
-                style={{ width: '100%', height: '100%', border: 'none', borderRadius: '8px' }}
-                className="block w-full min-h-[900px] lg:min-h-[850px]"
-                id="inline-wORgVIsWz2sJCOfrxADT"
-                data-layout="{'id':'INLINE'}"
-                data-trigger-type="alwaysShow"
-                data-trigger-value=""
-                data-activation-type="alwaysActivated"
-                data-activation-value=""
-                data-deactivation-type="neverDeactivate"
-                data-deactivation-value=""
-                data-form-name="Pomo Build – Google Ads Quote Form"
-                data-height="undefined"
-                data-layout-iframe-id="inline-wORgVIsWz2sJCOfrxADT"
-                data-form-id="wORgVIsWz2sJCOfrxADT"
-                data-cookie-consent="true"
-                data-cookie-consent-provider="auto"
-                title="Pomo Build – Google Ads Quote Form"
-              ></iframe>
-            </div>
-          </div>
+          <QuoteFormEmbed
+            heading="Project Inquiry Form"
+            className="border border-gray-200 rounded-lg p-4 sm:p-8 flex flex-col"
+          />
           <div className="border border-gray-200 rounded-lg p-4 sm:p-8" data-aos="fade-up" data-aos-delay="100">
             <h2 className="text-2xl font-bold text-[#1F2937] sm:text-3xl">Contact Details</h2>
             <div className="mt-6 space-y-4 text-gray-600 sm:mt-8"><p><strong>Address:</strong> 1924 Clarke St, Port Moody, BC V3H 1X9</p><p><strong>Phone:</strong> <a href="tel:+16045002003" className="hover:text-[#D97706] transition-colors">(604) 500-2003</a></p><p><strong>Email:</strong> <a href="mailto:info@pomobuild.ca" className="hover:text-[#D97706] transition-colors">info@pomobuild.ca</a></p><p><strong>Hours:</strong> Mon – Sat: 8am – 6pm</p></div>
@@ -51,12 +30,6 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
-
-      <Script
-        id="ghl-form-embed"
-        src="https://link.volohub.com/js/form_embed.js"
-        strategy="afterInteractive"
-      />
     </div>
   );
 }

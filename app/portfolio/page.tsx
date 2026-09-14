@@ -67,6 +67,11 @@ export default function PortfolioPage() {
         </h1>
         <p className="mt-4 text-lg text-gray-300 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
           We take pride in our craftsmanship. Explore a selection of our recent projects across Metro Vancouver.
+          Tri-Cities homeowners can also request a free estimate on our{' '}
+          <Link href="/tri-cities-renovations" className="underline hover:text-[#D97706]">
+            renovations landing page
+          </Link>
+          .
         </p>
       </div>
 

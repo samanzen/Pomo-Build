@@ -1,13 +1,23 @@
+'use client';
+
 import Link from 'next/link';
-import Button from '@/components/Button'; // Importing our reusable Button
+import { usePathname } from 'next/navigation';
+import Button from '@/components/Button';
 
 export default function StickyMobileCTA() {
+  const pathname = usePathname();
+  const estimateHref =
+    pathname === '/tri-cities-renovations'
+      ? '#estimate'
+      : '/contact#quote-form';
+  const estimateLabel =
+    pathname === '/tri-cities-renovations' ? 'Free Estimate' : 'Get a Free Quote';
+
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-gray-200 bg-white/90 p-3 backdrop-blur-sm md:hidden">
       <div className="container mx-auto flex items-center justify-around">
-        {/* Call Now Button */}
-        <Link 
-          href="tel:604-500-2003" 
+        <Link
+          href="tel:+16045002003"
           className="flex flex-col items-center justify-center text-sm font-semibold text-[#1F2937] transition-colors hover:text-[#D97706]"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -16,8 +26,7 @@ export default function StickyMobileCTA() {
           <span>Call Now</span>
         </Link>
 
-        {/* Get a Quote Button - Now using our reusable component */}
-        <Button href="/contact#quote-form">Get a Free Quote</Button>
+        <Button href={estimateHref}>{estimateLabel}</Button>
       </div>
     </div>
   );

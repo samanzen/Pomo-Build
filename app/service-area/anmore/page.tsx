@@ -54,6 +54,13 @@ export default function AnmoreLocationPage() {
           <p className="mt-4 text-gray-600">
             Our team has the expertise to execute large-scale, complex renovations that seamlessly blend luxury with the surrounding landscape. We collaborate with the region's top architects and designers to bring your vision to life, whether it's a full-home transformation, a gourmet kitchen remodel, or the creation of an incredible outdoor living space. We are committed to a discreet and professional process for our discerning Anmore clients.
           </p>
+          <p className="mt-4 text-gray-600">
+            Anmore is part of our{' '}
+            <Link href="/tri-cities-renovations" className="font-semibold text-[#D97706] hover:underline">
+              Tri-Cities renovations
+            </Link>{' '}
+            focus, alongside Coquitlam, Port Moody, Port Coquitlam, and Belcarra.
+          </p>
         </section>
 
         {/* Services Offered in Anmore Section */}

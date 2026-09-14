@@ -28,6 +28,13 @@ export default function KitchenBathPage() {
             <p className="mt-4 text-gray-600">
               At Karaj Build, we combine thoughtful design and expert craftsmanship to create spaces that are not only stunning but also perfectly tailored to your lifestyle.
             </p>
+            <p className="mt-4 text-gray-600">
+              Serving Tri-Cities homeowners? See our dedicated{' '}
+              <Link href="/tri-cities-renovations" className="font-semibold text-[#D97706] hover:underline">
+                Tri-Cities renovations
+              </Link>{' '}
+              page for local kitchen and bathroom remodel details.
+            </p>
           </div>
           <div className="relative h-96 w-full" data-aos="fade-left" data-aos-delay="100">
              <Image
