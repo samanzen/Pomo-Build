@@ -360,23 +360,23 @@ export default function TriCitiesRenovationsPage() {
       </section>
 
       {/* 2. Trust / value strip */}
-      <section className="border-b border-gray-200 bg-[#F9FAFB]">
+      <section className="border-b border-gray-200 bg-[#F9FAFB]" aria-label="Why homeowners trust Pomo Build">
         <div className="container mx-auto px-4 sm:px-6 py-8 md:py-10">
           <div className="grid grid-cols-1 gap-6 text-center sm:grid-cols-2 lg:grid-cols-4">
             <div>
-              <h2 className="text-lg font-bold text-[#1F2937]">Quality craftsmanship</h2>
+              <p className="text-lg font-bold text-[#1F2937]">Quality craftsmanship</p>
               <p className="mt-2 text-sm text-gray-600">Careful detailing and durable finishes built for everyday living.</p>
             </div>
             <div>
-              <h2 className="text-lg font-bold text-[#1F2937]">Transparent pricing</h2>
+              <p className="text-lg font-bold text-[#1F2937]">Transparent pricing</p>
               <p className="mt-2 text-sm text-gray-600">Clear scope and pricing before work begins—no guesswork.</p>
             </div>
             <div>
-              <h2 className="text-lg font-bold text-[#1F2937]">Reliable scheduling</h2>
+              <p className="text-lg font-bold text-[#1F2937]">Reliable scheduling</p>
               <p className="mt-2 text-sm text-gray-600">Practical timelines with ongoing communication throughout the project.</p>
             </div>
             <div>
-              <h2 className="text-lg font-bold text-[#1F2937]">Local & insured</h2>
+              <p className="text-lg font-bold text-[#1F2937]">Local & insured</p>
               <p className="mt-2 text-sm text-gray-600">Port Moody-based team serving homeowners across the Tri-Cities.</p>
             </div>
           </div>
