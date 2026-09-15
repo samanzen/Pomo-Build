@@ -52,6 +52,13 @@ export default function CoquitlamLocationPage() {
           <p className="mt-4 text-gray-600">
             Our commitment is to provide our Coquitlam neighbours with the highest standard of quality, reliability, and professionalism. We are a fully licensed and insured local business, dedicated to enhancing the homes and properties in the community we know and love. From small handyman repairs to full-scale home renovations, we are your trusted local partner for any project. We navigate the specific permitting processes with the City of Coquitlam to ensure every project is built to code and built to last.
           </p>
+          <p className="mt-4 text-gray-600">
+            Planning a kitchen, bathroom, or full-home remodel across the Tri-Cities? Visit our{' '}
+            <Link href="/tri-cities-renovations" className="font-semibold text-[#D97706] hover:underline">
+              Tri-Cities renovations
+            </Link>{' '}
+            page for a focused overview and free on-site estimate options.
+          </p>
         </section>
 
                    {/* Why Renovate in Coquitlam Section */}

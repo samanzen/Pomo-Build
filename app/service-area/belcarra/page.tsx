@@ -54,6 +54,13 @@ export default function BelcarraLocationPage() {
           <p className="mt-4 text-gray-600">
             Our team has deep experience in executing complex custom home renovations on challenging waterfront and hillside lots. We work closely with architects and homeowners to create spaces that seamlessly blend modern luxury with the stunning natural surroundings of Indian Arm and Buntzen Lake. We are experts in navigating the specific building bylaws of the Village of Belcarra to ensure your project is a complete success.
           </p>
+          <p className="mt-4 text-gray-600">
+            Explore renovation options for Belcarra and nearby communities on our{' '}
+            <Link href="/tri-cities-renovations" className="font-semibold text-[#D97706] hover:underline">
+              Tri-Cities renovations
+            </Link>{' '}
+            page.
+          </p>
         </section>
 
         {/* Services Offered in Belcarra Section */}
