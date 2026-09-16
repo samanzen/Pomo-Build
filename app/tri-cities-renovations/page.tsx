@@ -1,31 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import type { Metadata } from 'next';
 import QuoteFormEmbed from '@/components/QuoteFormEmbed';
+import JsonLd from '@/components/JsonLd';
+import { pageMetadata } from '@/lib/page-seo';
+import { BUSINESS_ID } from '@/lib/site';
 
-export const metadata: Metadata = {
-  title: 'Tri-Cities Renovation Contractors',
-  description:
-    'Kitchen, bathroom, and full-home renovations in Coquitlam, Port Moody, Port Coquitlam, Anmore, and Belcarra. Request a free on-site estimate today.',
-  alternates: {
-    canonical: 'https://pomobuild.ca/tri-cities-renovations',
-  },
-  openGraph: {
-    title: 'Tri-Cities Renovation Contractors | Pomo Build',
-    description:
-      'Kitchen, bathroom, and full-home renovations for Tri-Cities homeowners. Free on-site estimates from a Port Moody-based contractor.',
-    url: 'https://pomobuild.ca/tri-cities-renovations',
-    images: [{ url: '/images/renovation-hero.webp' }],
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Tri-Cities Renovation Contractors | Pomo Build',
-    description:
-      'Kitchen, bathroom, and full-home renovations across Coquitlam, Port Moody, Port Coquitlam, Anmore, and Belcarra.',
-    images: ['/images/renovation-hero.webp'],
-  },
-};
+export const metadata = pageMetadata('tri-cities-renovations');
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
@@ -44,8 +24,9 @@ const breadcrumbSchema = {
 const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'GeneralContractor',
+  '@id': BUSINESS_ID,
   name: 'Pomo Build',
-  url: 'https://pomobuild.ca/tri-cities-renovations',
+  url: 'https://pomobuild.ca',
   telephone: '+1-604-500-2003',
   email: 'info@pomobuild.ca',
   image: 'https://pomobuild.ca/images/renovation-hero.webp',
@@ -77,7 +58,7 @@ const serviceSchema = {
       '@type': 'Service',
       name: 'Kitchen Renovations',
       serviceType: 'Kitchen remodeling',
-      provider: { '@type': 'GeneralContractor', name: 'Pomo Build' },
+      provider: { '@id': BUSINESS_ID },
       areaServed: ['Coquitlam', 'Port Moody', 'Port Coquitlam', 'Anmore', 'Belcarra'],
       url: 'https://pomobuild.ca/services/kitchen-bath',
     },
@@ -85,7 +66,7 @@ const serviceSchema = {
       '@type': 'Service',
       name: 'Bathroom Renovations',
       serviceType: 'Bathroom remodeling',
-      provider: { '@type': 'GeneralContractor', name: 'Pomo Build' },
+      provider: { '@id': BUSINESS_ID },
       areaServed: ['Coquitlam', 'Port Moody', 'Port Coquitlam', 'Anmore', 'Belcarra'],
       url: 'https://pomobuild.ca/services/kitchen-bath',
     },
@@ -93,7 +74,7 @@ const serviceSchema = {
       '@type': 'Service',
       name: 'Full-Home Renovations',
       serviceType: 'Major home renovation',
-      provider: { '@type': 'GeneralContractor', name: 'Pomo Build' },
+      provider: { '@id': BUSINESS_ID },
       areaServed: ['Coquitlam', 'Port Moody', 'Port Coquitlam', 'Anmore', 'Belcarra'],
       url: 'https://pomobuild.ca/services/major-renovations',
     },
@@ -270,10 +251,10 @@ const faqs = [
 export default function TriCitiesRenovationsPage() {
   return (
     <div className="bg-white pb-24 md:pb-0">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={localBusinessSchema} />
+      <JsonLd data={serviceSchema} />
+      <JsonLd data={faqSchema} />
 
       <nav aria-label="Breadcrumb" className="bg-[#F9FAFB] border-b border-gray-200">
         <div className="container mx-auto px-4 sm:px-6 py-3 text-sm text-gray-600">

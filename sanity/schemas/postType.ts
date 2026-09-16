@@ -47,6 +47,36 @@ export const postType = defineType({
       type: 'datetime',
     }),
     defineField({
+      name: 'updatedAt',
+      title: 'Updated at',
+      type: 'datetime',
+    }),
+    defineField({
+      name: 'excerpt',
+      title: 'Excerpt',
+      type: 'text',
+      rows: 3,
+    }),
+    defineField({
+      name: 'reviewer',
+      title: 'Reviewer',
+      type: 'reference',
+      to: {type: 'author'},
+      description: 'Optional subject-matter reviewer. Leave empty until a real reviewer is assigned.',
+    }),
+    defineField({
+      name: 'seoTitle',
+      title: 'SEO title',
+      type: 'string',
+      description: 'Optional unique title. Do not append "| Pomo Build".',
+    }),
+    defineField({
+      name: 'seoDescription',
+      title: 'SEO description',
+      type: 'text',
+      rows: 3,
+    }),
+    defineField({
       name: 'body',
       type: 'blockContent',
     }),

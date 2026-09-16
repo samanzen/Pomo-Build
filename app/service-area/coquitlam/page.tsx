@@ -1,30 +1,22 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import type { Metadata } from 'next';
+import JsonLd from '@/components/JsonLd';
+import LocationPageExtras from '@/components/LocationPageExtras';
+import { pageMetadata } from '@/lib/page-seo';
+import { buildBreadcrumbSchema } from '@/lib/schema';
 
-export const metadata: Metadata = {
-  title: 'Coquitlam Renovations & Handyman Services | Pomo Build',
-  description: 'Pomo Build is your local general contractor for home renovations in Coquitlam. We specialize in kitchen and bath remodeling, basement finishing, and professional handyman services.',
-  alternates: {
-    canonical: 'https://pomobuild.ca/service-area/coquitlam',
-  },
-};
+export const metadata = pageMetadata('service-area/coquitlam');
 
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pomobuild.ca" },
-                     { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://pomobuild.ca/service-area" },
-                     { "@type": "ListItem", "position": 3, "name": "Coquitlam", "item": "https://pomobuild.ca/service-area/coquitlam" }]
-};
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', path: '/' },
+  { name: 'Service Area', path: '/service-area' },
+  { name: 'Coquitlam', path: '/service-area/coquitlam' },
+]);
 
 export default function CoquitlamLocationPage() {
   return (
     <div className="bg-white">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
+      <JsonLd data={breadcrumbSchema} />
       {/* Page Header */}
       <section className="relative h-[60vh] w-full text-center text-white">
         <Image
@@ -76,15 +68,7 @@ export default function CoquitlamLocationPage() {
   </div>
 </section>
 
-        {/* Services Offered in Coquitlam Section */}
-        <section className="mt-16" data-aos="fade-up">
-          <h2 className="text-3xl font-bold text-center text-[#1F2937]">Complete Home Services for Coquitlam</h2>
-          <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
-            <Link href="/services/kitchen-bath" className="group block"><div className="rounded-lg bg-[#F9FAFB] p-8 shadow-sm h-full hover:shadow-lg transition-shadow"><h3 className="text-2xl font-bold text-[#1F2937]">Kitchen & Bath Remodeling</h3><p className="mt-4 text-gray-600">We specialize in transforming dated kitchens and bathrooms into modern, functional spaces.</p></div></Link>
-            <Link href="/services/basement-finishing" className="group block"><div className="rounded-lg bg-[#F9FAFB] p-8 shadow-sm h-full hover:shadow-lg transition-shadow"><h3 className="text-2xl font-bold text-[#1F2937]">Basement Finishing</h3><p className="mt-4 text-gray-600">Turn your unfinished basement into a valuable asset like a legal suite, home theatre, or gym.</p></div></Link>
-            <Link href="/services/handyman-services" className="group block"><div className="rounded-lg bg-[#F9FAFB] p-8 shadow-sm h-full hover:shadow-lg transition-shadow"><h3 className="text-2xl font-bold text-[#1F2937]">Handyman Services</h3><p className="mt-4 text-gray-600">For all the jobs on your to-do list, from drywall repair to fixture installations.</p></div></Link>
-          </div>
-        </section>
+        <LocationPageExtras slug="coquitlam" servicesHeading="Popular Services in Coquitlam" />
 
         {/* FAQ Section */}
         <section className="mt-16" data-aos="fade-up">
@@ -93,14 +77,6 @@ export default function CoquitlamLocationPage() {
                 <details className="group rounded-lg bg-[#F9FAFB] p-6 shadow-sm"><summary className="cursor-pointer font-semibold text-lg text-[#1F2937] flex justify-between items-center">Do I need a special permit for renovating a condo in Coquitlam?<span className="transform transition-transform duration-300 group-open:rotate-180" aria-hidden="true">▼</span></summary><p className="mt-4 text-gray-600">Yes, in addition to city permits for any plumbing or electrical work, renovations in condos or townhouses also require approval from your Strata Council. We have extensive experience working with strata management companies in Coquitlam and can help prepare and submit all necessary documentation.</p></details>
                 <details className="group rounded-lg bg-[#F9FAFB] p-6 shadow-sm"><summary className="cursor-pointer font-semibold text-lg text-[#1F2937] flex justify-between items-center">What is the process for adding a legal suite in Coquitlam?<span className="transform transition-transform duration-300 group-open:rotate-180" aria-hidden="true">▼</span></summary><p className="mt-4 text-gray-600">The City of Coquitlam has specific requirements for secondary suites, including ceiling height, fire separation, and egress windows. Our process includes a full review of your property, creating compliant architectural plans, and managing the entire permit and inspection process with the city.</p></details>
             </div>
-        </section>
-
-        {/* Local Map Section */}
-        <section className="mt-16" data-aos="fade-up">
-          <h2 className="text-3xl font-bold text-center text-[#1F2937]">Our Verified Business Location</h2>
-          <div className="mt-8 aspect-video w-full overflow-hidden rounded-lg shadow-lg">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d333432.4638791345!2d-122.86884595000001!3d49.23960545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43f55dce88b1a187%3A0xaaa51629ca4acee6!2sPomo%20Build!5e0!3m2!1sen!2sca!4v1754508326972!5m2!1sen!2sca" className="w-full h-full" style={{ border: 0 }} allowFullScreen={false} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
-          </div>
         </section>
       </div>
 

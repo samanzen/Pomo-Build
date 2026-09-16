@@ -1,65 +1,76 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import type { Metadata } from 'next';
+import JsonLd from '@/components/JsonLd';
+import RelatedLinks from '@/components/RelatedLinks';
+import { pageMetadata } from '@/lib/page-seo';
+import { buildBreadcrumbSchema, buildFaqSchema, buildServiceSchema } from '@/lib/schema';
+import { TRI_CITIES_HREF } from '@/lib/locations';
 
-// SEO Metadata for this specific page
-export const metadata: Metadata = {
-  title: 'Major Home Renovations Contractor | Pomo Build',
-  description: 'Pomo Build specializes in large-scale, major home renovations in the Metro Vancouver area. From whole-home remodels to custom additions, we are your trusted general contractor.',
-  alternates: {
-    canonical: 'https://pomobuild.ca/services/major-renovations',
-  },
-  openGraph: {
-    title: 'Major Home Renovations Contractor | Pomo Build',
-    description: 'Expert management of large-scale home renovations and additions.',
-    images: [{ url: '/images/renovation-hero.webp' }],
-  },
-};
+export const metadata = pageMetadata('services/major-renovations');
 
-const breadcrumbSchema = { /* ... breadcrumb schema ... */ };
-const faqSchema = { /* ... faq schema ... */ };
-const serviceSchema = { /* ... service schema ... */ };
+const faqs = [
+  {
+    question: "What is considered a 'major renovation'?",
+    answer:
+      'A major renovation typically involves structural changes to the home, such as removing walls, adding a new room or floor, or a complete gut renovation of multiple rooms. It almost always requires architectural plans and extensive permitting.',
+  },
+  {
+    question: 'How do you manage such a large and complex project?',
+    answer:
+      'We use dedicated project management software and a single point of contact for you. Our process includes detailed scheduling, regular client meetings, and meticulous coordination of all trades to ensure the project stays on track and on budget.',
+  },
+];
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', path: '/' },
+  { name: 'Services', path: '/services' },
+  { name: 'Major Renovations', path: '/services/major-renovations' },
+]);
+const faqSchema = buildFaqSchema(faqs);
+const serviceSchema = buildServiceSchema({
+  name: 'Major Home Renovations',
+  serviceType: 'Major home renovation',
+  description:
+    'Whole-home and large-scale renovations in the Tri-Cities, including planning, permitting, and project management.',
+  path: '/services/major-renovations',
+});
 
 export default function MajorRenovationsPage() {
   return (
     <div className="bg-white">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <JsonLd data={faqSchema} />
+      <JsonLd data={serviceSchema} />
+      <JsonLd data={breadcrumbSchema} />
 
-      {/* Page Header */}
-        {/* PASTE THIS NEW CODE IN ITS PLACE */}
-<section className="relative h-[60vh] w-full text-center text-white">
-  <Image
-    src="/images/renovation-hero.webp"
-    alt="An open-concept living room and kitchen after a major home renovation."
-    fill
-    className="object-cover"
-    priority
-    sizes="100vw"
-  />
-  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/30"></div>
-  <div className="relative z-10 flex h-full flex-col items-center justify-center" data-aos="fade-up">
-    <h1 className="text-4xl font-bold md:text-5xl">Major Home Renovations</h1>
-    <p className="mt-4 text-lg text-gray-300">Complete transformations, expertly managed.</p>
-  </div>
-</section>
+      <section className="relative h-[60vh] w-full text-center text-white">
+        <Image
+          src="/images/renovation-hero.webp"
+          alt="An open-concept living room and kitchen after a major home renovation."
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/30"></div>
+        <div className="relative z-10 flex h-full flex-col items-center justify-center" data-aos="fade-up">
+          <h1 className="text-4xl font-bold md:text-5xl">Major Home Renovations</h1>
+          <p className="mt-4 text-lg text-gray-300">Complete transformations, expertly managed.</p>
+        </div>
+      </section>
 
-      {/* Main Content Area */}
       <div className="container mx-auto px-6 py-16 md:py-20">
-        {/* Introduction Section */}
         <section className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 lg:gap-16">
           <div data-aos="fade-right">
             <h2 className="text-3xl font-bold text-[#1F2937]">Reimagine Your Entire Home</h2>
             <p className="mt-6 text-gray-600">
-              A major renovation is more than just an update; it's a complete reimagining of your living space. It's an opportunity to create a home that is perfectly tailored to your family's current and future needs. Whether you're looking to create an open-concept main floor, add a second story, or undertake a complete gut renovation, Pomo Build has the experience and expertise to manage your project from concept to completion.
+              A major renovation is more than just an update; it&apos;s a complete reimagining of your living space. It&apos;s an opportunity to create a home that is perfectly tailored to your family&apos;s current and future needs. Whether you&apos;re looking to create an open-concept main floor, add a second story, or undertake a complete gut renovation, Pomo Build has the experience and expertise to manage your project from concept to completion.
             </p>
             <p className="mt-4 text-gray-600">
               Large-scale projects require meticulous planning, expert project management, and a team of highly skilled trades. We provide all of this, acting as your single point of contact and accountability. We handle everything from the initial architectural design and permitting to the final finishing touches, ensuring a seamless process and a result that exceeds your expectations.
             </p>
             <p className="mt-4 text-gray-600">
               Homeowners in Coquitlam, Port Moody, Port Coquitlam, Anmore, and Belcarra can also review our{' '}
-              <Link href="/tri-cities-renovations" className="font-semibold text-[#D97706] hover:underline">
+              <Link href={TRI_CITIES_HREF} className="font-semibold text-[#D97706] hover:underline">
                 Tri-Cities renovations
               </Link>{' '}
               landing page for a streamlined estimate path.
@@ -70,7 +81,6 @@ export default function MajorRenovationsPage() {
           </div>
         </section>
 
-        {/* Our Process Section - NEW */}
         <section className="mt-20" data-aos="fade-up">
             <h2 className="text-center text-3xl font-bold text-[#1F2937]">Our Renovation Process in Detail</h2>
             <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2">
@@ -93,7 +103,6 @@ export default function MajorRenovationsPage() {
             </div>
         </section>
 
-        {/* Project Gallery Section */}
         <section className="mt-20 text-center" data-aos="fade-up">
             <h2 className="text-3xl font-bold text-[#1F2937]">The Art of Transformation</h2>
             <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -103,11 +112,28 @@ export default function MajorRenovationsPage() {
             </div>
         </section>
 
+        <RelatedLinks
+          heading="Related Tri-Cities pages"
+          links={[
+            { href: TRI_CITIES_HREF, label: 'Tri-Cities renovations', detail: 'Regional estimate path for the five priority communities.' },
+            { href: '/service-area/anmore', label: 'Anmore custom renovations', detail: 'Large-lot and custom-home planning in Anmore.' },
+            { href: '/service-area/belcarra', label: 'Belcarra renovations', detail: 'Hillside and waterfront remodel planning in Belcarra.' },
+            { href: '/service-area/port-moody', label: 'Port Moody renovations', detail: 'Condo and house remodels from our Port Moody base.' },
+          ]}
+        />
+
         <section className="mt-20" data-aos="fade-up">
             <h2 className="text-center text-3xl font-bold text-[#1F2937]">Frequently Asked Questions</h2>
             <div className="mt-12 max-w-3xl mx-auto space-y-4">
-                <details className="group rounded-lg bg-[#F9FAFB] p-6 shadow-sm"><summary aria-controls="faq1_content" className="cursor-pointer font-semibold text-lg text-[#1F2937] flex justify-between items-center">What is considered a 'major renovation'?<span className="transform transition-transform duration-300 group-open:rotate-180" aria-hidden="true">▼</span></summary><p id="faq1_content" className="mt-4 text-gray-600">A major renovation typically involves structural changes to the home, such as removing walls, adding a new room or floor, or a complete gut renovation of multiple rooms. It almost always requires architectural plans and extensive permitting.</p></details>
-                <details className="group rounded-lg bg-[#F9FAFB] p-6 shadow-sm"><summary aria-controls="faq2_content" className="cursor-pointer font-semibold text-lg text-[#1F2937] flex justify-between items-center">How do you manage such a large and complex project?<span className="transform transition-transform duration-300 group-open:rotate-180" aria-hidden="true">▼</span></summary><p id="faq2_content" className="mt-4 text-gray-600">We use dedicated project management software and a single point of contact for you. Our process includes detailed scheduling, regular client meetings, and meticulous coordination of all trades to ensure the project stays on track and on budget.</p></details>
+                {faqs.map((faq) => (
+                  <details key={faq.question} className="group rounded-lg bg-[#F9FAFB] p-6 shadow-sm">
+                    <summary className="cursor-pointer font-semibold text-lg text-[#1F2937] flex justify-between items-center">
+                      {faq.question}
+                      <span className="transform transition-transform duration-300 group-open:rotate-180" aria-hidden="true">▼</span>
+                    </summary>
+                    <p className="mt-4 text-gray-600">{faq.answer}</p>
+                  </details>
+                ))}
             </div>
         </section>
       </div>

@@ -1,17 +1,7 @@
-import type { Metadata } from 'next';
 import Button from '@/components/Button';
+import { pageMetadata } from '@/lib/page-seo';
 
-export const metadata: Metadata = {
-  title: 'Thank You',
-  robots: {
-    index: false,
-    follow: false,
-    googleBot: {
-      index: false,
-      follow: false,
-    },
-  },
-};
+export const metadata = pageMetadata('thank-you');
 
 export default function ThankYouPage() {
   return (

@@ -1,45 +1,11 @@
-export default function SchemaMarkup() {
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "HomeAndConstructionBusiness",
-    "name": "Pomo Build",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "1924 Clarke St",
-      "addressLocality": "Port Moody",
-      "addressRegion": "BC",
-      "postalCode": "V3H 1X9",
-      "addressCountry": "CA"
-    },
-    "telephone": "+1-604-500-2003",
-    "email": "info@pomobuild.ca",
-    "url": "https://pomobuild.ca", // Placeholder for your future domain
-    // This line is new and very important for SEO
-    "sameAs": "https://maps.app.goo.gl/kRkRN6CmWb7mMX7s6",
-    "openingHours": "Mo-Sa 08:00-18:00",
-    "areaServed": [
-      "Coquitlam",
-      "Port Moody",
-      "Port Coquitlam",
-      "Burnaby",
-      "Vancouver",
-      "North Vancouver",
-      "West Vancouver",
-      "Surrey",
-      "Richmond",
-      "New Westminster",
-      "Maple Ridge",
-      "Pitt Meadows",
-      "Langley"
-    ],
-    "description": "Pomo Build offers high-quality renovation, construction, and handyman services for homeowners and businesses in Metro Vancouver.",
-    "image": "https://pomobuild.ca/logo.png" // Placeholder for your logo
-  };
+import JsonLd from '@/components/JsonLd';
+import { buildBusinessSchema, buildWebsiteSchema } from '@/lib/schema';
 
+export default function SchemaMarkup() {
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
+    <>
+      <JsonLd data={buildBusinessSchema()} />
+      <JsonLd data={buildWebsiteSchema()} />
+    </>
   );
 }
