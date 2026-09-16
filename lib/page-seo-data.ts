@@ -299,4 +299,6 @@ export const PAGE_SEO = {
 
 export type PageSeoKey = keyof typeof PAGE_SEO;
 
-export const INDEXABLE_PAGE_SEO = Object.values(PAGE_SEO).filter((page) => page.index !== false);
+export const INDEXABLE_PAGE_SEO = (Object.values(PAGE_SEO) as PageSeoRecord[]).filter(
+  (page) => page.index !== false
+);

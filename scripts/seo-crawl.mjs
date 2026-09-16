@@ -85,14 +85,14 @@ for (const page of pages) {
     continue;
   }
 
-  const title = extract(page.html, /<title>([^<]*)<\/title>/i)[0];
+  const title = extract(page.html, /<title>([^<]*)<\/title>/gi)[0];
   const description = extract(
     page.html,
-    /<meta\s+name="description"\s+content="([^"]*)"/i
+    /<meta\s+name="description"\s+content="([^"]*)"/gi
   )[0];
   const canonicals = extract(
     page.html,
-    /<link\s+rel="canonical"\s+href="([^"]*)"/i
+    /<link\s+rel="canonical"\s+href="([^"]*)"/gi
   );
   const jsonBlocks = extract(
     page.html,
