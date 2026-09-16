@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
   const post = await getPost(params.slug);
   if (!post) return { title: "Post Not Found" };
   return {
-    title: `${post.title} | Pomo Build Blog`,
+    title: post.title,
     description: post.excerpt,
     alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {

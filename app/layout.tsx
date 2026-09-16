@@ -15,13 +15,14 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://pomobuild.ca'), // Placeholder for your live domain
+  metadataBase: new URL('https://pomobuild.ca'),
   title: {
-    default: 'Pomo Build | Renovations & Handyman Services',
+    default: 'Pomo Build | Port Moody Renovations & Handyman Services',
     template: '%s | Pomo Build',
   },
-  description: "Your trusted general contractor in Port Moody for high-quality kitchen & bath remodeling, basement finishing, and reliable handyman services.",
-   icons: {
+  description:
+    'Pomo Build provides kitchen, bathroom, basement, full-home, commercial, and handyman services across Metro Vancouver.',
+  icons: {
     icon: [
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
       { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },

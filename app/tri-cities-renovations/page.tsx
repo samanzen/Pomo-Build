@@ -1,31 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import type { Metadata } from 'next';
 import QuoteFormEmbed from '@/components/QuoteFormEmbed';
+import JsonLd from '@/components/JsonLd';
+import { pageMetadata } from '@/lib/page-seo';
+import { BUSINESS_ID } from '@/lib/site';
 
-export const metadata: Metadata = {
-  title: 'Tri-Cities Renovation Contractors',
-  description:
-    'Kitchen, bathroom, and full-home renovations in Coquitlam, Port Moody, Port Coquitlam, Anmore, and Belcarra. Request a free on-site estimate today.',
-  alternates: {
-    canonical: 'https://pomobuild.ca/tri-cities-renovations',
-  },
-  openGraph: {
-    title: 'Tri-Cities Renovation Contractors | Pomo Build',
-    description:
-      'Kitchen, bathroom, and full-home renovations for Tri-Cities homeowners. Free on-site estimates from a Port Moody-based contractor.',
-    url: 'https://pomobuild.ca/tri-cities-renovations',
-    images: [{ url: '/images/renovation-hero.webp' }],
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Tri-Cities Renovation Contractors | Pomo Build',
-    description:
-      'Kitchen, bathroom, and full-home renovations across Coquitlam, Port Moody, Port Coquitlam, Anmore, and Belcarra.',
-    images: ['/images/renovation-hero.webp'],
-  },
-};
+export const metadata = pageMetadata('tri-cities-renovations');
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
@@ -44,10 +24,10 @@ const breadcrumbSchema = {
 const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'GeneralContractor',
+  '@id': BUSINESS_ID,
   name: 'Pomo Build',
-  url: 'https://pomobuild.ca/tri-cities-renovations',
+  url: 'https://pomobuild.ca',
   telephone: '+1-604-500-2003',
-  email: 'info@pomobuild.ca',
   image: 'https://pomobuild.ca/images/renovation-hero.webp',
   address: {
     '@type': 'PostalAddress',
@@ -59,14 +39,14 @@ const localBusinessSchema = {
   },
   openingHours: 'Mo-Sa 08:00-18:00',
   areaServed: [
-    { '@type': 'City', name: 'Coquitlam' },
     { '@type': 'City', name: 'Port Moody' },
+    { '@type': 'City', name: 'Coquitlam' },
     { '@type': 'City', name: 'Port Coquitlam' },
     { '@type': 'City', name: 'Anmore' },
     { '@type': 'City', name: 'Belcarra' },
   ],
   description:
-    'Port Moody-based renovation contractor providing kitchen, bathroom, and full-home renovations across the Tri-Cities.',
+    'Port Moody-based renovation contractor providing kitchen, bathroom, and full-home renovations in the Tri-Cities and nearby Anmore and Belcarra.',
 };
 
 const serviceSchema = {
@@ -77,7 +57,7 @@ const serviceSchema = {
       '@type': 'Service',
       name: 'Kitchen Renovations',
       serviceType: 'Kitchen remodeling',
-      provider: { '@type': 'GeneralContractor', name: 'Pomo Build' },
+      provider: { '@id': BUSINESS_ID },
       areaServed: ['Coquitlam', 'Port Moody', 'Port Coquitlam', 'Anmore', 'Belcarra'],
       url: 'https://pomobuild.ca/services/kitchen-bath',
     },
@@ -85,7 +65,7 @@ const serviceSchema = {
       '@type': 'Service',
       name: 'Bathroom Renovations',
       serviceType: 'Bathroom remodeling',
-      provider: { '@type': 'GeneralContractor', name: 'Pomo Build' },
+      provider: { '@id': BUSINESS_ID },
       areaServed: ['Coquitlam', 'Port Moody', 'Port Coquitlam', 'Anmore', 'Belcarra'],
       url: 'https://pomobuild.ca/services/kitchen-bath',
     },
@@ -93,7 +73,7 @@ const serviceSchema = {
       '@type': 'Service',
       name: 'Full-Home Renovations',
       serviceType: 'Major home renovation',
-      provider: { '@type': 'GeneralContractor', name: 'Pomo Build' },
+      provider: { '@id': BUSINESS_ID },
       areaServed: ['Coquitlam', 'Port Moody', 'Port Coquitlam', 'Anmore', 'Belcarra'],
       url: 'https://pomobuild.ca/services/major-renovations',
     },
@@ -109,7 +89,7 @@ const faqSchema = {
       name: 'Do you offer free on-site estimates in the Tri-Cities?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. Pomo Build provides free on-site estimates for kitchen, bathroom, and full-home renovation projects in Coquitlam, Port Moody, Port Coquitlam, Anmore, and Belcarra.',
+        text: 'Yes. Pomo Build provides free on-site estimates for kitchen, bathroom, and full-home renovation projects in Port Moody, Coquitlam, and Port Coquitlam, and in nearby Anmore and Belcarra.',
       },
     },
     {
@@ -141,7 +121,7 @@ const faqSchema = {
       name: 'Do you handle permits for Tri-Cities renovation projects?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'When permits are required for plumbing, electrical, or structural changes, we manage the application process with the relevant municipality and coordinate inspections as part of the project.',
+        text: 'Permit requirements depend on the municipality and the scope of work. During the estimate we can discuss typical requirements and point you to the relevant municipal pages. We do not guarantee permit outcomes or special municipal access.',
       },
     },
   ],
@@ -228,14 +208,14 @@ const cities = [
     href: '/service-area/anmore',
     image: '/images/location-hero-anmore.webp',
     alt: 'Tree-lined residential area in Anmore, BC',
-    copy: 'Anmore projects often call for careful planning around larger lots and custom homes. We tailor kitchen, bath, and full-home renovations to that setting.',
+    copy: 'Anmore is a nearby community, not one of the three Tri-Cities municipalities. Projects there often call for careful planning around larger lots. We tailor kitchen, bath, and full-home renovations to that setting.',
   },
   {
     name: 'Belcarra',
     href: '/service-area/belcarra',
     image: '/images/location-hero-belcarra.webp',
     alt: 'Scenic residential surroundings in Belcarra, BC',
-    copy: 'For Belcarra homeowners, we provide attentive renovation planning that respects property access, timelines, and the character of the home.',
+    copy: 'Belcarra is a nearby community served from our Port Moody base. We provide attentive renovation planning that respects property access, timelines, and the character of the home.',
   },
 ];
 
@@ -243,7 +223,7 @@ const faqs = [
   {
     question: 'Do you offer free on-site estimates in the Tri-Cities?',
     answer:
-      'Yes. Pomo Build provides free on-site estimates for kitchen, bathroom, and full-home renovation projects in Coquitlam, Port Moody, Port Coquitlam, Anmore, and Belcarra.',
+      'Yes. Pomo Build provides free on-site estimates for kitchen, bathroom, and full-home renovation projects in Port Moody, Coquitlam, and Port Coquitlam, and in nearby Anmore and Belcarra.',
   },
   {
     question: 'What renovation services do you provide for Tri-Cities homeowners?',
@@ -263,17 +243,17 @@ const faqs = [
   {
     question: 'Do you handle permits for Tri-Cities renovation projects?',
     answer:
-      'When permits are required for plumbing, electrical, or structural changes, we manage the application process with the relevant municipality and coordinate inspections as part of the project.',
+      'Permit requirements depend on the municipality and the scope of work. During the estimate we can discuss typical requirements and point you to the relevant municipal pages. We do not guarantee permit outcomes or special municipal access.',
   },
 ];
 
 export default function TriCitiesRenovationsPage() {
   return (
     <div className="bg-white pb-24 md:pb-0">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={localBusinessSchema} />
+      <JsonLd data={serviceSchema} />
+      <JsonLd data={faqSchema} />
 
       <nav aria-label="Breadcrumb" className="bg-[#F9FAFB] border-b border-gray-200">
         <div className="container mx-auto px-4 sm:px-6 py-3 text-sm text-gray-600">
@@ -304,13 +284,13 @@ export default function TriCitiesRenovationsPage() {
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-12 items-start">
             <div>
               <p className="text-sm font-semibold uppercase tracking-wide text-[#D97706]">
-                Coquitlam · Port Moody · Port Coquitlam · Anmore · Belcarra
+                Port Moody · Coquitlam · Port Coquitlam
               </p>
               <h1 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
                 Tri-Cities Renovation Contractors
               </h1>
               <p className="mt-5 max-w-xl text-base text-gray-200 sm:text-lg">
-                Pomo Build helps Tri-Cities homeowners plan and complete kitchen, bathroom, and full-home renovations with quality craftsmanship, clear communication, and reliable scheduling.
+                Pomo Build helps Tri-Cities homeowners plan and complete kitchen, bathroom, and full-home renovations with quality craftsmanship, clear communication, and reliable scheduling. Nearby Anmore and Belcarra homeowners are welcome too.
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -489,7 +469,7 @@ export default function TriCitiesRenovationsPage() {
               </li>
               <li className="flex gap-3">
                 <span className="mt-1 text-[#D97706] font-bold">•</span>
-                <span><strong className="text-[#1F2937]">Local knowledge:</strong> familiar with Tri-Cities homes, neighbourhoods, and municipal processes.</span>
+                <span><strong className="text-[#1F2937]">Local knowledge:</strong> based in Port Moody and familiar with working across the Tri-Cities and nearby communities.</span>
               </li>
             </ul>
             <div className="mt-8">
@@ -529,7 +509,7 @@ export default function TriCitiesRenovationsPage() {
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-bold text-[#1F2937] sm:text-4xl">Serving the Tri-Cities and nearby communities</h2>
           <p className="mt-4 text-gray-600">
-            We provide renovation services across Coquitlam, Port Moody, Port Coquitlam, Anmore, and Belcarra—with local pages for each community.
+            We provide renovation services in Port Moody, Coquitlam, and Port Coquitlam—the Tri-Cities—and in nearby Anmore and Belcarra. Each community has its own local page.
           </p>
         </div>
         <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">

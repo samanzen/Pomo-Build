@@ -1,31 +1,20 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import type { Metadata } from 'next';
+import JsonLd from '@/components/JsonLd';
+import { pageMetadata } from '@/lib/page-seo';
+import { buildBreadcrumbSchema } from '@/lib/schema';
 
-// SEO Metadata for this specific page
-export const metadata: Metadata = {
-  title: 'About Pomo Build | Your Trusted Local Renovation Contractor',
-  description: 'Learn about Pomo Build, a Port Moody-based renovation company founded by Saman Zen. Discover our commitment to quality, integrity, and craftsmanship for projects across Metro Vancouver.',
-  alternates: {
-    canonical: '/about',
-  },
-};
+export const metadata = pageMetadata('about');
 
-// Advanced SEO Schema for breadcrumbs
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pomobuild.ca" },
-                     { "@type": "ListItem", "position": 2, "name": "About Us", "item": "https://pomobuild.ca/about" }]
-};
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', path: '/' },
+  { name: 'About Us', path: '/about' },
+]);
 
 export default function AboutPage() {
   return (
     <div className="bg-white">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
+      <JsonLd data={breadcrumbSchema} />
       {/* Page Header */}
       <div className="bg-[#1F2937] py-16 text-center text-white">
         <h1 className="text-4xl font-bold md:text-5xl" data-aos="fade-up">
@@ -68,7 +57,7 @@ export default function AboutPage() {
             Our Mission & Core Values
           </h2>
           <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-            Our mission is simple: to be the most trusted and recommended renovation contractor in the Tri-Cities and beyond. We achieve this by living our core values every day.
+            Our mission is simple: to be a trusted renovation contractor for homeowners and businesses across Metro Vancouver. We achieve this by living our core values every day.
           </p>
           <div className="mt-16 grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">
             <div className="flex flex-col items-center" data-aos="fade-up" data-aos-delay="100">

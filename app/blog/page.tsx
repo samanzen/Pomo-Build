@@ -1,14 +1,8 @@
 import Link from 'next/link';
-import type { Metadata } from 'next';
 import { client } from '@/sanity/client';
+import { pageMetadata } from '@/lib/page-seo';
 
-export const metadata: Metadata = {
-  title: 'The Pomo Build Blog | Renovation Tips & Insights',
-  description: 'The official blog of Pomo Build. Find expert tips, project insights, and the latest trends in home renovation and construction in the Metro Vancouver area.',
-  alternates: {
-    canonical: '/blog',
-  },
-};
+export const metadata = pageMetadata('blog');
 
 interface Post {
   title: string;
@@ -43,6 +37,18 @@ export default async function BlogPage() {
       </div>
 
       <section className="container mx-auto px-6 py-16 md:py-20">
+        {posts.length === 0 ? (
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-2xl font-bold text-[#1F2937]">Articles are being prepared</h2>
+            <p className="mt-4 text-gray-600">
+              We will publish renovation guides here when they are ready. Until then, review our{' '}
+              <Link href="/services" className="font-semibold text-[#D97706] hover:underline">
+                services
+              </Link>{' '}
+              or request a quote.
+            </p>
+          </div>
+        ) : null}
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((post, index) => (
             // This link is now fully dynamic using the slug from Sanity

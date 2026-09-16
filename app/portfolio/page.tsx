@@ -1,96 +1,45 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import type { Metadata } from 'next';
+import JsonLd from '@/components/JsonLd';
+import { pageMetadata } from '@/lib/page-seo';
+import { PORTFOLIO_PROJECTS } from '@/lib/portfolio';
+import { buildBreadcrumbSchema } from '@/lib/schema';
 
-// SEO Metadata for this page
-export const metadata: Metadata = {
-  title: 'Our Work | Pomo Build Project Portfolio',
-  description: 'Explore a gallery of our recent renovation and construction projects in Port Moody, Coquitlam, Burnaby, and across Metro Vancouver. See the quality craftsmanship of Pomo Build.',
-  alternates: {
-    canonical: '/portfolio',
-  },
-};
-
-// This list now has all the correct links
-const projects = [
-  {
-    title: "Modern Kitchen Remodel",
-    category: "Kitchens",
-    location: "Burnaby, BC",
-    imageSrc: "/images/portfolio-kitchen-1.webp",
-    href: "/portfolio/modern-kitchen-remodel",
-  },
-  {
-    title: "Luxury Ensuite Bathroom",
-    category: "Bathrooms",
-    location: "Coquitlam, BC",
-    imageSrc: "/images/portfolio-bath-1.webp",
-    href: "/portfolio/luxury-ensuite-bathroom",
-  },
-  {
-    title: "Basement Home Theatre",
-    category: "Basements",
-    location: "Vancouver, BC",
-    imageSrc: "/images/portfolio-basement-1.webp",
-    href: "/portfolio/basement-home-theatre",
-  },
-  {
-    title: "Cedar Deck & Patio",
-    category: "Exteriors",
-    location: "Port Moody, BC",
-    imageSrc: "/images/portfolio-deck-1.webp",
-    href: "/portfolio/cedar-deck-patio",
-  },
-  {
-    title: "Commercial Office Fit-out",
-    category: "Commercial",
-    location: "Surrey, BC",
-    imageSrc: "/images/portfolio-exterior-1.webp",
-    href: "/portfolio/commercial-office-fit-out",
-  },
-  {
-    title: "Custom Shelving & Repairs",
-    category: "Handyman",
-    location: "New Westminster, BC",
-    imageSrc: "/images/portfolio-handyman-1.webp",
-    href: "/portfolio/custom-shelving-repairs",
-  },
-];
+export const metadata = pageMetadata('portfolio');
 
 export default function PortfolioPage() {
   return (
     <div className="bg-white">
-      {/* Page Header */}
+      <JsonLd
+        data={buildBreadcrumbSchema([
+          { name: 'Home', path: '/' },
+          { name: 'Portfolio', path: '/portfolio' },
+        ])}
+      />
       <div className="bg-[#1F2937] py-16 text-center text-white">
         <h1 className="text-4xl font-bold md:text-5xl" data-aos="fade-up">
           Our Work
         </h1>
         <p className="mt-4 text-lg text-gray-300 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
           We take pride in our craftsmanship. Explore a selection of our recent projects across Metro Vancouver.
-          Tri-Cities homeowners can also request a free estimate on our{' '}
-          <Link href="/tri-cities-renovations" className="underline hover:text-[#D97706]">
-            renovations landing page
-          </Link>
-          .
         </p>
       </div>
 
-      {/* Portfolio Grid */}
       <section className="container mx-auto px-6 py-16 md:py-20">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, index) => (
+          {PORTFOLIO_PROJECTS.map((project, index) => (
             <Link key={project.title} href={project.href}>
-              <div 
+              <div
                 className="group relative block overflow-hidden rounded-lg shadow-lg"
                 data-aos="fade-up"
                 data-aos-delay={100 * (index % 3)}
               >
-                <Image 
-                  src={project.imageSrc} 
-                  alt={project.title} 
-                  width={600} 
-                  height={400} 
-                  className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110" 
+                <Image
+                  src={project.imageSrc}
+                  alt={project.title}
+                  width={600}
+                  height={400}
+                  className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 p-6">
@@ -103,7 +52,6 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {/* Call to Action Section */}
       <section className="bg-[#F9FAFB]">
         <div className="container mx-auto px-6 py-16 text-center" data-aos="fade-up">
           <h2 className="text-3xl font-bold text-[#1F2937]">

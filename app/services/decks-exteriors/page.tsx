@@ -1,17 +1,47 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import JsonLd from '@/components/JsonLd';
+import RelatedLinks from '@/components/RelatedLinks';
+import { pageMetadata } from '@/lib/page-seo';
+import { buildBreadcrumbSchema, buildFaqSchema, buildServiceSchema } from '@/lib/schema';
+import { TRI_CITIES_HREF } from '@/lib/locations';
 
-const faqSchema = { /* ... Schema data remains the same ... */ };
-const serviceSchema = { /* ... Schema data remains the same ... */ };
+export const metadata = pageMetadata('services/decks-exteriors');
+
+const faqs = [
+  {
+    question: 'Do I need a permit to build a deck in Port Moody?',
+    answer:
+      'In Port Moody and most Metro Vancouver municipalities, a building permit is typically required for decks over a certain height (usually 0.6m or 2ft above the ground) or size. We handle the entire permit application process to ensure your project is fully compliant with local bylaws.',
+  },
+  {
+    question: "What's the difference between cedar and composite decking?",
+    answer:
+      'Cedar is a natural wood that offers a beautiful, classic look but requires regular maintenance (staining, sealing). Composite decking is a low-maintenance, highly durable man-made product. We can help you choose the best option based on your budget, lifestyle, and aesthetic preferences.',
+  },
+];
 
 export default function DecksExteriorsPage() {
   return (
     <div className="bg-white">
-      {/* SEO Schemas */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <JsonLd
+        data={buildBreadcrumbSchema([
+          { name: 'Home', path: '/' },
+          { name: 'Services', path: '/services' },
+          { name: 'Decks & Exteriors', path: '/services/decks-exteriors' },
+        ])}
+      />
+      <JsonLd
+        data={buildServiceSchema({
+          name: 'Decks and Exterior Living Spaces',
+          serviceType: 'Deck and exterior construction',
+          description:
+            'Cedar and composite decks, patios, and exterior upgrades built for Metro Vancouver weather.',
+          path: '/services/decks-exteriors',
+        })}
+      />
+      <JsonLd data={buildFaqSchema(faqs)} />
 
-      {/* Page Header */}
       <div
         className="relative bg-gray-800 py-20 text-center text-white"
         style={{ backgroundImage: "url('/images/deck-hero.webp')", backgroundSize: 'cover', backgroundPosition: 'center' }}
@@ -23,9 +53,7 @@ export default function DecksExteriorsPage() {
         </div>
       </div>
 
-      {/* Main Content Area */}
       <div className="container mx-auto px-6 py-16 md:py-20">
-        {/* Introduction Section */}
         <section className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 lg:gap-16">
           <div data-aos="fade-right">
             <h2 className="text-3xl font-bold text-[#1F2937]">Extend Your Living Space Outdoors</h2>
@@ -35,13 +63,19 @@ export default function DecksExteriorsPage() {
             <p className="mt-4 text-gray-600">
               We specialize in designing and building high-quality, durable outdoor structures that not only enhance your lifestyle but also add significant value to your property. From natural cedar to low-maintenance composite, we build spaces that are made to last.
             </p>
+            <p className="mt-4 text-gray-600">
+              For outdoor projects in Port Moody, Coquitlam, or Port Coquitlam, see our{' '}
+              <Link href={TRI_CITIES_HREF} className="font-semibold text-[#D97706] hover:underline">
+                Tri-Cities renovations
+              </Link>{' '}
+              overview.
+            </p>
           </div>
           <div className="relative h-96 w-full" data-aos="fade-left" data-aos-delay="100">
              <Image src="/images/deck-intro.webp" alt="A beautiful modern cedar deck with outdoor furniture." fill className="rounded-lg shadow-lg object-cover" />
           </div>
         </section>
 
-        {/* Decking Material Comparison Section - NEW */}
         <section className="mt-20" data-aos="fade-up">
             <h2 className="text-center text-3xl font-bold text-[#1F2937]">Choosing the Right Material</h2>
             <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto text-center">The material you choose for your deck is the biggest factor in its look, longevity, and maintenance needs. We specialize in the two most popular options in the Lower Mainland.</p>
@@ -57,7 +91,6 @@ export default function DecksExteriorsPage() {
             </div>
         </section>
 
-        {/* Project Gallery Section */}
         <section className="mt-20 text-center" data-aos="fade-up">
             <h2 className="text-3xl font-bold text-[#1F2937]">Featured Deck & Exterior Projects</h2>
             <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -67,13 +100,12 @@ export default function DecksExteriorsPage() {
             </div>
         </section>
 
-        {/* Our Process Section - NEW */}
         <section className="mt-20" data-aos="fade-up">
             <h2 className="text-center text-3xl font-bold text-[#1F2937]">Our Deck Building Process</h2>
             <div className="mt-12 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
                     <h3 className="text-xl font-bold text-[#1F2937]">1. Design & Permitting</h3>
-                    <p className="mt-2 text-gray-600">Every great project starts with a plan. We work with you to design a deck that suits your space and lifestyle. We then produce detailed architectural drawings and handle the entire building permit application with your city, whether it's Port Moody, Coquitlam, or elsewhere.</p>
+                    <p className="mt-2 text-gray-600">Every great project starts with a plan. We work with you to design a deck that suits your space and lifestyle. We then produce detailed architectural drawings and handle the entire building permit application with your city, whether it&apos;s Port Moody, Coquitlam, or elsewhere.</p>
                 </div>
                 <div>
                     <h3 className="text-xl font-bold text-[#1F2937]">2. Foundation & Framing</h3>
@@ -81,7 +113,7 @@ export default function DecksExteriorsPage() {
                 </div>
                 <div>
                     <h3 className="text-xl font-bold text-[#1F2937]">3. Decking & Railings</h3>
-                    <p className="mt-2 text-gray-600">This is where the design comes to life. Our skilled carpenters meticulously install your chosen decking material, whether it's natural cedar or a low-maintenance composite. We then install the railings, ensuring they are not only beautiful but also safe and secure.</p>
+                    <p className="mt-2 text-gray-600">This is where the design comes to life. Our skilled carpenters meticulously install your chosen decking material, whether it&apos;s natural cedar or a low-maintenance composite. We then install the railings, ensuring they are not only beautiful but also safe and secure.</p>
                 </div>
                 <div>
                     <h3 className="text-xl font-bold text-[#1F2937]">4. Finishing & Cleanup</h3>
@@ -90,11 +122,27 @@ export default function DecksExteriorsPage() {
             </div>
         </section>
 
+        <RelatedLinks
+          heading="Related work and communities"
+          links={[
+            { href: '/portfolio/cedar-deck-patio', label: 'Cedar deck in Port Moody', detail: 'Published sloped-lot deck case study.' },
+            { href: '/service-area/port-moody', label: 'Port Moody renovations', detail: 'Decks designed for Port Moody views and weather.' },
+            { href: TRI_CITIES_HREF, label: 'Tri-Cities renovations', detail: 'Outdoor living projects in Port Moody, Coquitlam, and Port Coquitlam.' },
+          ]}
+        />
+
         <section className="mt-20" data-aos="fade-up">
             <h2 className="text-center text-3xl font-bold text-[#1F2937]">Frequently Asked Questions</h2>
             <div className="mt-12 max-w-3xl mx-auto space-y-4">
-                <details className="group rounded-lg bg-[#F9FAFB] p-6 shadow-sm"><summary className="cursor-pointer font-semibold text-lg text-[#1F2937] flex justify-between items-center">Do I need a permit to build a deck in Port Moody?<span className="transform transition-transform duration-300 group-open:rotate-180">▼</span></summary><p className="mt-4 text-gray-600">In Port Moody and most Metro Vancouver municipalities, a building permit is typically required for decks over a certain height (usually 0.6m or 2ft above the ground) or size. We handle the entire permit application process to ensure your project is fully compliant with local bylaws.</p></details>
-                <details className="group rounded-lg bg-[#F9FAFB] p-6 shadow-sm"><summary className="cursor-pointer font-semibold text-lg text-[#1F2937] flex justify-between items-center">What's the difference between cedar and composite decking?<span className="transform transition-transform duration-300 group-open:rotate-180">▼</span></summary><p className="mt-4 text-gray-600">Cedar is a natural wood that offers a beautiful, classic look but requires regular maintenance (staining, sealing). Composite decking is a low-maintenance, highly durable man-made product. We can help you choose the best option based on your budget, lifestyle, and aesthetic preferences.</p></details>
+                {faqs.map((faq) => (
+                  <details key={faq.question} className="group rounded-lg bg-[#F9FAFB] p-6 shadow-sm">
+                    <summary className="cursor-pointer font-semibold text-lg text-[#1F2937] flex justify-between items-center">
+                      {faq.question}
+                      <span className="transform transition-transform duration-300 group-open:rotate-180" aria-hidden="true">▼</span>
+                    </summary>
+                    <p className="mt-4 text-gray-600">{faq.answer}</p>
+                  </details>
+                ))}
             </div>
         </section>
       </div>
@@ -104,7 +152,7 @@ export default function DecksExteriorsPage() {
           <h2 className="text-3xl font-bold">Ready to Upgrade Your Outdoor Space?</h2>
           <div className="mt-8">
             <Link href="/contact#quote-form">
-              <button className="bg-[#D97706] text-[#1F2937] font-bold text-lg py-3 px-8 rounded-md hover:bg-amber-600 transition-colors">
+              <button className="bg-[#D97706] text-white font-bold text-lg py-3 px-8 rounded-md hover:bg-amber-600 transition-colors">
                 Get Your Free Estimate
               </button>
             </Link>

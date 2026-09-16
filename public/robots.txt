@@ -1,6 +1,8 @@
 # *
 User-agent: *
 Allow: /
+Disallow: /studio
+Disallow: /thank-you
 
 # Host
 Host: https://pomobuild.ca

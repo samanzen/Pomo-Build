@@ -1,15 +1,46 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import JsonLd from '@/components/JsonLd';
+import RelatedLinks from '@/components/RelatedLinks';
+import { pageMetadata } from '@/lib/page-seo';
+import { buildBreadcrumbSchema, buildFaqSchema, buildServiceSchema } from '@/lib/schema';
 
-const faqSchema = { /* ... Schema data ... */ };
-const serviceSchema = { /* ... Schema data ... */ };
+export const metadata = pageMetadata('services/handyman-services');
+
+const faqs = [
+  {
+    question: 'What kind of jobs does your handyman service cover?',
+    answer:
+      "Our handyman services cover a wide range of small to medium-sized home repairs and improvements, including drywall patching, painting, fixture installation, furniture assembly, minor plumbing and electrical, and general home maintenance tasks. If you have a 'to-do' list, we can help.",
+  },
+  {
+    question: 'Do you have a minimum charge for handyman services?',
+    answer:
+      'Yes, we have a minimum service charge which typically covers the first one to two hours of work. This ensures we can provide a professional, insured craftsman to your door for even the smallest jobs. Please contact us for our current rates.',
+  },
+];
 
 export default function HandymanServicesPage() {
   return (
     <div className="bg-white">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      {/* Page Header */}
+      <JsonLd
+        data={buildBreadcrumbSchema([
+          { name: 'Home', path: '/' },
+          { name: 'Services', path: '/services' },
+          { name: 'Handyman Services', path: '/services/handyman-services' },
+        ])}
+      />
+      <JsonLd
+        data={buildServiceSchema({
+          name: 'Professional Handyman Services',
+          serviceType: 'Handyman services',
+          description:
+            'Insured handyman repairs, installations, painting, and small improvements for homes in Port Moody and nearby cities.',
+          path: '/services/handyman-services',
+        })}
+      />
+      <JsonLd data={buildFaqSchema(faqs)} />
+
       <div
         className="relative bg-gray-800 py-20 text-center text-white"
         style={{ backgroundImage: "url('/images/handyman-hero.webp')", backgroundSize: 'cover', backgroundPosition: 'center' }}
@@ -21,17 +52,22 @@ export default function HandymanServicesPage() {
         </div>
       </div>
 
-      {/* Main Content Area */}
       <div className="container mx-auto px-6 py-16 md:py-20">
-        {/* Introduction Section */}
         <section className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 lg:gap-16">
           <div data-aos="fade-right">
             <h2 className="text-3xl font-bold text-[#1F2937]">Your Go-To for Home Repairs & Improvements</h2>
             <p className="mt-6 text-gray-600">
-              For every homeowner, there's a list of small jobs that need attention—a leaky faucet, a hole in the drywall, a new light fixture to install. While these tasks may seem minor, they require the right tools and expertise to be done correctly.
+              For every homeowner, there&apos;s a list of small jobs that need attention—a leaky faucet, a hole in the drywall, a new light fixture to install. While these tasks may seem minor, they require the right tools and expertise to be done correctly.
             </p>
             <p className="mt-4 text-gray-600">
-              Pomo Build's professional handyman service is here to tackle your entire to-do list. We provide the same level of quality and professionalism to our small repair jobs as we do to our large-scale renovations. Our insured and experienced craftsmen arrive on time, work cleanly, and guarantee the quality of their work.
+              Pomo Build&apos;s professional handyman service is here to tackle your entire to-do list. We provide the same level of quality and professionalism to our small repair jobs as we do to our large-scale renovations. Our insured and experienced craftsmen arrive on time, work cleanly, and guarantee the quality of their work.
+            </p>
+            <p className="mt-4 text-gray-600">
+              Need a larger remodel instead? Compare options on our{' '}
+              <Link href="/services/major-renovations" className="font-semibold text-[#D97706] hover:underline">
+                major renovations
+              </Link>{' '}
+              page.
             </p>
           </div>
           <div className="relative h-96 w-full" data-aos="fade-left" data-aos-delay="100">
@@ -39,7 +75,6 @@ export default function HandymanServicesPage() {
           </div>
         </section>
 
-        {/* Detailed Service Breakdown Section - NEW */}
         <section className="mt-20" data-aos="fade-up">
             <h2 className="text-center text-3xl font-bold text-[#1F2937]">A Detailed Breakdown of Our Services</h2>
             <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto text-center">
@@ -82,7 +117,6 @@ export default function HandymanServicesPage() {
             </div>
         </section>
 
-        {/* Project Gallery Section */}
         <section className="mt-20 text-center" data-aos="fade-up">
             <h2 className="text-3xl font-bold text-[#1F2937]">Quality Workmanship, Guaranteed</h2>
             <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -92,11 +126,27 @@ export default function HandymanServicesPage() {
             </div>
         </section>
 
+        <RelatedLinks
+          heading="Related work and communities"
+          links={[
+            { href: '/portfolio/custom-shelving-repairs', label: 'Custom shelving and repairs', detail: 'Published New Westminster built-in shelving case study.' },
+            { href: '/service-area/port-moody', label: 'Port Moody renovations', detail: 'Heritage-home repairs and small improvements near our shop.' },
+            { href: '/services/major-renovations', label: 'Major renovations', detail: 'When the job grows beyond a punch list, start here.' },
+          ]}
+        />
+
         <section className="mt-20" data-aos="fade-up">
             <h2 className="text-center text-3xl font-bold text-[#1F2937]">Frequently Asked Questions</h2>
             <div className="mt-12 max-w-3xl mx-auto space-y-4">
-                <details className="group rounded-lg bg-[#F9FAFB] p-6 shadow-sm"><summary className="cursor-pointer font-semibold text-lg text-[#1F2937] flex justify-between items-center">What kind of jobs does your handyman service cover?<span className="transform transition-transform duration-300 group-open:rotate-180">▼</span></summary><p className="mt-4 text-gray-600">Our handyman services cover a wide range of small to medium-sized home repairs and improvements, including drywall patching, painting, fixture installation, furniture assembly, minor plumbing and electrical, and general home maintenance tasks. If you have a 'to-do' list, we can help.</p></details>
-                <details className="group rounded-lg bg-[#F9FAFB] p-6 shadow-sm"><summary className="cursor-pointer font-semibold text-lg text-[#1F2937] flex justify-between items-center">Do you have a minimum charge for handyman services?<span className="transform transition-transform duration-300 group-open:rotate-180">▼</span></summary><p className="mt-4 text-gray-600">Yes, we have a minimum service charge which typically covers the first one to two hours of work. This ensures we can provide a professional, insured craftsman to your door for even the smallest jobs. Please contact us for our current rates.</p></details>
+                {faqs.map((faq) => (
+                  <details key={faq.question} className="group rounded-lg bg-[#F9FAFB] p-6 shadow-sm">
+                    <summary className="cursor-pointer font-semibold text-lg text-[#1F2937] flex justify-between items-center">
+                      {faq.question}
+                      <span className="transform transition-transform duration-300 group-open:rotate-180" aria-hidden="true">▼</span>
+                    </summary>
+                    <p className="mt-4 text-gray-600">{faq.answer}</p>
+                  </details>
+                ))}
             </div>
         </section>
       </div>
@@ -106,7 +156,7 @@ export default function HandymanServicesPage() {
           <h2 className="text-3xl font-bold">Have a To-Do List? We Can Help.</h2>
           <div className="mt-8">
             <Link href="/contact#quote-form">
-              <button className="bg-[#D97706] text-[#1F2937] font-bold text-lg py-3 px-8 rounded-md hover:bg-amber-600 transition-colors">
+              <button className="bg-[#D97706] text-white font-bold text-lg py-3 px-8 rounded-md hover:bg-amber-600 transition-colors">
                 Book a Handyman
               </button>
             </Link>
