@@ -5,8 +5,12 @@ export const BRAND_SUFFIX = 'Pomo Build';
 export const BUSINESS_ID = `${SITE_URL}/#business`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;
 
-/** Confirmed public contact used in the repository and schema. */
-export const BUSINESS_EMAIL = 'info@pomobuild.ca';
+/**
+ * Previously working public email from the live website.
+ * Official address is unconfirmed: contact@pomobuild.com vs info@pomobuild.ca.
+ * Do not publish this value in structured data until the owner confirms one address.
+ */
+export const BUSINESS_EMAIL = 'contact@pomobuild.com';
 export const BUSINESS_PHONE_DISPLAY = '(604) 500-2003';
 export const BUSINESS_PHONE_E164 = '+1-604-500-2003';
 export const BUSINESS_PHONE_TEL = 'tel:+16045002003';

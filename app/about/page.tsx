@@ -57,7 +57,7 @@ export default function AboutPage() {
             Our Mission & Core Values
           </h2>
           <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-            Our mission is simple: to be the most trusted and recommended renovation contractor in the Tri-Cities and beyond. We achieve this by living our core values every day.
+            Our mission is simple: to be a trusted renovation contractor for homeowners and businesses across Metro Vancouver. We achieve this by living our core values every day.
           </p>
           <div className="mt-16 grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">
             <div className="flex flex-col items-center" data-aos="fade-up" data-aos-delay="100">

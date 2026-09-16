@@ -1,11 +1,11 @@
 import { getCityServiceCards } from '@/lib/city-service-cards';
-import { TRI_CITIES_HREF, getLocationBySlug } from '@/lib/locations';
+import { TRI_CITIES_AND_NEARBY_SLUGS, TRI_CITIES_HREF, getLocationBySlug } from '@/lib/locations';
 import { getProjectsByLocation } from '@/lib/portfolio';
 import OriginLocationNote from './OriginLocationNote';
 import RelatedLinks, { type RelatedLink } from './RelatedLinks';
 import ServiceIntentCards from './ServiceIntentCards';
 
-const PRIORITY_RELATED: Record<string, RelatedLink[]> = {
+const TRI_CITIES_RELATED: Record<string, RelatedLink[]> = {
   'port-moody': [
     {
       href: TRI_CITIES_HREF,
@@ -27,7 +27,7 @@ const PRIORITY_RELATED: Record<string, RelatedLink[]> = {
     {
       href: TRI_CITIES_HREF,
       label: 'Tri-Cities renovations',
-      detail: 'Regional overview for Coquitlam, Port Moody, Port Coquitlam, Anmore, and Belcarra.',
+      detail: 'Regional overview for Coquitlam, Port Moody, and Port Coquitlam.',
     },
     {
       href: '/services/kitchen-bath',
@@ -61,7 +61,7 @@ const PRIORITY_RELATED: Record<string, RelatedLink[]> = {
     {
       href: TRI_CITIES_HREF,
       label: 'Tri-Cities renovations',
-      detail: 'Anmore is part of our primary Tri-Cities service area.',
+      detail: 'Anmore is a nearby community served from our Port Moody base.',
     },
     {
       href: '/services/major-renovations',
@@ -78,7 +78,7 @@ const PRIORITY_RELATED: Record<string, RelatedLink[]> = {
     {
       href: TRI_CITIES_HREF,
       label: 'Tri-Cities renovations',
-      detail: 'Belcarra is part of our primary Tri-Cities service area.',
+      detail: 'Belcarra is a nearby community served from our Port Moody base.',
     },
     {
       href: '/services/major-renovations',
@@ -105,7 +105,7 @@ export default function LocationPageExtras({ slug, servicesHeading }: LocationPa
   }
 
   const cards = getCityServiceCards(slug);
-  const related = [...(PRIORITY_RELATED[slug] ?? [])];
+  const related = [...(TRI_CITIES_RELATED[slug] ?? [])];
   const verifiedProjects = getProjectsByLocation(slug);
 
   verifiedProjects.forEach((project) => {
@@ -116,18 +116,21 @@ export default function LocationPageExtras({ slug, servicesHeading }: LocationPa
     });
   });
 
-  if (location.priority === 'secondary') {
-    related.unshift({
-      href: TRI_CITIES_HREF,
-      label: 'Primary service area: Tri-Cities',
-      detail: 'Port Moody, Coquitlam, Port Coquitlam, Anmore, and Belcarra are our core market.',
+  const isTriCitiesOrNearby = (TRI_CITIES_AND_NEARBY_SLUGS as readonly string[]).includes(slug);
+  if (!isTriCitiesOrNearby && related.length === 0 && verifiedProjects.length === 0) {
+    related.push({
+      href: '/service-area',
+      label: 'All Metro Vancouver service areas',
+      detail: 'Browse every community Pomo Build currently lists.',
     });
   }
 
   return (
     <>
       {cards.length > 0 ? <ServiceIntentCards heading={servicesHeading} cards={cards} /> : null}
-      <RelatedLinks heading={`Services and pages related to ${location.name}`} links={related} />
+      {related.length > 0 ? (
+        <RelatedLinks heading={`Services and pages related to ${location.name}`} links={related} />
+      ) : null}
       <OriginLocationNote location={location} />
     </>
   );

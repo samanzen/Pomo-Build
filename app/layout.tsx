@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: '%s | Pomo Build',
   },
   description:
-    'Port Moody-based contractor for kitchen, bath, and full-home renovations across the Tri-Cities.',
+    'Pomo Build provides kitchen, bathroom, basement, full-home, commercial, and handyman services across Metro Vancouver.',
   icons: {
     icon: [
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },

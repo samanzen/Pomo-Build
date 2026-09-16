@@ -9,9 +9,9 @@ export type PageSeoRecord = {
 
 export const PAGE_SEO = {
   home: {
-    title: 'Pomo Build | Port Moody Renovations & Handyman Services',
+    title: 'Port Moody Renovation Contractor | Pomo Build',
     description:
-      'Port Moody-based contractor for kitchen, bath, and full-home renovations across the Tri-Cities. Request a free quote.',
+      'Pomo Build provides kitchen, bathroom, basement, full-home, commercial, and handyman services across Metro Vancouver. Request a quote.',
     path: '/',
     image: '/images/homepage-hero.webp',
     absoluteTitle: true,
@@ -19,21 +19,21 @@ export const PAGE_SEO = {
   about: {
     title: 'About Us',
     description:
-      'Meet Saman Zen and the Port Moody team behind Pomo Build. Quality renovations and honest communication in the Tri-Cities.',
+      'Meet Saman Zen and the Port Moody team behind Pomo Build. Quality renovations and honest communication across Metro Vancouver.',
     path: '/about',
     image: '/images/about-owner-saman-zen.webp',
   },
   blog: {
     title: 'Renovation Tips & Project Insights',
     description:
-      'Practical renovation advice and project notes from Pomo Build for homeowners in Port Moody and the Tri-Cities.',
+      'Practical renovation advice and project notes from Pomo Build for homeowners across Metro Vancouver.',
     path: '/blog',
     image: '/images/homepage-hero.webp',
   },
   contact: {
     title: 'Contact Us',
     description:
-      'Request a renovation or handyman quote in Port Moody and the Tri-Cities. Call (604) 500-2003 or email info@pomobuild.ca.',
+      'Request a renovation or handyman quote across Metro Vancouver. Call (604) 500-2003 or visit our Port Moody office.',
     path: '/contact',
     image: '/images/homepage-hero.webp',
   },
@@ -52,37 +52,37 @@ export const PAGE_SEO = {
     image: '/images/renovation-hero.webp',
   },
   'service-area': {
-    title: 'Tri-Cities & Metro Vancouver Service Area',
+    title: 'Metro Vancouver Service Areas',
     description:
-      'Primary service in Port Moody, Coquitlam, Port Coquitlam, Anmore, and Belcarra, plus selected Metro Vancouver communities.',
+      'Based in Port Moody, Pomo Build provides renovation, general contracting, and handyman services across Metro Vancouver.',
     path: '/service-area',
     image: '/images/location-hero-vancouver.webp',
   },
   'tri-cities-renovations': {
     title: 'Tri-Cities Renovation Contractors',
     description:
-      'Kitchen, bathroom, and full-home renovations in Coquitlam, Port Moody, Port Coquitlam, Anmore, and Belcarra.',
+      'Kitchen, bathroom, and full-home renovations in Port Moody, Coquitlam, and Port Coquitlam, plus nearby Anmore and Belcarra.',
     path: '/tri-cities-renovations',
     image: '/images/renovation-hero.webp',
   },
   'services/major-renovations': {
     title: 'Major Home Renovations',
     description:
-      'Whole-home and large-scale renovations in the Tri-Cities. Planning, permitting, and project management from Port Moody.',
+      'Whole-home and large-scale renovations across Metro Vancouver. Planning and project management from our Port Moody base.',
     path: '/services/major-renovations',
     image: '/images/renovation-hero.webp',
   },
   'services/kitchen-bath': {
     title: 'Kitchen & Bathroom Remodeling',
     description:
-      'Kitchen and bathroom remodels in Port Moody and the Tri-Cities, including cabinets, tile, fixtures, and layout updates.',
+      'Kitchen and bathroom remodels across Metro Vancouver, including cabinets, tile, fixtures, and layout updates.',
     path: '/services/kitchen-bath',
     image: '/images/service-bath.webp',
   },
   'services/basement-finishing': {
     title: 'Basement Finishing & Suites',
     description:
-      'Basement finishing and secondary-suite construction for Tri-Cities homes. Confirm municipal permits before work begins.',
+      'Basement finishing and secondary-suite construction for Metro Vancouver homes. Confirm municipal permits before work begins.',
     path: '/services/basement-finishing',
     image: '/images/basement-hero.webp',
   },
@@ -150,7 +150,7 @@ export const PAGE_SEO = {
     image: '/images/case-hero-handyman-1.webp',
   },
   'service-area/port-moody': {
-    title: 'Port Moody Renovation Contractor',
+    title: 'Local Port Moody Renovation Contractor',
     description:
       'Local Port Moody renovations for Suter Brook, Klahanie, and Moody Centre. Based on Clarke Street.',
     path: '/service-area/port-moody',
@@ -194,7 +194,7 @@ export const PAGE_SEO = {
   'service-area/vancouver': {
     title: 'Vancouver Home Renovations',
     description:
-      'Condo, character-home, and handyman renovations in Vancouver. Port Moody-based team serving selected city projects.',
+      'Condo, character-home, and handyman renovations in Vancouver. Port Moody-based team serving Vancouver projects.',
     path: '/service-area/vancouver',
     image: '/images/location-hero-vancouver.webp',
   },
@@ -215,7 +215,7 @@ export const PAGE_SEO = {
   'service-area/surrey': {
     title: 'Surrey Renovation Contractor',
     description:
-      'Kitchen remodels, basement suites, and decks for Surrey homes. Port Moody-based contractor serving selected Surrey projects.',
+      'Kitchen remodels, basement suites, and decks for Surrey homes. Port Moody-based contractor serving Surrey projects.',
     path: '/service-area/surrey',
     image: '/images/location-hero-surrey.webp',
   },

@@ -121,7 +121,7 @@ export const CITY_SERVICE_CARDS: Record<string, CityServiceCard[]> = {
       title: 'Basement Suites',
       href: '/services/basement-finishing',
       description:
-        "Maximize your property's potential with a legal secondary suite, a popular and valuable addition for homes in Burnaby.",
+        "Finish a legal secondary suite when municipal requirements allow, adding usable space for Burnaby homes. Rental income is not guaranteed.",
     },
   ],
   vancouver: [
@@ -189,7 +189,7 @@ export const CITY_SERVICE_CARDS: Record<string, CityServiceCard[]> = {
       title: 'Legal Basement Suites',
       href: '/services/basement-finishing',
       description:
-        'Adding a legal secondary suite is a very popular and smart investment for Surrey homeowners, providing significant rental income potential.',
+        'We finish legal secondary suites for Surrey homes when municipal requirements allow. Rental income depends on approval and occupancy and is not guaranteed.',
     },
     {
       title: 'Kitchen Renovations',
@@ -298,7 +298,7 @@ export const CITY_SERVICE_CARDS: Record<string, CityServiceCard[]> = {
     {
       title: 'Basement Playrooms & Suites',
       href: '/services/basement-finishing',
-      description: 'Transform your basement into a functional playroom for the kids or a legal suite for extra income.',
+      description: 'Transform your basement into a functional playroom or a legal suite when municipal requirements allow.',
     },
   ],
   delta: [

@@ -19,7 +19,7 @@ export function buildPageMetadata({
   absoluteTitle = false,
 }: PageSeoInput): Metadata {
   const cleanTitle = stripBrandSuffix(title);
-  const brandedTitle = absoluteTitle ? cleanTitle : withBrandSuffix(cleanTitle);
+  const brandedTitle = withBrandSuffix(cleanTitle);
   const canonical = absoluteUrl(path);
   const imageUrl = absoluteUrl(image);
 

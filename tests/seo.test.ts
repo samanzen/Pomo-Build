@@ -2,11 +2,16 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { PAGE_SEO, INDEXABLE_PAGE_SEO } from '../lib/page-seo-data.ts';
 import { stripBrandSuffix, withBrandSuffix, BUSINESS_EMAIL, SITE_URL, absoluteUrl } from '../lib/site.ts';
-import { PRIORITY_LOCATIONS } from '../lib/locations.ts';
+import {
+  GROUPED_SERVICE_AREAS,
+  SERVICE_AREA_LOCATIONS,
+  TRI_CITIES_AND_NEARBY_LOCATIONS,
+  TRI_CITIES_CITY_SLUGS,
+} from '../lib/locations.ts';
 
 test('indexable pages have unique titles and descriptions', () => {
   const titles = INDEXABLE_PAGE_SEO.map((page) =>
-    page.absoluteTitle ? stripBrandSuffix(page.title) : withBrandSuffix(page.title)
+    page.absoluteTitle ? page.title : withBrandSuffix(page.title)
   );
   const descriptions = INDEXABLE_PAGE_SEO.map((page) => page.description);
   assert.equal(new Set(titles).size, titles.length);
@@ -30,14 +35,52 @@ test('page metadata records use absolute self-canonical paths', () => {
   }
 });
 
-test('confirmed public email is the .ca address', () => {
-  assert.equal(BUSINESS_EMAIL, 'info@pomobuild.ca');
+test('homepage metadata uses Metro Vancouver positioning', () => {
+  assert.equal(PAGE_SEO.home.title, 'Port Moody Renovation Contractor | Pomo Build');
+  assert.match(PAGE_SEO.home.description, /Metro Vancouver/);
+  assert.equal(PAGE_SEO.home.description.includes('Tri-Cities'), false);
+  assert.equal(withBrandSuffix(stripBrandSuffix(PAGE_SEO.home.title)), PAGE_SEO.home.title);
 });
 
-test('priority locations include Anmore and Belcarra', () => {
-  const names = PRIORITY_LOCATIONS.map((location) => location.name);
+test('visitor-facing email remains the previously working public address until the owner confirms', () => {
+  assert.equal(BUSINESS_EMAIL, 'contact@pomobuild.com');
+});
+
+test('Tri-Cities grouping includes the three municipalities plus nearby Anmore and Belcarra', () => {
+  assert.deepEqual([...TRI_CITIES_CITY_SLUGS], ['port-moody', 'coquitlam', 'port-coquitlam']);
+  const names = TRI_CITIES_AND_NEARBY_LOCATIONS.map((location) => location.name);
   assert.ok(names.includes('Anmore'));
   assert.ok(names.includes('Belcarra'));
+  assert.equal(TRI_CITIES_AND_NEARBY_LOCATIONS.length, 5);
+});
+
+test('service areas use neutral regions with no priority field', () => {
+  assert.equal(GROUPED_SERVICE_AREAS.length, 6);
+  assert.deepEqual(
+    GROUPED_SERVICE_AREAS.map((group) => group.heading),
+    [
+      'Tri-Cities and Nearby Communities',
+      'North Shore and Howe Sound',
+      'Vancouver and Central Metro Vancouver',
+      'Northeast Metro Vancouver',
+      'Richmond and Delta',
+      'Surrey, White Rock and Langley',
+    ]
+  );
+  for (const location of SERVICE_AREA_LOCATIONS) {
+    assert.equal('priority' in location, false);
+    assert.ok(location.region);
+  }
+});
+
+test('verified service areas include Metro Vancouver cities without a priority field', () => {
+  const names = SERVICE_AREA_LOCATIONS.map((location) => location.name);
+  assert.ok(names.includes('Vancouver'));
+  assert.ok(names.includes('North Vancouver'));
+  assert.ok(names.includes('Burnaby'));
+  assert.ok(names.includes('Port Moody'));
+  assert.ok(names.includes('West Vancouver'));
+  assert.ok(SERVICE_AREA_LOCATIONS.length >= 20);
 });
 
 test('empty JSON-LD objects are treated as invalid', () => {
@@ -48,4 +91,8 @@ test('empty JSON-LD objects are treated as invalid', () => {
   assert.equal(isEmpty({}), true);
   assert.equal(isEmpty([]), true);
   assert.equal(isEmpty({ '@type': 'Service' }), false);
+});
+
+test('stripBrandSuffix still removes a trailing brand', () => {
+  assert.equal(stripBrandSuffix('About Us | Pomo Build'), 'About Us');
 });

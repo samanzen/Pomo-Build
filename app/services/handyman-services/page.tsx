@@ -4,7 +4,6 @@ import JsonLd from '@/components/JsonLd';
 import RelatedLinks from '@/components/RelatedLinks';
 import { pageMetadata } from '@/lib/page-seo';
 import { buildBreadcrumbSchema, buildFaqSchema, buildServiceSchema } from '@/lib/schema';
-import { TRI_CITIES_HREF } from '@/lib/locations';
 
 export const metadata = pageMetadata('services/handyman-services');
 
@@ -65,8 +64,8 @@ export default function HandymanServicesPage() {
             </p>
             <p className="mt-4 text-gray-600">
               Need a larger remodel instead? Compare options on our{' '}
-              <Link href={TRI_CITIES_HREF} className="font-semibold text-[#D97706] hover:underline">
-                Tri-Cities renovations
+              <Link href="/services/major-renovations" className="font-semibold text-[#D97706] hover:underline">
+                major renovations
               </Link>{' '}
               page.
             </p>
@@ -132,7 +131,7 @@ export default function HandymanServicesPage() {
           links={[
             { href: '/portfolio/custom-shelving-repairs', label: 'Custom shelving and repairs', detail: 'Published New Westminster built-in shelving case study.' },
             { href: '/service-area/port-moody', label: 'Port Moody renovations', detail: 'Heritage-home repairs and small improvements near our shop.' },
-            { href: TRI_CITIES_HREF, label: 'Tri-Cities renovations', detail: 'When the job grows beyond a punch list, start here.' },
+            { href: '/services/major-renovations', label: 'Major renovations', detail: 'When the job grows beyond a punch list, start here.' },
           ]}
         />
 

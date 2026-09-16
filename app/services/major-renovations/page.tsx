@@ -31,7 +31,7 @@ const serviceSchema = buildServiceSchema({
   name: 'Major Home Renovations',
   serviceType: 'Major home renovation',
   description:
-    'Whole-home and large-scale renovations in the Tri-Cities, including planning, permitting, and project management.',
+    'Whole-home and large-scale renovations across Metro Vancouver, including planning and project management.',
   path: '/services/major-renovations',
 });
 
@@ -69,11 +69,11 @@ export default function MajorRenovationsPage() {
               Large-scale projects require meticulous planning, expert project management, and a team of highly skilled trades. We provide all of this, acting as your single point of contact and accountability. We handle everything from the initial architectural design and permitting to the final finishing touches, ensuring a seamless process and a result that exceeds your expectations.
             </p>
             <p className="mt-4 text-gray-600">
-              Homeowners in Coquitlam, Port Moody, Port Coquitlam, Anmore, and Belcarra can also review our{' '}
+              Homeowners in Port Moody, Coquitlam, and Port Coquitlam can also review our{' '}
               <Link href={TRI_CITIES_HREF} className="font-semibold text-[#D97706] hover:underline">
                 Tri-Cities renovations
               </Link>{' '}
-              landing page for a streamlined estimate path.
+              landing page.
             </p>
           </div>
           <div className="relative h-96 w-full" data-aos="fade-left" data-aos-delay="100">
@@ -113,9 +113,9 @@ export default function MajorRenovationsPage() {
         </section>
 
         <RelatedLinks
-          heading="Related Tri-Cities pages"
+          heading="Related pages"
           links={[
-            { href: TRI_CITIES_HREF, label: 'Tri-Cities renovations', detail: 'Regional estimate path for the five priority communities.' },
+            { href: TRI_CITIES_HREF, label: 'Tri-Cities renovations', detail: 'Whole-home projects in Port Moody, Coquitlam, and Port Coquitlam.' },
             { href: '/service-area/anmore', label: 'Anmore custom renovations', detail: 'Large-lot and custom-home planning in Anmore.' },
             { href: '/service-area/belcarra', label: 'Belcarra renovations', detail: 'Hillside and waterfront remodel planning in Belcarra.' },
             { href: '/service-area/port-moody', label: 'Port Moody renovations', detail: 'Condo and house remodels from our Port Moody base.' },

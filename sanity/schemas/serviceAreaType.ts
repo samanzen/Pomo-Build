@@ -19,10 +19,20 @@ export const serviceAreaType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'priority',
-      title: 'Priority market',
-      type: 'boolean',
-      initialValue: false,
+      name: 'region',
+      title: 'Geographic grouping',
+      type: 'string',
+      description: 'Optional navigation grouping only. Do not use this as a customer-priority flag.',
+      options: {
+        list: [
+          {title: 'Tri-Cities and Nearby Communities', value: 'tri-cities-nearby'},
+          {title: 'North Shore and Howe Sound', value: 'north-shore'},
+          {title: 'Vancouver and Central Metro Vancouver', value: 'vancouver-central'},
+          {title: 'Northeast Metro Vancouver', value: 'northeast'},
+          {title: 'Richmond and Delta', value: 'richmond-delta'},
+          {title: 'Surrey, White Rock and Langley', value: 'surrey-langley'},
+        ],
+      },
     }),
     defineField({
       name: 'housingNotes',

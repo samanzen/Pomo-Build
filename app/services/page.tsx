@@ -20,7 +20,7 @@ export default function ServicesPage() {
         <h1 className="text-4xl font-bold md:text-5xl" data-aos="fade-up">Our Services</h1>
         <p className="mt-4 text-lg text-gray-300 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
           From full-scale renovations to expert handyman tasks, we provide comprehensive solutions
-          for homes and businesses in the Tri-Cities.
+          for homes and businesses across Metro Vancouver.
         </p>
       </div>
 
@@ -43,7 +43,7 @@ export default function ServicesPage() {
           ))}
         </div>
         <p className="mt-12 text-center text-gray-600">
-          Serving Port Moody, Coquitlam, Port Coquitlam, Anmore, and Belcarra first.{' '}
+          Looking for a regional overview of Port Moody, Coquitlam, and Port Coquitlam?{' '}
           <Link href={TRI_CITIES_HREF} className="font-semibold text-[#D97706] hover:underline">
             See Tri-Cities renovations
           </Link>

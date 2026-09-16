@@ -64,7 +64,7 @@ export default function DecksExteriorsPage() {
               We specialize in designing and building high-quality, durable outdoor structures that not only enhance your lifestyle but also add significant value to your property. From natural cedar to low-maintenance composite, we build spaces that are made to last.
             </p>
             <p className="mt-4 text-gray-600">
-              For Port Moody and Tri-Cities outdoor projects, see our{' '}
+              For outdoor projects in Port Moody, Coquitlam, or Port Coquitlam, see our{' '}
               <Link href={TRI_CITIES_HREF} className="font-semibold text-[#D97706] hover:underline">
                 Tri-Cities renovations
               </Link>{' '}
@@ -127,7 +127,7 @@ export default function DecksExteriorsPage() {
           links={[
             { href: '/portfolio/cedar-deck-patio', label: 'Cedar deck in Port Moody', detail: 'Published sloped-lot deck case study.' },
             { href: '/service-area/port-moody', label: 'Port Moody renovations', detail: 'Decks designed for Port Moody views and weather.' },
-            { href: TRI_CITIES_HREF, label: 'Tri-Cities renovations', detail: 'Regional estimate path for the five priority communities.' },
+            { href: TRI_CITIES_HREF, label: 'Tri-Cities renovations', detail: 'Outdoor living projects in Port Moody, Coquitlam, and Port Coquitlam.' },
           ]}
         />
 

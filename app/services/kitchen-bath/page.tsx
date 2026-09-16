@@ -41,7 +41,7 @@ export default function KitchenBathPage() {
           name: 'Kitchen and Bathroom Remodeling',
           serviceType: 'Kitchen and bathroom remodeling',
           description:
-            'Kitchen and bathroom remodels in Port Moody and the Tri-Cities, including cabinets, tile, fixtures, and layout updates.',
+            'Kitchen and bathroom remodels across Metro Vancouver, including cabinets, tile, fixtures, and layout updates.',
           path: '/services/kitchen-bath',
         })}
       />
@@ -63,17 +63,17 @@ export default function KitchenBathPage() {
           <div data-aos="fade-right">
             <h2 className="text-3xl font-bold text-[#1F2937]">Invest in the Most Important Rooms</h2>
             <p className="mt-6 text-gray-600">
-              Kitchen and bathroom renovations are among the most requested upgrades we plan for Tri-Cities homeowners. A thoughtfully designed kitchen becomes a gathering place, while a modern bathroom provides a private sanctuary.
+              Kitchen and bathroom renovations are among the most requested upgrades we plan for Metro Vancouver homeowners. A thoughtfully designed kitchen becomes a gathering place, while a modern bathroom provides a private sanctuary.
             </p>
             <p className="mt-4 text-gray-600">
               At Pomo Build, we combine thoughtful design and expert craftsmanship to create spaces that are not only stunning but also perfectly tailored to your lifestyle.
             </p>
             <p className="mt-4 text-gray-600">
-              Serving Tri-Cities homeowners? See our dedicated{' '}
+              Planning a kitchen or bathroom remodel in Port Moody, Coquitlam, or Port Coquitlam? See our{' '}
               <Link href={TRI_CITIES_HREF} className="font-semibold text-[#D97706] hover:underline">
                 Tri-Cities renovations
               </Link>{' '}
-              page for local kitchen and bathroom remodel details.
+              page for a regional overview.
             </p>
           </div>
           <div className="relative h-96 w-full" data-aos="fade-left" data-aos-delay="100">
@@ -122,7 +122,7 @@ export default function KitchenBathPage() {
             { href: '/portfolio/modern-kitchen-remodel', label: 'Modern kitchen remodel', detail: 'Published Burnaby kitchen case study.' },
             { href: '/portfolio/luxury-ensuite-bathroom', label: 'Luxury ensuite bathroom', detail: 'Published Coquitlam bathroom case study.' },
             { href: '/service-area/coquitlam', label: 'Coquitlam renovations', detail: 'Kitchen and bath work for Coquitlam homes.' },
-            { href: TRI_CITIES_HREF, label: 'Tri-Cities renovations', detail: 'Regional estimate path for the five priority communities.' },
+            { href: TRI_CITIES_HREF, label: 'Tri-Cities renovations', detail: 'Kitchen and bath remodels in Port Moody, Coquitlam, and Port Coquitlam.' },
           ]}
         />
 

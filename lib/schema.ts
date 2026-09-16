@@ -1,6 +1,5 @@
 import {
   BUSINESS_ADDRESS,
-  BUSINESS_EMAIL,
   BUSINESS_HOURS,
   BUSINESS_ID,
   BUSINESS_PHONE_E164,
@@ -11,7 +10,7 @@ import {
   WEBSITE_ID,
   absoluteUrl,
 } from './site';
-import { PRIORITY_LOCATIONS, SECONDARY_LOCATIONS } from './locations';
+import { SERVICE_AREA_LOCATIONS, type ServiceAreaLocation } from './locations';
 
 export type JsonLdObject = Record<string, unknown>;
 
@@ -37,6 +36,18 @@ function businessReference() {
   };
 }
 
+function cityAreaServed(locations: ServiceAreaLocation[]) {
+  return locations.map((location) => ({
+    '@type': 'City',
+    name: location.name,
+  }));
+}
+
+const METRO_VANCOUVER_AREA = {
+  '@type': 'AdministrativeArea',
+  name: 'Metro Vancouver',
+};
+
 export function buildBusinessSchema(): JsonLdObject {
   return {
     '@context': 'https://schema.org',
@@ -45,7 +56,6 @@ export function buildBusinessSchema(): JsonLdObject {
     name: SITE_NAME,
     url: SITE_URL,
     telephone: BUSINESS_PHONE_E164,
-    email: BUSINESS_EMAIL,
     image: absoluteUrl(LOGO_PATH),
     sameAs: [GOOGLE_MAPS_URL],
     openingHours: BUSINESS_HOURS,
@@ -53,18 +63,9 @@ export function buildBusinessSchema(): JsonLdObject {
       '@type': 'PostalAddress',
       ...BUSINESS_ADDRESS,
     },
-    areaServed: [
-      ...PRIORITY_LOCATIONS.map((location) => ({
-        '@type': 'City',
-        name: location.name,
-      })),
-      ...SECONDARY_LOCATIONS.map((location) => ({
-        '@type': 'City',
-        name: location.name,
-      })),
-    ],
+    areaServed: [METRO_VANCOUVER_AREA, ...cityAreaServed(SERVICE_AREA_LOCATIONS)],
     description:
-      'Pomo Build is a Port Moody-based contractor offering renovations, construction, and handyman services across the Tri-Cities and Metro Vancouver.',
+      'Pomo Build is a Port Moody-based contractor offering renovations, construction, and handyman services across Metro Vancouver.',
   };
 }
 
@@ -105,11 +106,13 @@ export function buildServiceSchema({
   description,
   path,
   serviceType,
+  areaServed,
 }: {
   name: string;
   description: string;
   path: string;
   serviceType: string;
+  areaServed?: ServiceAreaLocation[];
 }): JsonLdObject | undefined {
   if (!name || !description || !path) {
     return undefined;
@@ -123,10 +126,10 @@ export function buildServiceSchema({
     description,
     url: absoluteUrl(path),
     provider: businessReference(),
-    areaServed: PRIORITY_LOCATIONS.map((location) => ({
-      '@type': 'City',
-      name: location.name,
-    })),
+    areaServed: [
+      METRO_VANCOUVER_AREA,
+      ...cityAreaServed(areaServed ?? SERVICE_AREA_LOCATIONS),
+    ],
   };
 }
 

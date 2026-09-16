@@ -1,10 +1,16 @@
-export type LocationPriority = 'priority' | 'secondary';
+export type LocationRegionId =
+  | 'tri-cities-nearby'
+  | 'north-shore'
+  | 'vancouver-central'
+  | 'northeast'
+  | 'richmond-delta'
+  | 'surrey-langley';
 
 export type ServiceAreaLocation = {
   name: string;
   slug: string;
   href: `/${string}`;
-  priority: LocationPriority;
+  region: LocationRegionId;
   shortLabel: string;
   municipalName: string;
   municipalUrl: string;
@@ -12,12 +18,51 @@ export type ServiceAreaLocation = {
   permitUrl: string;
 };
 
-export const PRIORITY_CITY_SLUGS = [
-  'port-moody',
-  'coquitlam',
-  'port-coquitlam',
-  'anmore',
-  'belcarra',
+export type LocationRegionGroup = {
+  id: LocationRegionId;
+  heading: string;
+  slugs: readonly string[];
+};
+
+/** Navigation groupings only. These do not create routes, canonicals, or sitemap entries. */
+export const LOCATION_REGIONS: LocationRegionGroup[] = [
+  {
+    id: 'tri-cities-nearby',
+    heading: 'Tri-Cities and Nearby Communities',
+    slugs: ['port-moody', 'coquitlam', 'port-coquitlam', 'anmore', 'belcarra'],
+  },
+  {
+    id: 'north-shore',
+    heading: 'North Shore and Howe Sound',
+    slugs: ['north-vancouver', 'west-vancouver', 'lions-bay'],
+  },
+  {
+    id: 'vancouver-central',
+    heading: 'Vancouver and Central Metro Vancouver',
+    slugs: ['vancouver', 'burnaby', 'new-westminster', 'ubc'],
+  },
+  {
+    id: 'northeast',
+    heading: 'Northeast Metro Vancouver',
+    slugs: ['maple-ridge', 'pitt-meadows'],
+  },
+  {
+    id: 'richmond-delta',
+    heading: 'Richmond and Delta',
+    slugs: ['richmond', 'delta', 'tsawwassen'],
+  },
+  {
+    id: 'surrey-langley',
+    heading: 'Surrey, White Rock and Langley',
+    slugs: ['surrey', 'white-rock', 'langley'],
+  },
+];
+
+export const TRI_CITIES_CITY_SLUGS = ['port-moody', 'coquitlam', 'port-coquitlam'] as const;
+export const TRI_CITIES_NEARBY_SLUGS = ['anmore', 'belcarra'] as const;
+export const TRI_CITIES_AND_NEARBY_SLUGS = [
+  ...TRI_CITIES_CITY_SLUGS,
+  ...TRI_CITIES_NEARBY_SLUGS,
 ] as const;
 
 export const SERVICE_AREA_LOCATIONS: ServiceAreaLocation[] = [
@@ -25,7 +70,7 @@ export const SERVICE_AREA_LOCATIONS: ServiceAreaLocation[] = [
     name: 'Port Moody',
     slug: 'port-moody',
     href: '/service-area/port-moody',
-    priority: 'priority',
+    region: 'tri-cities-nearby',
     shortLabel: 'Port Moody',
     municipalName: 'City of Port Moody',
     municipalUrl: 'https://www.portmoody.ca/',
@@ -36,7 +81,7 @@ export const SERVICE_AREA_LOCATIONS: ServiceAreaLocation[] = [
     name: 'Coquitlam',
     slug: 'coquitlam',
     href: '/service-area/coquitlam',
-    priority: 'priority',
+    region: 'tri-cities-nearby',
     shortLabel: 'Coquitlam',
     municipalName: 'City of Coquitlam',
     municipalUrl: 'https://www.coquitlam.ca/',
@@ -47,7 +92,7 @@ export const SERVICE_AREA_LOCATIONS: ServiceAreaLocation[] = [
     name: 'Port Coquitlam',
     slug: 'port-coquitlam',
     href: '/service-area/port-coquitlam',
-    priority: 'priority',
+    region: 'tri-cities-nearby',
     shortLabel: 'Port Coquitlam',
     municipalName: 'City of Port Coquitlam',
     municipalUrl: 'https://www.portcoquitlam.ca/',
@@ -58,7 +103,7 @@ export const SERVICE_AREA_LOCATIONS: ServiceAreaLocation[] = [
     name: 'Anmore',
     slug: 'anmore',
     href: '/service-area/anmore',
-    priority: 'priority',
+    region: 'tri-cities-nearby',
     shortLabel: 'Anmore',
     municipalName: 'Village of Anmore',
     municipalUrl: 'https://anmore.com/',
@@ -69,7 +114,7 @@ export const SERVICE_AREA_LOCATIONS: ServiceAreaLocation[] = [
     name: 'Belcarra',
     slug: 'belcarra',
     href: '/service-area/belcarra',
-    priority: 'priority',
+    region: 'tri-cities-nearby',
     shortLabel: 'Belcarra',
     municipalName: 'Village of Belcarra',
     municipalUrl: 'https://www.belcarra.ca/',
@@ -80,7 +125,7 @@ export const SERVICE_AREA_LOCATIONS: ServiceAreaLocation[] = [
     name: 'Burnaby',
     slug: 'burnaby',
     href: '/service-area/burnaby',
-    priority: 'secondary',
+    region: 'vancouver-central',
     shortLabel: 'Burnaby',
     municipalName: 'City of Burnaby',
     municipalUrl: 'https://www.burnaby.ca/',
@@ -91,7 +136,7 @@ export const SERVICE_AREA_LOCATIONS: ServiceAreaLocation[] = [
     name: 'Vancouver',
     slug: 'vancouver',
     href: '/service-area/vancouver',
-    priority: 'secondary',
+    region: 'vancouver-central',
     shortLabel: 'Vancouver',
     municipalName: 'City of Vancouver',
     municipalUrl: 'https://vancouver.ca/',
@@ -102,7 +147,7 @@ export const SERVICE_AREA_LOCATIONS: ServiceAreaLocation[] = [
     name: 'North Vancouver',
     slug: 'north-vancouver',
     href: '/service-area/north-vancouver',
-    priority: 'secondary',
+    region: 'north-shore',
     shortLabel: 'North Vancouver',
     municipalName: 'City and District of North Vancouver',
     municipalUrl: 'https://www.cnv.org/',
@@ -113,7 +158,7 @@ export const SERVICE_AREA_LOCATIONS: ServiceAreaLocation[] = [
     name: 'West Vancouver',
     slug: 'west-vancouver',
     href: '/service-area/west-vancouver',
-    priority: 'secondary',
+    region: 'north-shore',
     shortLabel: 'West Vancouver',
     municipalName: 'District of West Vancouver',
     municipalUrl: 'https://westvancouver.ca/',
@@ -124,7 +169,7 @@ export const SERVICE_AREA_LOCATIONS: ServiceAreaLocation[] = [
     name: 'Surrey',
     slug: 'surrey',
     href: '/service-area/surrey',
-    priority: 'secondary',
+    region: 'surrey-langley',
     shortLabel: 'Surrey',
     municipalName: 'City of Surrey',
     municipalUrl: 'https://www.surrey.ca/',
@@ -135,7 +180,7 @@ export const SERVICE_AREA_LOCATIONS: ServiceAreaLocation[] = [
     name: 'Richmond',
     slug: 'richmond',
     href: '/service-area/richmond',
-    priority: 'secondary',
+    region: 'richmond-delta',
     shortLabel: 'Richmond',
     municipalName: 'City of Richmond',
     municipalUrl: 'https://www.richmond.ca/',
@@ -146,7 +191,7 @@ export const SERVICE_AREA_LOCATIONS: ServiceAreaLocation[] = [
     name: 'New Westminster',
     slug: 'new-westminster',
     href: '/service-area/new-westminster',
-    priority: 'secondary',
+    region: 'vancouver-central',
     shortLabel: 'New Westminster',
     municipalName: 'City of New Westminster',
     municipalUrl: 'https://www.newwestcity.ca/',
@@ -157,7 +202,7 @@ export const SERVICE_AREA_LOCATIONS: ServiceAreaLocation[] = [
     name: 'Maple Ridge',
     slug: 'maple-ridge',
     href: '/service-area/maple-ridge',
-    priority: 'secondary',
+    region: 'northeast',
     shortLabel: 'Maple Ridge',
     municipalName: 'City of Maple Ridge',
     municipalUrl: 'https://www.mapleridge.ca/',
@@ -168,7 +213,7 @@ export const SERVICE_AREA_LOCATIONS: ServiceAreaLocation[] = [
     name: 'Pitt Meadows',
     slug: 'pitt-meadows',
     href: '/service-area/pitt-meadows',
-    priority: 'secondary',
+    region: 'northeast',
     shortLabel: 'Pitt Meadows',
     municipalName: 'City of Pitt Meadows',
     municipalUrl: 'https://www.pittmeadows.ca/',
@@ -179,7 +224,7 @@ export const SERVICE_AREA_LOCATIONS: ServiceAreaLocation[] = [
     name: 'Langley',
     slug: 'langley',
     href: '/service-area/langley',
-    priority: 'secondary',
+    region: 'surrey-langley',
     shortLabel: 'Langley',
     municipalName: 'Township and City of Langley',
     municipalUrl: 'https://www.tol.ca/',
@@ -190,7 +235,7 @@ export const SERVICE_AREA_LOCATIONS: ServiceAreaLocation[] = [
     name: 'Delta',
     slug: 'delta',
     href: '/service-area/delta',
-    priority: 'secondary',
+    region: 'richmond-delta',
     shortLabel: 'Delta',
     municipalName: 'City of Delta',
     municipalUrl: 'https://www.delta.ca/',
@@ -201,7 +246,7 @@ export const SERVICE_AREA_LOCATIONS: ServiceAreaLocation[] = [
     name: 'White Rock',
     slug: 'white-rock',
     href: '/service-area/white-rock',
-    priority: 'secondary',
+    region: 'surrey-langley',
     shortLabel: 'White Rock',
     municipalName: 'City of White Rock',
     municipalUrl: 'https://www.whiterockcity.ca/',
@@ -212,7 +257,7 @@ export const SERVICE_AREA_LOCATIONS: ServiceAreaLocation[] = [
     name: 'Tsawwassen',
     slug: 'tsawwassen',
     href: '/service-area/tsawwassen',
-    priority: 'secondary',
+    region: 'richmond-delta',
     shortLabel: 'Tsawwassen',
     municipalName: 'City of Delta / Tsawwassen',
     municipalUrl: 'https://www.delta.ca/',
@@ -223,7 +268,7 @@ export const SERVICE_AREA_LOCATIONS: ServiceAreaLocation[] = [
     name: 'Lions Bay',
     slug: 'lions-bay',
     href: '/service-area/lions-bay',
-    priority: 'secondary',
+    region: 'north-shore',
     shortLabel: 'Lions Bay',
     municipalName: 'Village of Lions Bay',
     municipalUrl: 'https://www.lionsbay.ca/',
@@ -234,7 +279,7 @@ export const SERVICE_AREA_LOCATIONS: ServiceAreaLocation[] = [
     name: 'UBC / UEL',
     slug: 'ubc',
     href: '/service-area/ubc',
-    priority: 'secondary',
+    region: 'vancouver-central',
     shortLabel: 'UBC / UEL',
     municipalName: 'University Endowment Lands',
     municipalUrl: 'https://www.universityendowmentlands.gov.bc.ca/',
@@ -243,16 +288,32 @@ export const SERVICE_AREA_LOCATIONS: ServiceAreaLocation[] = [
   },
 ];
 
-export const PRIORITY_LOCATIONS = SERVICE_AREA_LOCATIONS.filter(
-  (location) => location.priority === 'priority'
-);
-
-export const SECONDARY_LOCATIONS = SERVICE_AREA_LOCATIONS.filter(
-  (location) => location.priority === 'secondary'
-);
-
 export function getLocationBySlug(slug: string): ServiceAreaLocation | undefined {
   return SERVICE_AREA_LOCATIONS.find((location) => location.slug === slug);
 }
+
+export function getLocationsForRegion(regionId: LocationRegionId): ServiceAreaLocation[] {
+  const region = LOCATION_REGIONS.find((group) => group.id === regionId);
+  if (!region) {
+    return [];
+  }
+  return region.slugs
+    .map((slug) => getLocationBySlug(slug))
+    .filter((location): location is ServiceAreaLocation => Boolean(location));
+}
+
+export const GROUPED_SERVICE_AREAS = LOCATION_REGIONS.map((region) => ({
+  id: region.id,
+  heading: region.heading,
+  locations: getLocationsForRegion(region.id),
+}));
+
+export const TRI_CITIES_AND_NEARBY_LOCATIONS = TRI_CITIES_AND_NEARBY_SLUGS.map((slug) => {
+  const location = getLocationBySlug(slug);
+  if (!location) {
+    throw new Error(`Missing Tri-Cities or nearby location: ${slug}`);
+  }
+  return location;
+});
 
 export const TRI_CITIES_HREF = '/tri-cities-renovations' as const;

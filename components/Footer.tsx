@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { PRIORITY_LOCATIONS, TRI_CITIES_HREF } from '@/lib/locations';
+import { TRI_CITIES_AND_NEARBY_LOCATIONS, TRI_CITIES_HREF } from '@/lib/locations';
 import { SERVICES } from '@/lib/services';
 import {
   BUSINESS_ADDRESS_LINE,
@@ -23,8 +23,8 @@ export default function Footer() {
             />
           </Link>
           <p className="mt-4 text-gray-400">
-            Port Moody-based renovations, construction, and handyman services for the Tri-Cities
-            and selected Metro Vancouver communities.
+            Port Moody-based renovations, construction, and handyman services across Metro
+            Vancouver.
           </p>
         </div>
         <div>
@@ -39,15 +39,20 @@ export default function Footer() {
           </ul>
         </div>
         <div>
-          <h3 className="text-xl font-bold text-white">Primary Service Area</h3>
+          <h3 className="text-xl font-bold text-white">Tri-Cities and Nearby</h3>
           <ul className="mt-4 space-y-2">
-            {PRIORITY_LOCATIONS.map((location) => (
+            {TRI_CITIES_AND_NEARBY_LOCATIONS.map((location) => (
               <li key={location.slug}>
                 <Link href={location.href} className="hover:text-[#D97706] transition-colors">
                   {location.name}
                 </Link>
               </li>
             ))}
+            <li>
+              <Link href="/service-area" className="hover:text-[#D97706] transition-colors">
+                All Metro Vancouver areas
+              </Link>
+            </li>
             {SERVICES.slice(0, 3).map((service) => (
               <li key={service.href}>
                 <Link href={service.href} className="hover:text-[#D97706] transition-colors">

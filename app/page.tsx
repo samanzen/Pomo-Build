@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Button from '@/components/Button';
 import { HOMEPAGE_SERVICE_CARDS } from '@/lib/services';
-import { PRIORITY_LOCATIONS, TRI_CITIES_HREF } from '@/lib/locations';
+import { TRI_CITIES_AND_NEARBY_LOCATIONS, TRI_CITIES_HREF } from '@/lib/locations';
 import { pageMetadata } from '@/lib/page-seo';
 
 export const metadata = pageMetadata('home');
@@ -22,11 +22,11 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/30"></div>
         <div className="relative z-10 max-w-4xl px-6">
           <h1 className="text-5xl font-bold tracking-tight md:text-7xl" data-aos="fade-up">
-            Port Moody Renovation Contractor for the Tri-Cities
+            Port Moody Renovation Contractor Serving Metro Vancouver
           </h1>
           <p className="mt-6 text-lg md:text-xl max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-            Pomo Build plans and builds kitchen, bathroom, and full-home renovations for homeowners
-            in Port Moody, Coquitlam, Port Coquitlam, Anmore, and Belcarra.
+            Pomo Build provides kitchen, bathroom, basement, full-home, commercial, and handyman
+            services for homeowners and businesses across Metro Vancouver.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row" data-aos="fade-up" data-aos-delay="200">
             <Button href="/contact#quote-form">Get a Free Quote</Button>
@@ -86,18 +86,18 @@ export default function Home() {
       <section className="bg-[#F9FAFB] py-16 md:py-20" data-aos="fade-up">
         <div className="container mx-auto px-6">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-bold text-[#1F2937] sm:text-4xl">Primary service area: Tri-Cities</h2>
+            <h2 className="text-3xl font-bold text-[#1F2937] sm:text-4xl">Tri-Cities and Nearby Communities</h2>
             <p className="mt-4 text-lg text-gray-600">
-              Port Moody is our base. Coquitlam, Port Coquitlam, Anmore, and Belcarra are our
-              primary communities. See the dedicated{' '}
+              Port Moody is our home base. Explore local pages for Coquitlam, Port Coquitlam, Anmore,
+              and Belcarra, or visit the dedicated{' '}
               <Link href={TRI_CITIES_HREF} className="font-semibold text-[#D97706] hover:underline">
                 Tri-Cities renovations
               </Link>{' '}
-              page for local estimates.
+              page for kitchen, bathroom, and full-home projects in the area.
             </p>
           </div>
           <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
-            {PRIORITY_LOCATIONS.map((location) => (
+            {TRI_CITIES_AND_NEARBY_LOCATIONS.map((location) => (
               <Link
                 key={location.slug}
                 href={location.href}

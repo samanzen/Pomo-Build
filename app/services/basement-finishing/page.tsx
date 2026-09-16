@@ -36,7 +36,7 @@ export default function BasementFinishingPage() {
           name: 'Basement Finishing and Suites',
           serviceType: 'Basement finishing and remodeling',
           description:
-            'Basement finishing and secondary-suite construction for Tri-Cities homes, with municipal permit review before work begins.',
+            'Basement finishing and secondary-suite construction for Metro Vancouver homes, with municipal permit review before work begins.',
           path: '/services/basement-finishing',
         })}
       />
@@ -61,7 +61,7 @@ export default function BasementFinishingPage() {
               An unfinished basement is a blank canvas. Finishing your basement is one of the most practical ways to add usable square footage when the existing structure and municipal rules allow it.
             </p>
             <p className="mt-4 text-gray-600">
-              Whether you envision a legal secondary suite for rental income, a comfortable family room, a home theatre, or a personal gym, we help plan the work around current building and suite requirements in Port Moody and the Tri-Cities.
+              Whether you envision a legal secondary suite for rental income, a comfortable family room, a home theatre, or a personal gym, we help plan the work around current building and suite requirements across Metro Vancouver.
             </p>
             <p className="mt-4 text-gray-600">
               Planning a suite or lower-level remodel in Coquitlam or Port Moody? Start with our{' '}
@@ -90,7 +90,7 @@ export default function BasementFinishingPage() {
                 </div>
                 <div className="rounded-lg bg-[#F9FAFB] p-8 shadow-sm">
                     <h3 className="text-2xl font-bold text-[#1F2937]">Potential Rental Income</h3>
-                    <p className="mt-4 text-gray-600">A legal secondary suite can generate monthly income when the municipality approves the suite and occupancy. We help navigate the specific codes for suites in Port Moody and the Tri-Cities rather than treating rental income as automatic.</p>
+                    <p className="mt-4 text-gray-600">A legal secondary suite can generate monthly income when the municipality approves the suite and occupancy. We help review suite requirements with the relevant municipality rather than treating rental income as automatic.</p>
                 </div>
             </div>
         </section>
@@ -109,7 +109,7 @@ export default function BasementFinishingPage() {
           links={[
             { href: '/portfolio/basement-home-theatre', label: 'Basement home theatre', detail: 'Published Vancouver basement case study.' },
             { href: '/service-area/coquitlam', label: 'Coquitlam renovations', detail: 'Basement finishing is a frequent Coquitlam request.' },
-            { href: TRI_CITIES_HREF, label: 'Tri-Cities renovations', detail: 'Regional estimate path for the five priority communities.' },
+            { href: TRI_CITIES_HREF, label: 'Tri-Cities renovations', detail: 'Basement and suite projects in Port Moody, Coquitlam, and Port Coquitlam.' },
           ]}
         />
 

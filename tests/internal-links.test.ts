@@ -3,7 +3,7 @@ import test from 'node:test';
 import { HOMEPAGE_SERVICE_CARDS, SERVICES } from '../lib/services.ts';
 import { CITY_SERVICE_CARDS, WHOLE_HOME_INTENT_PATTERN } from '../lib/city-service-cards.ts';
 import { PORTFOLIO_PROJECTS } from '../lib/portfolio.ts';
-import { SERVICE_AREA_LOCATIONS, PRIORITY_LOCATIONS } from '../lib/locations.ts';
+import { SERVICE_AREA_LOCATIONS, TRI_CITIES_AND_NEARBY_LOCATIONS } from '../lib/locations.ts';
 
 test('homepage Major Renovations card points to major renovations', () => {
   const major = HOMEPAGE_SERVICE_CARDS.find((card) => card.title === 'Major Renovations');
@@ -47,11 +47,14 @@ test('every city page has a service-card mapping', () => {
   }
 });
 
-test('priority locations include the five Tri-Cities communities', () => {
+test('Tri-Cities and nearby cards keep existing city URLs', () => {
   assert.deepEqual(
-    PRIORITY_LOCATIONS.map((location) => location.slug),
+    TRI_CITIES_AND_NEARBY_LOCATIONS.map((location) => location.slug),
     ['port-moody', 'coquitlam', 'port-coquitlam', 'anmore', 'belcarra']
   );
+  for (const location of SERVICE_AREA_LOCATIONS) {
+    assert.equal(location.href, `/service-area/${location.slug}`);
+  }
 });
 
 test('portfolio projects have unique metadata fields and related services', () => {

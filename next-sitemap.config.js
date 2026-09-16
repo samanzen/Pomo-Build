@@ -1,17 +1,19 @@
 /** @type {import('next-sitemap').IConfig} */
 const { createClient } = require('@sanity/client');
 
+// Create a Sanity client
 const client = createClient({
-  projectId: 'zlvpcgia',
-  dataset: 'production',
-  useCdn: true,
-  apiVersion: '2023-01-01',
+  projectId: 'zlvpcgia',       // Replace with your actual project ID
+  dataset: 'production',       // Your dataset
+  useCdn: true,                // `false` if you want fresh data
+  apiVersion: '2023-01-01',    // Use the current date or API version
 });
 
+// Fetch all blog slugs from Sanity
 async function getBlogPaths() {
-  const query = `*[_type == "post" && defined(slug.current) && defined(publishedAt)]{ "slug": slug.current }`;
+  const query = `*[_type == "post"]{ "slug": slug.current }`;
   const posts = await client.fetch(query);
-  return posts.map((post) => `/blog/${post.slug}`);
+  return posts.map(post => `/blog/${post.slug}`);
 }
 
 module.exports = {
@@ -22,31 +24,17 @@ module.exports = {
   priority: 0.7,
   sitemapSize: 5000,
   generateIndexSitemap: true,
-  autoLastmod: false,
-  exclude: ['/admin', '/studio', '/studio/*', '/thank-you', '/blog/*'],
+  exclude: ['/admin', '/studio', '/thank-you'],
   transform: async (config, path) => {
     return {
       loc: path,
       changefreq: config.changefreq,
-      priority: path === '/' ? 1.0 : path === '/tri-cities-renovations' ? 0.9 : config.priority,
+      priority: config.priority,
+      lastmod: config.autoLastmod ? new Date().toISOString() : undefined,
     };
   },
   additionalPaths: async (config) => {
     const blogPaths = await getBlogPaths();
-    return Promise.all(
-      blogPaths.map((path) =>
-        config.transform(config, path)
-      )
-    );
-  },
-  robotsTxtOptions: {
-    policies: [
-      {
-        userAgent: '*',
-        allow: '/',
-        disallow: ['/studio', '/thank-you'],
-      },
-    ],
-    additionalSitemaps: [],
+    return blogPaths.map(path => ({ loc: path }));
   },
 };
