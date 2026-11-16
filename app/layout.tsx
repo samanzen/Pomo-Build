@@ -3,15 +3,15 @@ import { Lato } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import AOSInitializer from "@/components/AOSInitializer";
 import SchemaMarkup from "@/components/SchemaMarkup";
-import StickyMobileCTA from "@/components/StickyMobileCTA"; // New import
-import Script from "next/script"; // Added for Google Analytics
+import StickyMobileCTA from "@/components/StickyMobileCTA";
+import Script from "next/script";
 
 const lato = Lato({
   subsets: ["latin"],
   weight: ['400', '700'],
   variable: '--font-lato',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -44,9 +44,9 @@ export default function RootLayout({
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-SMPMW6HZJ5"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -64,7 +64,6 @@ export default function RootLayout({
         </Script>
       </head>
       <body className={`${lato.variable} font-sans`}>
-        <AOSInitializer />
         <Header />
         <main>{children}</main>
         <Footer />

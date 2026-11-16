@@ -1,5 +1,6 @@
 import {
   BUSINESS_ADDRESS,
+  BUSINESS_EMAIL,
   BUSINESS_HOURS,
   BUSINESS_ID,
   BUSINESS_PHONE_E164,
@@ -56,9 +57,24 @@ export function buildBusinessSchema(): JsonLdObject {
     name: SITE_NAME,
     url: SITE_URL,
     telephone: BUSINESS_PHONE_E164,
+    email: BUSINESS_EMAIL,
     image: absoluteUrl(LOGO_PATH),
+    logo: absoluteUrl(LOGO_PATH),
     sameAs: [GOOGLE_MAPS_URL],
     openingHours: BUSINESS_HOURS,
+    openingHoursSpecification: {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: [
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+      ],
+      opens: '08:00',
+      closes: '18:00',
+    },
     address: {
       '@type': 'PostalAddress',
       ...BUSINESS_ADDRESS,

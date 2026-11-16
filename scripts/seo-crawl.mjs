@@ -215,9 +215,10 @@ for (const page of pages) {
       }
       if (
         (type === 'HomeAndConstructionBusiness' || type === 'GeneralContractor') &&
-        Object.prototype.hasOwnProperty.call(node, 'email')
+        node.email &&
+        node.email !== 'info@pomobuild.ca'
       ) {
-        errors.push(`${page.path} publishes an unconfirmed schema email`);
+        errors.push(`${page.path} publishes an unexpected schema email: ${node.email}`);
       }
       if (type === 'Service' && GENERAL_SERVICE_PATHS.includes(page.path)) {
         const served = Array.isArray(node.areaServed) ? node.areaServed : [];
@@ -253,8 +254,11 @@ if (home) {
   if (home.html.includes('5 Signs') || home.html.includes('From Our Blog')) {
     errors.push('Homepage still promotes unpublished blog cards');
   }
-  if (!home.html.includes('Port Moody Renovation Contractor Serving Metro Vancouver')) {
-    errors.push('Homepage H1 is not the Metro Vancouver positioning');
+  if (!home.html.toLowerCase().includes('home renovations and bathroom remodels in port moody')) {
+    errors.push('Homepage H1 does not name renovation services and Port Moody');
+  }
+  if (!home.html.includes('href="/services/kitchen-bath"')) {
+    errors.push('Homepage is missing the kitchen and bath route');
   }
 }
 
@@ -309,11 +313,29 @@ for (const href of [...internalHrefs].sort()) {
 
 const sitemapXml = fs.readFileSync(path.join(process.cwd(), 'public', 'sitemap-0.xml'), 'utf8');
 const sitemapUrls = [...sitemapXml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
-if (sitemapUrls.length !== 39) {
-  errors.push(`Committed sitemap has ${sitemapUrls.length} URLs, expected 39`);
+if (!sitemapUrls.includes('https://pomobuild.ca/tri-cities-renovations')) {
+  errors.push('Committed sitemap is missing /tri-cities-renovations');
 }
-if (sitemapUrls.includes('https://pomobuild.ca/tri-cities-renovations')) {
-  errors.push('Committed sitemap includes /tri-cities-renovations');
+if (!sitemapUrls.includes('https://pomobuild.ca/services/kitchen-bath')) {
+  errors.push('Committed sitemap is missing /services/kitchen-bath');
+}
+if (sitemapUrls.some((url) => url.includes('/guides'))) {
+  errors.push('Committed sitemap includes a guides URL');
+}
+if (sitemapUrls.includes('https://pomobuild.ca/thank-you')) {
+  errors.push('Committed sitemap includes noindex /thank-you');
+}
+
+const guides = await fetchPage('/guides');
+if (guides.status !== 410) {
+  errors.push(`/guides returned ${guides.status} instead of 410`);
+}
+const guidesSitemap = await fetchPage('/guides/sitemap.xml');
+if (guidesSitemap.status !== 410) {
+  errors.push(`/guides/sitemap.xml returned ${guidesSitemap.status} instead of 410`);
+}
+if (guidesSitemap.html.includes('<urlset') && !guidesSitemap.html.includes('<url>')) {
+  errors.push('/guides/sitemap.xml still serves an empty urlset');
 }
 
 if (errors.length) {

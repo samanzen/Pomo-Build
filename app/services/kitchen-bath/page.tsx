@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import JsonLd from '@/components/JsonLd';
 import RelatedLinks from '@/components/RelatedLinks';
+import BathroomLead from '@/components/BathroomLead';
 import { pageMetadata } from '@/lib/page-seo';
 import { buildBreadcrumbSchema, buildFaqSchema, buildServiceSchema } from '@/lib/schema';
 import { TRI_CITIES_HREF } from '@/lib/locations';
@@ -10,14 +11,19 @@ export const metadata = pageMetadata('services/kitchen-bath');
 
 const faqs = [
   {
-    question: 'How long does a typical kitchen remodel take?',
+    question: 'Do you renovate bathrooms in Port Moody and the Tri-Cities?',
     answer:
-      'A standard kitchen remodel typically takes between 4 to 8 weeks, depending on the scope of work, material availability, and inspections. We provide a detailed project schedule before we begin.',
+      'Yes. Pomo Build plans and builds bathroom renovations from our Port Moody shop for homes in Port Moody, Coquitlam, Port Coquitlam, Anmore, and Belcarra, as well as the rest of Metro Vancouver.',
   },
   {
     question: 'Do I need a permit for my bathroom renovation?',
     answer:
-      'It depends on the scope. If you are moving plumbing, electrical, or walls, a permit is typically required. We handle the entire permit application process for you.',
+      'It depends on the scope. If you are moving plumbing, electrical, or walls, a permit is typically required. We handle the permit application with your municipality.',
+  },
+  {
+    question: 'How long does a typical kitchen remodel take?',
+    answer:
+      'A standard kitchen remodel typically takes between 4 to 8 weeks, depending on the scope of work, material availability, and inspections. We provide a detailed project schedule before we begin.',
   },
   {
     question: 'Can I live in my home during the renovation?',
@@ -47,23 +53,31 @@ export default function KitchenBathPage() {
       />
       <JsonLd data={buildFaqSchema(faqs)} />
 
-      <div
-        className="relative bg-gray-800 py-20 text-center text-white"
-        style={{ backgroundImage: "url('/images/service-bath.webp')", backgroundSize: 'cover', backgroundPosition: 'center' }}
-      >
+      <section className="relative h-[50vh] min-h-[320px] w-full text-center text-white">
+        <Image
+          src="/images/service-bath.webp"
+          alt="Bathroom renovation with a walk-in shower and modern tile"
+          fill
+          priority
+          fetchPriority="high"
+          className="object-cover"
+          sizes="100vw"
+        />
         <div className="absolute inset-0 bg-black/70"></div>
-        <div className="relative z-10" data-aos="fade-up">
-          <h1 className="text-4xl font-bold md:text-5xl">Kitchen & Bathroom Remodeling</h1>
-          <p className="mt-4 text-lg text-gray-300">Creating beautiful, functional spaces for the heart of your home.</p>
+        <div className="relative z-10 flex h-full flex-col items-center justify-center px-6">
+          <h1 className="text-4xl font-bold md:text-5xl">Bathroom and kitchen renovations in Port Moody</h1>
+          <p className="mt-4 max-w-2xl text-lg text-gray-300">
+            Tile, vanities, plumbing, cabinets, and lighting planned from our Port Moody shop for Tri-Cities homes.
+          </p>
         </div>
-      </div>
+      </section>
 
       <div className="container mx-auto px-6 py-16 md:py-20">
         <section className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 lg:gap-16">
-          <div data-aos="fade-right">
-            <h2 className="text-3xl font-bold text-[#1F2937]">Invest in the Most Important Rooms</h2>
+          <div>
+            <h2 className="text-3xl font-bold text-[#1F2937]">Bathrooms and kitchens that work day to day</h2>
             <p className="mt-6 text-gray-600">
-              Kitchen and bathroom renovations are among the most requested upgrades we plan for Metro Vancouver homeowners. A thoughtfully designed kitchen becomes a gathering place, while a modern bathroom provides a private sanctuary.
+              Bathroom renovations are one of the most requested projects we hear from Port Moody, Coquitlam, Port Coquitlam, Anmore, and Belcarra homeowners. A well-planned ensuite or family bath is easier to clean, safer to use, and better matched to how you live. Kitchens get the same attention: layout, storage, and finishes that hold up.
             </p>
             <p className="mt-4 text-gray-600">
               At Pomo Build, we combine thoughtful design and expert craftsmanship to create spaces that are not only stunning but also perfectly tailored to your lifestyle.
@@ -142,18 +156,7 @@ export default function KitchenBathPage() {
         </section>
       </div>
 
-      <section className="bg-[#1F2937]">
-        <div className="container mx-auto px-6 py-16 text-center text-white" data-aos="fade-up">
-          <h2 className="text-3xl font-bold">Ready to Remodel Your Kitchen or Bath?</h2>
-          <div className="mt-8">
-            <Link href="/contact#quote-form">
-              <button className="bg-[#D97706] text-white font-bold text-lg py-3 px-8 rounded-md hover:bg-amber-600 transition-colors">
-                Schedule Your Consultation
-              </button>
-            </Link>
-          </div>
-        </div>
-      </section>
+      <BathroomLead />
     </div>
   );
 }

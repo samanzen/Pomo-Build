@@ -1,6 +1,7 @@
 import { getCityServiceCards } from '@/lib/city-service-cards';
 import { TRI_CITIES_AND_NEARBY_SLUGS, TRI_CITIES_HREF, getLocationBySlug } from '@/lib/locations';
 import { getProjectsByLocation } from '@/lib/portfolio';
+import BathroomLead from './BathroomLead';
 import OriginLocationNote from './OriginLocationNote';
 import RelatedLinks, { type RelatedLink } from './RelatedLinks';
 import ServiceIntentCards from './ServiceIntentCards';
@@ -64,6 +65,11 @@ const TRI_CITIES_RELATED: Record<string, RelatedLink[]> = {
       detail: 'Anmore is a nearby community served from our Port Moody base.',
     },
     {
+      href: '/services/kitchen-bath',
+      label: 'Bathroom renovations',
+      detail: 'Ensuite and family bathroom remodels for Anmore homes.',
+    },
+    {
       href: '/services/major-renovations',
       label: 'Custom and whole-home renovations',
       detail: 'The closest service page for large Anmore remodel planning.',
@@ -79,6 +85,11 @@ const TRI_CITIES_RELATED: Record<string, RelatedLink[]> = {
       href: TRI_CITIES_HREF,
       label: 'Tri-Cities renovations',
       detail: 'Belcarra is a nearby community served from our Port Moody base.',
+    },
+    {
+      href: '/services/kitchen-bath',
+      label: 'Bathroom renovations',
+      detail: 'Bathroom remodels for Belcarra homes and cottages.',
     },
     {
       href: '/services/major-renovations',
@@ -131,6 +142,7 @@ export default function LocationPageExtras({ slug, servicesHeading }: LocationPa
       {related.length > 0 ? (
         <RelatedLinks heading={`Services and pages related to ${location.name}`} links={related} />
       ) : null}
+      {isTriCitiesOrNearby ? <BathroomLead cityName={location.name} /> : null}
       <OriginLocationNote location={location} />
     </>
   );

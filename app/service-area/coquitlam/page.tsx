@@ -42,7 +42,7 @@ export default function CoquitlamLocationPage() {
             Coquitlam is a diverse and growing community, with a unique mix of established family homes, modern townhouses on Burke Mountain, and high-rise condos in the city centre. At Pomo Build, we understand the specific needs of Coquitlam homeowners. Whether you're looking to update an older home in the Austin Heights area, add a legal suite to your home near Coquitlam Centre, or finish the basement in your new build, our team has the local experience and expertise to deliver exceptional results.
           </p>
           <p className="mt-4 text-gray-600">
-            Our commitment is to provide our Coquitlam neighbours with the highest standard of quality, reliability, and professionalism. We are a fully licensed and insured local business, dedicated to enhancing the homes and properties in the community we know and love. From small handyman repairs to full-scale home renovations, we are your trusted local partner for any project. We navigate the specific permitting processes with the City of Coquitlam to ensure every project is built to code and built to last.
+            Our commitment is to provide our Coquitlam neighbours with the highest standard of quality, reliability, and professionalism. From bathroom remodels and kitchen updates to full-scale home renovations, we are your local partner for the project. We navigate the specific permitting processes with the City of Coquitlam to ensure every project is built to code.
           </p>
           <p className="mt-4 text-gray-600">
             Planning a kitchen, bathroom, or full-home remodel across the Tri-Cities? Visit our{' '}

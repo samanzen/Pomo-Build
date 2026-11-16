@@ -94,7 +94,7 @@ export default function MajorRenovationsPage() {
                 </div>
                 <div className="rounded-lg bg-[#F9FAFB] p-8 shadow-sm">
                     <h3 className="text-2xl font-bold text-[#1F2937]">3. Construction & Project Management</h3>
-                    <p className="mt-4 text-gray-600">A dedicated project manager will be your single point of contact, providing regular updates and overseeing all on-site activity. We coordinate a team of highly skilled, licensed, and insured tradespeople to execute the build with precision. We maintain a clean and safe worksite to minimize disruption to your home and neighborhood.</p>
+                    <p className="mt-4 text-gray-600">A dedicated project manager will be your single point of contact, providing regular updates and overseeing all on-site activity. We coordinate a team of skilled tradespeople to execute the build with precision. We maintain a clean and safe worksite to minimize disruption to your home and neighborhood.</p>
                 </div>
                 <div className="rounded-lg bg-[#F9FAFB] p-8 shadow-sm">
                     <h3 className="text-2xl font-bold text-[#1F2937]">4. Finishing & Turnover</h3>

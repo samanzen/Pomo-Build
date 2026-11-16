@@ -6,6 +6,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'images.unsplash.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+      },
     ],
   },
   // This is the corrected configuration to fix the build error
@@ -21,13 +25,8 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/locations/burnaby',
-        destination: '/service-area/burnaby',
-        permanent: true,
-      },
-      {
-        source: '/locations/coquitlam',
-        destination: '/service-area/coquitlam',
+        source: '/locations/:slug',
+        destination: '/service-area/:slug',
         permanent: true,
       },
     ];

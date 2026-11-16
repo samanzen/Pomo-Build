@@ -37,7 +37,6 @@ export default function Header() {
               alt="Pomo Build Logo"
               width={80}
               height={30}
-              priority
             />
           </Link>
 

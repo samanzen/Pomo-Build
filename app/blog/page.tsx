@@ -1,37 +1,26 @@
 import Link from 'next/link';
-import { client } from '@/sanity/client';
-import { pageMetadata } from '@/lib/page-seo';
+import { PAGE_SEO } from '@/lib/page-seo-data';
+import { getPublishedPosts } from '@/lib/posts';
+import { buildPageMetadata } from '@/lib/seo';
 
-export const metadata = pageMetadata('blog');
-
-interface Post {
-  title: string;
-  slug: string;
-  category: string;
-  excerpt: string;
-}
-
-async function getPosts() {
-  const query = `*[_type == "post"] | order(publishedAt desc) {
-    title,
-    "slug": slug.current,
-    "category": categories[]->title[0],
-    excerpt
-  }`;
-  const posts = await client.fetch<Post[]>(query);
-  return posts;
+export async function generateMetadata() {
+  const posts = await getPublishedPosts();
+  return buildPageMetadata({
+    ...PAGE_SEO.blog,
+    index: posts.length > 0,
+  });
 }
 
 export default async function BlogPage() {
-  const posts = await getPosts();
+  const posts = await getPublishedPosts();
 
   return (
     <div className="bg-white">
       <div className="bg-[#1F2937] py-16 text-center text-white">
-        <h1 className="text-4xl font-bold md:text-5xl" data-aos="fade-up">
+        <h1 className="text-4xl font-bold md:text-5xl">
           The Pomo Build Blog
         </h1>
-        <p className="mt-4 text-lg text-gray-300 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+        <p className="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
           Expert advice, project insights, and inspiration for your next home project.
         </p>
       </div>
@@ -39,52 +28,45 @@ export default async function BlogPage() {
       <section className="container mx-auto px-6 py-16 md:py-20">
         {posts.length === 0 ? (
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-2xl font-bold text-[#1F2937]">Articles are being prepared</h2>
+            <h2 className="text-2xl font-bold text-[#1F2937]">No published articles yet</h2>
             <p className="mt-4 text-gray-600">
-              We will publish renovation guides here when they are ready. Until then, review our{' '}
+              No renovation articles are published yet. Until they go live, review our{' '}
+              <Link href="/services/kitchen-bath" className="font-semibold text-[#D97706] hover:underline">
+                bathroom and kitchen renovations
+              </Link>
+              ,{' '}
               <Link href="/services" className="font-semibold text-[#D97706] hover:underline">
                 services
-              </Link>{' '}
-              or request a quote.
+              </Link>
+              , or{' '}
+              <Link href="/contact#quote-form" className="font-semibold text-[#D97706] hover:underline">
+                request a quote
+              </Link>
+              .
             </p>
           </div>
-        ) : null}
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
-          {posts.map((post, index) => (
-            // This link is now fully dynamic using the slug from Sanity
-            <Link key={post.slug} href={`/blog/${post.slug}`}>
-              <div 
-                className="bg-[#F9FAFB] rounded-lg shadow-md overflow-hidden h-full flex flex-col group"
-                data-aos="fade-up"
-                data-aos-delay={`${100 * index}`}
-              >
-                <div className="p-8 flex-grow">
-                  <p className="text-sm font-semibold text-[#D97706]">{post.category || 'General'}</p>
-                  <h2 className="mt-4 text-2xl font-bold text-[#1F2937] group-hover:text-[#D97706] transition-colors">{post.title}</h2>
-                  <p className="mt-4 text-gray-600">{post.excerpt}</p>
+        ) : (
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
+            {posts.map((post) => (
+              <Link key={post.slug} href={`/blog/${post.slug}`}>
+                <div className="bg-[#F9FAFB] rounded-lg shadow-md overflow-hidden h-full flex flex-col group">
+                  <div className="p-8 flex-grow">
+                    <p className="text-sm font-semibold text-[#D97706]">{post.category || 'General'}</p>
+                    <h2 className="mt-4 text-2xl font-bold text-[#1F2937] group-hover:text-[#D97706] transition-colors">
+                      {post.title}
+                    </h2>
+                    <p className="mt-4 text-gray-600">{post.excerpt}</p>
+                  </div>
+                  <div className="p-8 pt-0 mt-auto">
+                    <span className="font-bold text-[#1F2937] group-hover:text-[#D97706] transition-colors">
+                      Read More →
+                    </span>
+                  </div>
                 </div>
-                <div className="p-8 pt-0 mt-auto">
-                    <span className="font-bold text-[#1F2937] group-hover:text-[#D97706] transition-colors">Read More →</span>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      <section className="bg-[#F9FAFB]">
-        <div className="container mx-auto px-6 py-16 text-center" data-aos="fade-up">
-          <h2 className="text-3xl font-bold text-[#1F2937]">
-            Ready to Start Your Project?
-          </h2>
-          <div className="mt-8">
-            <Link href="/contact#quote-form">
-              <button className="bg-[#D97706] text-white font-bold text-lg py-3 px-8 rounded-md hover:bg-amber-600 transition-colors">
-                Get a Free Quote
-              </button>
-            </Link>
+              </Link>
+            ))}
           </div>
-        </div>
+        )}
       </section>
     </div>
   );

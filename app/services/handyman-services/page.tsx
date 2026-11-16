@@ -16,7 +16,7 @@ const faqs = [
   {
     question: 'Do you have a minimum charge for handyman services?',
     answer:
-      'Yes, we have a minimum service charge which typically covers the first one to two hours of work. This ensures we can provide a professional, insured craftsman to your door for even the smallest jobs. Please contact us for our current rates.',
+      'Yes, we have a minimum service charge which typically covers the first one to two hours of work. This keeps a professional carpenter available for even the smallest jobs. Please contact us for our current rates.',
   },
 ];
 
@@ -35,7 +35,7 @@ export default function HandymanServicesPage() {
           name: 'Professional Handyman Services',
           serviceType: 'Handyman services',
           description:
-            'Insured handyman repairs, installations, painting, and small improvements for homes in Port Moody and nearby cities.',
+            'Handyman repairs, installations, painting, and small improvements for homes in Port Moody and nearby cities.',
           path: '/services/handyman-services',
         })}
       />
@@ -60,7 +60,7 @@ export default function HandymanServicesPage() {
               For every homeowner, there&apos;s a list of small jobs that need attention—a leaky faucet, a hole in the drywall, a new light fixture to install. While these tasks may seem minor, they require the right tools and expertise to be done correctly.
             </p>
             <p className="mt-4 text-gray-600">
-              Pomo Build&apos;s professional handyman service is here to tackle your entire to-do list. We provide the same level of quality and professionalism to our small repair jobs as we do to our large-scale renovations. Our insured and experienced craftsmen arrive on time, work cleanly, and guarantee the quality of their work.
+              Pomo Build&apos;s professional handyman service is here to tackle your entire to-do list. We provide the same level of quality and professionalism to our small repair jobs as we do to our large-scale renovations. Our tradespeople arrive on time, work cleanly, and stand behind the quality of their work.
             </p>
             <p className="mt-4 text-gray-600">
               Need a larger remodel instead? Compare options on our{' '}

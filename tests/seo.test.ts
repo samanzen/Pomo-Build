@@ -35,15 +35,15 @@ test('page metadata records use absolute self-canonical paths', () => {
   }
 });
 
-test('homepage metadata uses Metro Vancouver positioning', () => {
-  assert.equal(PAGE_SEO.home.title, 'Port Moody Renovation Contractor | Pomo Build');
-  assert.match(PAGE_SEO.home.description, /Metro Vancouver/);
-  assert.equal(PAGE_SEO.home.description.includes('Tri-Cities'), false);
+test('homepage metadata names renovations, bathrooms, and Port Moody', () => {
+  assert.match(PAGE_SEO.home.title, /Port Moody/);
+  assert.match(PAGE_SEO.home.title, /Renovations/);
+  assert.match(PAGE_SEO.home.description, /bathroom/i);
   assert.equal(withBrandSuffix(stripBrandSuffix(PAGE_SEO.home.title)), PAGE_SEO.home.title);
 });
 
-test('visitor-facing email remains the previously working public address until the owner confirms', () => {
-  assert.equal(BUSINESS_EMAIL, 'contact@pomobuild.com');
+test('public email is the confirmed pomobuild.ca address', () => {
+  assert.equal(BUSINESS_EMAIL, 'info@pomobuild.ca');
 });
 
 test('Tri-Cities grouping includes the three municipalities plus nearby Anmore and Belcarra', () => {

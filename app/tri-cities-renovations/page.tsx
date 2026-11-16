@@ -356,7 +356,7 @@ export default function TriCitiesRenovationsPage() {
               <p className="mt-2 text-sm text-gray-600">Practical timelines with ongoing communication throughout the project.</p>
             </div>
             <div>
-              <p className="text-lg font-bold text-[#1F2937]">Local & insured</p>
+              <p className="text-lg font-bold text-[#1F2937]">Local team</p>
               <p className="mt-2 text-sm text-gray-600">Port Moody-based team serving homeowners across the Tri-Cities.</p>
             </div>
           </div>
@@ -465,7 +465,7 @@ export default function TriCitiesRenovationsPage() {
               </li>
               <li className="flex gap-3">
                 <span className="mt-1 text-[#D97706] font-bold">•</span>
-                <span><strong className="text-[#1F2937]">Fully insured:</strong> professional, insured renovation services for homeowners across Metro Vancouver.</span>
+                <span><strong className="text-[#1F2937]">Hands-on oversight:</strong> a Port Moody team that stays involved from quote through walkthrough.</span>
               </li>
               <li className="flex gap-3">
                 <span className="mt-1 text-[#D97706] font-bold">•</span>
@@ -535,23 +535,6 @@ export default function TriCitiesRenovationsPage() {
           </Link>
           .
         </p>
-      </section>
-
-      {/* 8. Testimonials */}
-      <section className="bg-[#F9FAFB] py-14 md:py-20">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-bold text-[#1F2937] sm:text-4xl">What homeowners say</h2>
-            <p className="mt-4 text-gray-600">Feedback from clients featured on the Pomo Build website.</p>
-          </div>
-          <div className="mx-auto mt-12 max-w-3xl rounded-lg bg-white p-8 shadow-md">
-            <p className="text-lg text-gray-600">
-              &ldquo;The attention to detail was incredible. Pomo Build transformed our dated kitchen into a modern space we absolutely love. On time and professional from start to finish.&rdquo;
-            </p>
-            <div className="mt-6 font-bold text-[#1F2937]">Sarah L.</div>
-            <div className="text-sm text-gray-500">Coquitlam, BC</div>
-          </div>
-        </div>
       </section>
 
       {/* 9. FAQs */}

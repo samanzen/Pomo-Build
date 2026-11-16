@@ -18,6 +18,16 @@ export type ServiceDefinition = {
 
 export const SERVICES: ServiceDefinition[] = [
   {
+    slug: 'kitchen-bath',
+    title: 'Kitchen & Bath',
+    href: '/services/kitchen-bath',
+    shortTitle: 'Kitchen and bath remodeling',
+    description:
+      'Kitchen and bathroom remodeling, from custom cabinets and counters to tile, fixtures, and lighting.',
+    image: '/images/homepage-service-kitchen-bath.webp',
+    imageAlt: 'A modern bathroom renovation with a freestanding tub.',
+  },
+  {
     slug: 'major-renovations',
     title: 'Major Renovations',
     href: '/services/major-renovations',
@@ -26,16 +36,6 @@ export const SERVICES: ServiceDefinition[] = [
       'Full-home, condo, and large-scale remodels managed from planning and permitting through final walkthrough.',
     image: '/images/homepage-service-renovation.webp',
     imageAlt: 'A bright, modern living room after a full home renovation.',
-  },
-  {
-    slug: 'kitchen-bath',
-    title: 'Kitchen & Bath',
-    href: '/services/kitchen-bath',
-    shortTitle: 'Kitchen and bath remodeling',
-    description:
-      'Kitchen and bathroom remodeling, from custom cabinets and counters to tile, fixtures, and lighting.',
-    image: '/images/homepage-service-kitchen-bath.webp',
-    imageAlt: 'A beautiful modern bathroom with a freestanding tub.',
   },
   {
     slug: 'basement-finishing',
@@ -73,15 +73,15 @@ export const SERVICES: ServiceDefinition[] = [
     href: '/services/handyman-services',
     shortTitle: 'Handyman services',
     description:
-      'Repairs, installations, painting, and small improvements handled by insured craftsmen.',
+      'Repairs, installations, painting, and small improvements for homes across Metro Vancouver.',
     image: '/images/homepage-service-handyman.webp',
     imageAlt: 'A professional handyman carefully hanging a large piece of art.',
   },
 ];
 
 export const HOMEPAGE_SERVICE_CARDS = [
-  SERVICES.find((service) => service.slug === 'major-renovations')!,
   SERVICES.find((service) => service.slug === 'kitchen-bath')!,
+  SERVICES.find((service) => service.slug === 'major-renovations')!,
   SERVICES.find((service) => service.slug === 'handyman-services')!,
 ] as const;
 

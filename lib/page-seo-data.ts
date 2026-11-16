@@ -9,9 +9,9 @@ export type PageSeoRecord = {
 
 export const PAGE_SEO = {
   home: {
-    title: 'Port Moody Renovation Contractor | Pomo Build',
+    title: 'Port Moody Home Renovations & Bathroom Remodels | Pomo Build',
     description:
-      'Pomo Build provides kitchen, bathroom, basement, full-home, commercial, and handyman services across Metro Vancouver. Request a quote.',
+      'Pomo Build renovates bathrooms, kitchens, and homes from Port Moody across Metro Vancouver. Call (604) 500-2003 or request a quote.',
     path: '/',
     image: '/images/homepage-hero.webp',
     absoluteTitle: true,
@@ -29,6 +29,7 @@ export const PAGE_SEO = {
       'Practical renovation advice and project notes from Pomo Build for homeowners across Metro Vancouver.',
     path: '/blog',
     image: '/images/homepage-hero.webp',
+    index: false,
   },
   contact: {
     title: 'Contact Us',
@@ -73,9 +74,9 @@ export const PAGE_SEO = {
     image: '/images/renovation-hero.webp',
   },
   'services/kitchen-bath': {
-    title: 'Kitchen & Bathroom Remodeling',
+    title: 'Bathroom & Kitchen Renovations in Port Moody',
     description:
-      'Kitchen and bathroom remodels across Metro Vancouver, including cabinets, tile, fixtures, and layout updates.',
+      'Bathroom and kitchen remodels in Port Moody, Coquitlam, Port Coquitlam, Anmore, and Belcarra. Tile, vanities, plumbing, and cabinets.',
     path: '/services/kitchen-bath',
     image: '/images/service-bath.webp',
   },
@@ -103,7 +104,7 @@ export const PAGE_SEO = {
   'services/handyman-services': {
     title: 'Professional Handyman Services',
     description:
-      'Insured handyman repairs, installations, painting, and small improvements for homes in Port Moody and nearby cities.',
+      'Handyman repairs, installations, painting, and small improvements for homes in Port Moody and nearby cities.',
     path: '/services/handyman-services',
     image: '/images/handyman-hero.webp',
   },
@@ -150,37 +151,37 @@ export const PAGE_SEO = {
     image: '/images/case-hero-handyman-1.webp',
   },
   'service-area/port-moody': {
-    title: 'Local Port Moody Renovation Contractor',
+    title: 'Port Moody Bathroom & Home Renovations',
     description:
-      'Local Port Moody renovations for Suter Brook, Klahanie, and Moody Centre. Based on Clarke Street.',
+      'Bathroom, kitchen, and home renovations in Port Moody, including Suter Brook, Klahanie, and Moody Centre. Based on Clarke Street.',
     path: '/service-area/port-moody',
     image: '/images/location-hero-port-moody.webp',
   },
   'service-area/coquitlam': {
-    title: 'Coquitlam Renovation Contractor',
+    title: 'Coquitlam Bathroom & Home Renovations',
     description:
-      'Kitchen, bath, and basement renovations in Coquitlam, from Burke Mountain to Austin Heights and Maillardville.',
+      'Bathroom, kitchen, and basement renovations in Coquitlam, from Burke Mountain to Austin Heights and Maillardville.',
     path: '/service-area/coquitlam',
     image: '/images/location-hero-coquitlam.webp',
   },
   'service-area/port-coquitlam': {
-    title: 'Port Coquitlam Renovation Contractor',
+    title: 'Port Coquitlam Bathroom & Home Renovations',
     description:
-      'Kitchen remodels, decks, and handyman work for Port Coquitlam homes in Mary Hill, Citadel, and downtown PoCo.',
+      'Bathroom and kitchen remodels, decks, and handyman work for Port Coquitlam homes in Mary Hill, Citadel, and downtown PoCo.',
     path: '/service-area/port-coquitlam',
     image: '/images/location-hero-port-coquitlam.webp',
   },
   'service-area/anmore': {
-    title: 'Anmore Custom Home Renovations',
+    title: 'Anmore Bathroom & Custom Home Renovations',
     description:
-      'Custom and large-lot renovations in Anmore. Based in Port Moody; serving Anmore homes with careful site planning.',
+      'Bathroom remodels and custom home renovations in Anmore. Based in Port Moody; serving Anmore homes with careful site planning.',
     path: '/service-area/anmore',
     image: '/images/location-hero-anmore.webp',
   },
   'service-area/belcarra': {
-    title: 'Belcarra Waterfront Renovations',
+    title: 'Belcarra Bathroom & Waterfront Renovations',
     description:
-      'Waterfront and hillside renovations in Belcarra. Based in Port Moody; serving Belcarra with discreet project management.',
+      'Bathroom remodels and waterfront home renovations in Belcarra. Based in Port Moody; serving Belcarra with discreet project management.',
     path: '/service-area/belcarra',
     image: '/images/location-hero-belcarra.webp',
   },

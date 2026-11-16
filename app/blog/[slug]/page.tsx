@@ -1,90 +1,92 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { client } from '@/sanity/client';
 import { PortableText } from '@portabletext/react';
 import { notFound } from 'next/navigation';
+import { getPublishedPost, getPublishedPosts } from '@/lib/posts';
+import { SITE_NAME, absoluteUrl } from '@/lib/site';
 
-// Define the structure of a full blog post
-interface Post {
-  title: string;
-  slug: string;
-  mainImage: { asset: { url: string; metadata: { lqip: string } } };
-  category: string;
-  publishedAt: string;
-  authorName: string;
-  authorImage: { asset: { url: string } };
-  excerpt: string;
-  body: any;
-}
-
-// generateStaticParams remains the same
 export async function generateStaticParams() {
-  const query = `*[_type == "post"]{ "slug": slug.current }`;
-  const slugs = await client.fetch<{ slug: string }[]>(query);
-  return slugs.map(item => ({ slug: item.slug }));
+  const posts = await getPublishedPosts();
+  return posts.map((post) => ({ slug: post.slug }));
 }
 
-async function getPost(slug: string) {
-  const query = `*[_type == "post" && slug.current == $slug][0] {
-    title,
-    "slug": slug.current,
-    mainImage { asset->{ url, metadata { lqip } } },
-    "category": categories[]->title[0],
-    publishedAt,
-    "authorName": author->name,
-    "authorImage": author->image { asset->{ url } },
-    excerpt,
-    body
-  }`;
-  return await client.fetch<Post>(query, { slug });
-}
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getPublishedPost(slug);
+  if (!post) {
+    return {
+      title: 'Post Not Found',
+      robots: { index: false, follow: false },
+    };
+  }
 
-// generateMetadata
-export async function generateMetadata({ params }: any): Promise<Metadata> {
-  const post = await getPost(params.slug);
-  if (!post) return { title: "Post Not Found" };
+  const canonical = absoluteUrl(`/blog/${post.slug}`);
+  const imageUrl = post.mainImage?.asset?.url;
+
   return {
     title: post.title,
     description: post.excerpt,
-    alternates: { canonical: `/blog/${post.slug}` },
+    alternates: { canonical },
     openGraph: {
-      title: post.title,
+      title: `${post.title} | ${SITE_NAME}`,
       description: post.excerpt,
-      images: [{ url: post.mainImage.asset.url }],
+      url: canonical,
+      type: 'article',
+      images: imageUrl ? [{ url: imageUrl }] : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${post.title} | ${SITE_NAME}`,
+      description: post.excerpt,
+      images: imageUrl ? [imageUrl] : undefined,
     },
   };
 }
 
-// Page component
-export default async function BlogPostPage(props: any) {
-  const { params } = props;
-  const post = await getPost(params.slug);
+export default async function BlogPostPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const post = await getPublishedPost(slug);
 
   if (!post) notFound();
+
+  const imageUrl = post.mainImage?.asset?.url;
+  const blur = post.mainImage?.asset?.metadata?.lqip;
 
   return (
     <div className="bg-white">
       <section className="relative h-[50vh] w-full text-center text-white">
-        <Image
-          src={post.mainImage.asset.url}
-          alt={post.title}
-          fill
-          className="object-cover"
-          priority
-          placeholder="blur"
-          blurDataURL={post.mainImage.asset.metadata.lqip}
-        />
+        {imageUrl ? (
+          <Image
+            src={imageUrl}
+            alt={post.title}
+            fill
+            className="object-cover"
+            priority
+            placeholder={blur ? 'blur' : 'empty'}
+            blurDataURL={blur}
+          />
+        ) : (
+          <div className="absolute inset-0 bg-[#1F2937]" />
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/30"></div>
         <div className="relative z-10 flex h-full flex-col items-center justify-center p-6">
           <p className="font-semibold text-[#D97706]">{post.category}</p>
           <h1 className="mt-4 text-3xl font-bold md:text-5xl max-w-3xl">{post.title}</h1>
           <p className="mt-4 text-lg text-gray-200">
-            Posted by {post.authorName} on{" "}
-            {new Date(post.publishedAt).toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
+            Posted{post.authorName ? ` by ${post.authorName}` : ''} on{' '}
+            {new Date(post.publishedAt).toLocaleDateString('en-CA', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
             })}
           </p>
         </div>
@@ -102,19 +104,30 @@ export default async function BlogPostPage(props: any) {
 
       <section className="container mx-auto px-6 py-16 md:py-20">
         <article className="prose lg:prose-xl max-w-3xl mx-auto">
-          <PortableText value={post.body} />
+          <PortableText value={post.body as never} />
         </article>
-        <section className="mt-16 max-w-3xl mx-auto border-t pt-12">
-          <div className="flex items-center gap-6 bg-[#F9FAFB] p-6 rounded-lg">
-            <div className="relative h-24 w-24 flex-shrink-0">
-              <Image src={post.authorImage.asset.url} alt={post.authorName} fill className="rounded-full object-cover"/>
+        {post.authorName ? (
+          <section className="mt-16 max-w-3xl mx-auto border-t pt-12">
+            <div className="flex items-center gap-6 bg-[#F9FAFB] p-6 rounded-lg">
+              {post.authorImage?.asset?.url ? (
+                <div className="relative h-24 w-24 flex-shrink-0">
+                  <Image
+                    src={post.authorImage.asset.url}
+                    alt={post.authorName}
+                    fill
+                    className="rounded-full object-cover"
+                  />
+                </div>
+              ) : null}
+              <div>
+                <h2 className="text-2xl font-bold text-[#1F2937]">About the Author</h2>
+                <p className="mt-2 text-gray-600">
+                  {post.authorName} is the founder of Pomo Build, a Port Moody renovation company.
+                </p>
+              </div>
             </div>
-            <div>
-              <h2 className="text-2xl font-bold text-[#1F2937]">About the Author</h2>
-              <p className="mt-2 text-gray-600">{post.authorName} is the founder of Pomo Build and has over 15 years of experience in the construction and renovation industry.</p>
-            </div>
-          </div>
-        </section>
+          </section>
+        ) : null}
       </section>
     </div>
   );

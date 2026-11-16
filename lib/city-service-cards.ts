@@ -9,16 +9,16 @@ export type CityServiceCard = {
 export const CITY_SERVICE_CARDS: Record<string, CityServiceCard[]> = {
   anmore: [
     {
+      title: 'Bathroom Renovations',
+      href: '/services/kitchen-bath',
+      description:
+        'Ensuite and family bathroom remodels for Anmore homes, including tile, vanities, plumbing, and lighting.',
+    },
+    {
       title: 'Custom Home Renovations',
       href: '/services/major-renovations',
       description:
         'We manage large-scale, whole-home renovations, transforming your property into a true masterpiece of design and quality.',
-    },
-    {
-      title: "Gourmet & Entertainer's Kitchens",
-      href: '/services/kitchen-bath',
-      description:
-        'We design and build exceptional, high-end kitchens equipped with premium appliances and the finest materials.',
     },
     {
       title: 'Luxury Outdoor Living',
@@ -28,6 +28,12 @@ export const CITY_SERVICE_CARDS: Record<string, CityServiceCard[]> = {
     },
   ],
   belcarra: [
+    {
+      title: 'Bathroom Renovations',
+      href: '/services/kitchen-bath',
+      description:
+        'Bathroom remodels for Belcarra homes, from ensuite updates to full wet-area replacements.',
+    },
     {
       title: 'Waterfront Decks & Docks',
       href: '/services/decks-exteriors',
@@ -40,14 +46,14 @@ export const CITY_SERVICE_CARDS: Record<string, CityServiceCard[]> = {
       description:
         'We manage complex, large-scale renovations that integrate sophisticated design with the natural landscape.',
     },
-    {
-      title: 'Window & Door Upgrades',
-      href: '/services/decks-exteriors',
-      description:
-        'We install high-performance, oversized windows and glass door systems to maximize your stunning forest and ocean views.',
-    },
   ],
   'port-moody': [
+    {
+      title: 'Bathroom Renovations',
+      href: '/services/kitchen-bath',
+      description:
+        'Ensuite, condo, and family bathroom remodels in Port Moody, including Suter Brook and Klahanie units.',
+    },
     {
       title: 'Condo Renovations',
       href: '/services/major-renovations',
@@ -59,12 +65,6 @@ export const CITY_SERVICE_CARDS: Record<string, CityServiceCard[]> = {
       href: '/services/decks-exteriors',
       description:
         "We build stunning, durable decks designed to take full advantage of Port Moody's incredible natural scenery and ocean views.",
-    },
-    {
-      title: 'Heritage Home Repairs',
-      href: '/services/handyman-services',
-      description:
-        'Our skilled handyman team can provide careful, precise repairs and updates that respect the character of your heritage home.',
     },
   ],
   coquitlam: [
@@ -86,6 +86,12 @@ export const CITY_SERVICE_CARDS: Record<string, CityServiceCard[]> = {
   ],
   'port-coquitlam': [
     {
+      title: 'Bathroom Renovations',
+      href: '/services/kitchen-bath',
+      description:
+        'Bathroom remodels for Port Coquitlam family homes, including tile, vanities, and plumbing updates.',
+    },
+    {
       title: 'Deck & Patio Building',
       href: '/services/decks-exteriors',
       description:
@@ -96,12 +102,6 @@ export const CITY_SERVICE_CARDS: Record<string, CityServiceCard[]> = {
       href: '/services/kitchen-bath',
       description:
         "Update the heart of your home with a modern, functional kitchen remodel designed for your family's lifestyle.",
-    },
-    {
-      title: 'Handyman Repairs',
-      href: '/services/handyman-services',
-      description:
-        "Our reliable handyman team is here to help with all your home's maintenance needs, from small repairs to installations.",
     },
   ],
   burnaby: [
